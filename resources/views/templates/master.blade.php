@@ -12,6 +12,7 @@
 	
 	@yield('content')
 	
+	<script src="{{ elixir('js/all.js') }}"></script>
 	@yield('js')
 </body>
 </html>

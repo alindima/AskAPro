@@ -4,6 +4,9 @@ elixir(function(mix) {
     mix.sass('app.scss');
     
     mix.scripts([
-        '../../../node_modules/jquery/dist/jquery.min.js'
+        '../../../node_modules/jquery/dist/jquery.min.js',
+        'home.js'
     ]);
+
+    mix.version('js/all.js');
 });

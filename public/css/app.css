@@ -408,6 +408,9 @@ a {
   color: slategrey;
   text-decoration: none; }
 
+.hidden {
+  display: none; }
+
 .home.nav {
   font-family: corbert;
   background: transparent;
@@ -423,13 +426,13 @@ a {
       float: right;
       list-style-type: none;
       font-size: 1.3em; }
-      .home.nav ul li a {
-        color: #223db4;
+      .home.nav ul li a.normal-link {
+        color: #15179E;
         transition: color .5s ease;
         display: inline-block;
         position: relative;
         padding-bottom: 3px; }
-      .home.nav ul li a:after {
+      .home.nav ul li a.normal-link:after {
         content: '';
         display: block;
         margin: auto;
@@ -437,19 +440,37 @@ a {
         width: 0px;
         background: transparent;
         transition: width .5s ease, background-color .5s ease; }
-      .home.nav ul li a:hover {
+      .home.nav ul li a.normal-link:hover {
         color: black; }
-      .home.nav ul li a:hover:after {
+      .home.nav ul li a.normal-link:hover:after {
         width: 100%;
         background: black; }
-  .home.nav .lang {
-    display: none; }
-    .home.nav .lang img {
+  .home.nav .lang-list {
+    background: rgba(0, 0, 0, 0.8);
+    height: 120px;
+    clear: both;
+    width: 50px;
+    padding: 10px;
+    position: absolute;
+    top: 70px; }
+    .home.nav .lang-list a {
+      padding: 0;
+      margin: 0; }
+    .home.nav .lang-list li {
+      float: left;
+      margin: auto; }
+    .home.nav .lang-list img {
       margin: 0;
       width: 50px;
       height: 25px; }
 
+.home.container {
+  background: url("../img/background.jpg");
+  background-repeat: none;
+  background-size: cover; }
+
 .home.section1 {
+  height: 1000px;
   clear: both; }
 
 /*# sourceMappingURL=app.css.map */
