@@ -1,2 +1,14 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+/**
+ * All app styles
+ */
+
+//import external libs
+@import "node_modules/normalize-scss/sass/normalize";
+@include normalize();
+
+//import partials
+@import "components/global-styles";
+
+//import pages
+@import "pages/home";
 

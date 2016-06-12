@@ -1,0 +1,21 @@
+.home.nav{
+	background:red;
+	height:70px;
+	line-height:70px;
+
+	.logo{
+		margin-left: 35px;
+		float:left;
+	}
+
+	ul{
+		float:right;
+
+		li{
+			margin-right: 50px;
+			float:right;
+			list-style-type:none;
+			font-size:1.2em;
+		}
+	}
+}
