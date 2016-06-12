@@ -1,5 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [
+	'uses' => 'HomeController@home',
+	'as' => 'home',
+]);

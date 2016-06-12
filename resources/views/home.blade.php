@@ -7,7 +7,9 @@
 @section('content')
 	<nav class="home nav">
         <div class="logo">
-            { AskAPro }
+            <a href="{{ route('home') }}">
+                <img src="{{ asset('img/logo.png') }}" alt="askapro-logo">
+            </a>
         </div>
         <ul>
             <li>
@@ -18,9 +20,6 @@
             </li>
             <li>
                 <a href="#">Questions</a>
-            </li>
-            <li>
-                <a href="#">Home</a>
             </li>
         </ul>   
     </nav>

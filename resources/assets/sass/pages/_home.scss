@@ -1,5 +1,6 @@
 .home.nav{
-	background:red;
+	font-family:corbert;
+	background:rgba(0,0,0,0);
 	height:70px;
 	line-height:70px;
 
@@ -15,7 +16,40 @@
 			margin-right: 50px;
 			float:right;
 			list-style-type:none;
-			font-size:1.2em;
+			font-size:1.3em;
+			
+			a{
+				color:#223db4;
+				transition-duration: 500ms;
+				transition-timing-function: ease;
+				transition-property: color;
+				display: inline-block;
+				position: relative;
+				padding-bottom: 3px;
+			}
+
+			a:after{
+				content: '';
+				display: block;
+				margin: auto;
+				height: 2px;
+				width: 0px;
+				background: transparent;
+				transition: width .5s ease, background-color .5s ease;
+			}
+
+			a:hover{
+				color:black;
+			}
+
+			a:hover:after{
+				width: 100%;
+				background: black;
+			}
 		}
 	}
+}
+
+.home.section1{
+	clear:both;
 }

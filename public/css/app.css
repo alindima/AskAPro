@@ -397,6 +397,10 @@ optgroup {
 textarea {
   overflow: auto; }
 
+@font-face {
+  font-family: corbert;
+  src: url("../fonts/Corbert-Regular.otf") format("opentype"); }
+
 ul {
   margin: 0; }
 
@@ -405,7 +409,8 @@ a {
   text-decoration: none; }
 
 .home.nav {
-  background: red;
+  font-family: corbert;
+  background: transparent;
   height: 70px;
   line-height: 70px; }
   .home.nav .logo {
@@ -417,6 +422,30 @@ a {
       margin-right: 50px;
       float: right;
       list-style-type: none;
-      font-size: 1.2em; }
+      font-size: 1.3em; }
+      .home.nav ul li a {
+        color: #223db4;
+        transition-duration: 500ms;
+        transition-timing-function: ease;
+        transition-property: color;
+        display: inline-block;
+        position: relative;
+        padding-bottom: 3px; }
+      .home.nav ul li a:after {
+        content: '';
+        display: block;
+        margin: auto;
+        height: 2px;
+        width: 0px;
+        background: transparent;
+        transition: width .5s ease, background-color .5s ease; }
+      .home.nav ul li a:hover {
+        color: black; }
+      .home.nav ul li a:hover:after {
+        width: 100%;
+        background: black; }
+
+.home.section1 {
+  clear: both; }
 
 /*# sourceMappingURL=app.css.map */
