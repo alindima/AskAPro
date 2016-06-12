@@ -2,14 +2,14 @@
 
 return [
 
-    'accepted'             => 'The :attribute must be accepted.',
-    'active_url'           => 'The :attribute is not a valid URL.',
-    'after'                => 'The :attribute must be a date after :date.',
-    'alpha'                => 'The :attribute may only contain letters.',
-    'alpha_dash'           => 'The :attribute may only contain letters, numbers, and dashes.',
-    'alpha_num'            => 'The :attribute may only contain letters and numbers.',
-    'array'                => 'The :attribute must be an array.',
-    'before'               => 'The :attribute must be a date before :date.',
+    'accepted'             => ':attribute trebuie sa fie acceptat.',
+    'active_url'           => ':attribute nu este un URL valid.',
+    'after'                => ':attribute trebuie sa fie o data de dupa :date.',
+    'alpha'                => ':attribute poate contine numai litere.',
+    'alpha_dash'           => ':attribute poate contine numai litere, numere si cratime.',
+    'alpha_num'            => ':attribute poate contine numai litere si numere.',
+    'array'                => ':attribute trebuie sa fie o lista.',
+    'before'               => ':attribute trebuie sa fie o data de dinainte de :date.',
     'between'              => [
         'numeric' => 'The :attribute must be between :min and :max.',
         'file'    => 'The :attribute must be between :min and :max kilobytes.',

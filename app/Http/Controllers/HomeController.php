@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Session;
-use App;
 
 class HomeController extends Controller
 {
@@ -16,6 +15,6 @@ class HomeController extends Controller
     {
     	Session::put('locale', $lang);
     	
-    	return redirect('/');
+    	return redirect()->route('home');
     }
 }

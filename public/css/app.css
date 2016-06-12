@@ -442,6 +442,12 @@ a {
       .home.nav ul li a:hover:after {
         width: 100%;
         background: black; }
+  .home.nav .lang {
+    display: none; }
+    .home.nav .lang img {
+      margin: 0;
+      width: 50px;
+      height: 25px; }
 
 .home.section1 {
   clear: both; }

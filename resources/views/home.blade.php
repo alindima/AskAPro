@@ -12,17 +12,11 @@
             </a>
         </div>
         <ul>
-            <li>
-                <a href="#">Log in</a>
-            </li>
-            <li>
-                <a href="#">Sign up</a>
-            </li>
-            <li>
-                <a href="#">Questions</a>
-            </li>
-            <li class="lang">
-                <ul>
+            <li class="lang-li">
+                <a href="#">
+                    Lang <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="lang">
                     <li>
                         <a href="{{ route('setLang', 'ro') }}">
                             <img src="{{ asset('img/ro.png') }}" alt="romana">
@@ -34,6 +28,16 @@
                         </a>
                     </li>
                 </ul>
+            </li>
+
+            <li>
+                <a href="#">Log in</a>
+            </li>
+            <li>
+                <a href="#">Sign up</a>
+            </li>
+            <li>
+                <a href="#">Questions</a>
             </li>
         </ul>   
     </nav>
