@@ -1,7 +1,7 @@
 @extends('templates.master')
 
 @section('title')
-	Home - AskAPro
+	{{ trans('home.title') }} - AskAPro
 @stop
 
 @section('content')
@@ -13,13 +13,27 @@
         </div>
         <ul>
             <li>
+                <a href="#">Log in</a>
+            </li>
+            <li>
                 <a href="#">Sign up</a>
             </li>
             <li>
-                <a href="#">Register</a>
-            </li>
-            <li>
                 <a href="#">Questions</a>
+            </li>
+            <li class="lang">
+                <ul>
+                    <li>
+                        <a href="{{ route('setLang', 'ro') }}">
+                            <img src="{{ asset('img/ro.png') }}" alt="romana">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('setLang', 'en') }}">
+                            <img src="{{ asset('img/en.png') }}" alt="english">
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>   
     </nav>

@@ -425,9 +425,7 @@ a {
       font-size: 1.3em; }
       .home.nav ul li a {
         color: #223db4;
-        transition-duration: 500ms;
-        transition-timing-function: ease;
-        transition-property: color;
+        transition: color .5s ease;
         display: inline-block;
         position: relative;
         padding-bottom: 3px; }
