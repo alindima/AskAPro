@@ -5,7 +5,10 @@ elixir(function(mix) {
     
     mix.scripts([
         '../../../node_modules/jquery/dist/jquery.min.js',
-        'home.js'
+        'functions.js',
+        'global_scripts.js',
+        'components/nav.js',
+        'pages/home.js'
     ]);
 
     mix.version('js/all.js');

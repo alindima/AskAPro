@@ -1,90 +1,223 @@
-.home.nav{
-	font-family:corbert;
-	background:rgba(0,0,0,0);
-	height:70px;
-	line-height:70px;
+.home.section1{
+	margin:auto;
+	background:url("../img/background.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-attachment:fixed;
+	height:100vh;
+	width:100%;
+	
+	nav{
+		border-top:4px solid $theme-color;
+		padding-left:3%;
+		padding-right:3%;
+		font-family:corbert;
+		position:absolute;
+		height:10vh;
+		width:100%;
+		left:0;
+		line-height:10vh;
+		
+		.logo{
+			font-size:5vh;
+			float:left;
+		}
 
-	.logo{
-		margin-left: 35px;
-		float:left;
-	}
-
-	ul{
-		float:right;
-
-		li{
-			margin-right: 50px;
+		ul{
+			font-size:2.7vh;	
 			float:right;
 			list-style-type:none;
-			font-size:1.3em;
 			
-			a.normal-link{
-				color:#15179E;
-				transition:color .5s ease;
+			li{
+				float:left;
+				margin-left:5vw;	
+			}
+
+			a{
 				display: inline-block;
 				position: relative;
-				padding-bottom: 3px;
+				padding-bottom: 0;
 			}
+		}
 
-			a.normal-link:after{
-				content: '';
-				display: block;
-				margin: auto;
-				height: 2px;
-				width: 0px;
-				background: transparent;
-				transition: width .5s ease, background-color .5s ease;
-			}
+		a{
+			color:$theme-color;
+		}
+	}
 
-			a.normal-link:hover{
-				color:black;
-			}
+	.menu-toggler{
+		color:$theme-color;
+		line-height:10vh;
+		font-size: 4vh;
+		width:10vh;
+		float:right;
+		border:0;
+		background:transparent;
+		height:10vh;
 
-			a.normal-link:hover:after{
-				width: 100%;
-				background: black;
-			}
+		&:focus{
+			outline:none;
 		}
 	}
 	
-	.lang-li{
-		
-	}
 
-	.lang-list{
-		background:rgba(0,0,0,0.8);
-		height:120px;
-		clear:both;
-		width:50px;
-		padding:10px;
+	section{
+		font-size:3vw;
+		font-family:lato;
+		background-color:rgba(0,0,0,0.5);
 		position:absolute;
-		top:70px;
+		width:100%;
+		padding:1% 5%;
+		top:30%;
+		left:0;
+		color:white;
+
+		.focus{
+			font-weight:bold;
+		}
+	}
+
+	.more{
+		font-size:4vw;
+		position:relative;
+		top:75vh;
+		text-align:center;
 		
-		a{
-			padding:0;
-			margin:0;
-		}
+		i{
+			color:white;
+			background-color:rgba(0,0,0,0.6);
+			display:inline-block;
+			border:2px solid white;
+			border-radius:100%;
+			width:4vw;
+			height:4vw;
+			transition:background-color .5s ease;
 
-		li{
-			float:left;
-			margin:auto;
-		}
-
-		img{
-			margin:0;
-			width:50px;
-			height:25px;
+			&:hover{
+				background-color:rgba(0,0,0,0);
+			}
 		}
 	}
 }
 
-.home.container{
-	background:url('../img/background.jpg');
-	background-repeat:none;
+.home.section2{
+	background:url("../img/background.jpg");
+	background-repeat:no-repeat;
 	background-size:cover;
+	background-attachment:fixed;
+
+	font-family:ubuntu;
+	margin:auto;
+	padding-top:5vh;
+	padding-bottom:5vh;
+	color:white;
+	font-size:2rem;
+	min-height:100vh;
+
+	.window{
+		background-color:rgba(21,23,158,0.8);
+		min-height:90vh;
+		word-wrap:break-word;
+
+		.titlebar{
+			color:white;
+		}
+	}
+
+	.content .main{
+		display:none;
+	}
 }
 
-.home.section1{
-	height:1000px;
-	clear:both;
+.home.section-footer footer{
+	width:100%;
+	background:rgba(0,0,0,0.8);
+	color:white;
+}
+
+@media(max-width:1000px){
+	.home.section1, .home.section2{
+		background-position:center;
+
+		section{
+			font-weight:bold;
+		}
+	}
+
+	.home .more{
+		display:none;
+	}
+}
+
+@media(min-width:1000px){
+	.home ul li:not(.active) a{
+		&:after {
+			content: '';
+			display: block;
+			margin: auto;
+			height: 2px;
+			width: 0;
+			background: transparent;
+			transition: width .5s ease, background-color .5s ease;
+		}
+
+		&:hover:after{
+			width: 100%;
+			background: $theme-color;
+		}
+	}
+}
+
+@media(min-width:800px){
+	.active{
+		&:after {
+			content: '';
+			display: block;
+			margin: auto;
+			height: 2px;
+			width: 100%;
+			background: $theme-color;
+		}
+	}
+}
+
+@media(max-width:800px){
+	.home.section1 section{
+		font-size:5vw;
+	}
+
+	.home nav{
+		z-index:99;
+
+		ul{
+			clear: both;
+			display:none;
+			position:absolute;
+			width:100%;
+			left:0;
+			top:calc(10vh - 4px);
+			background:red;
+
+			li{
+				font-weight: bold;
+				margin:0 !important;
+				width:100%;
+				text-align:center;
+			}
+		}
+
+		.active{
+			background:rgba(21,23,158,0.9);
+			
+			a{
+				color:white;
+			}
+		}
+	}
+}
+
+@media(max-width:600px){
+	.home.section1 section{
+		font-size:7vw;
+	}	
 }

@@ -3,12 +3,16 @@
  */
 
 //import external libs
-@import "node_modules/normalize-scss/sass/normalize";
-@include normalize();
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 //import partials
+@import "partials/variables";
+@import "partials/mixins";
 @import "partials/global-styles";
+
+//import components
+@import "components/mac-window";
+@import "components/nav";
 
 //import pages
 @import "pages/home";
-

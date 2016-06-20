@@ -5,18 +5,41 @@
 @stop
 
 @section('content')
-	<div class="home container">
-        <nav class="home nav">
+    
+    <div class="home section1 col-xs-12">
+        <nav class="nav">
             <div class="logo">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('img/logo.png') }}" alt="askapro-logo">
+                    { AskAPro }
                 </a>
             </div>
+            
+            <button class="menu-toggler">
+                <i class="fa fa-bars"></i>
+            </button>
+
             <ul>
+                <li>
+                    <a class="normal-link" href="#">Find an answer</a>
+                </li>
+
+                <li>
+                    <a href="#">Pricing</a>
+                </li>
+
+                <li>
+                    <a class="normal-link" href="#">Sign up</a>
+                </li>
+
+                <li>
+                    <a class="normal-link" href="#">Log in</a>
+                </li>
+
                 <li class="lang-li">
                     <a class="normal-link lang-button" href="#">
                         Lang <i class="fa fa-caret-down"></i>
                     </a>
+
                     <ul class="lang-list hidden">
                         <li>
                             <a href="{{ route('setLang', 'ro') }}">
@@ -30,25 +53,61 @@
                         </li>
                     </ul>
                 </li>
-
-                <li>
-                    <a class="normal-link" href="#">Log in</a>
-                </li>
-                <li>
-                    <a class="normal-link" href="#">Sign up</a>
-                </li>
-                <li>
-                    <a class="normal-link" href="#">Questions</a>
-                </li>
             </ul>   
         </nav>
+        
+        <section>
+            The ultimate platform for finding answers to all of your programming questions and problems.<br><br>
+            Why don't you just <span class="focus">ask a pro</span>?
 
-        <section class="home section1">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque commodi assumenda aliquid dolorem animi doloribus aliquam repellat id eos est! Laboriosam alias, quae culpa accusantium at assumenda soluta fugiat illum!
-        </section>
-
-        <section class="home section2">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ex dolorem error aut, assumenda adipisci, autem distinctio iure, aliquam nisi perferendis sapiente aliquid molestiae laborum, vel eum doloribus tenetur! Exercitationem!
         </section>   
+        
+        <div class="more">
+            <a href="#more">
+                <i class="fa fa-angle-double-down"></i>
+            </a>
+        </div>
     </div>
+    
+
+    <div class="home col-xs-12 section2">
+        <section class="home" id="more">
+            
+            <div class="window">
+              <div class="titlebar">
+                <div class="buttons">
+                  <div class="close">
+                    <a class="closebutton" href="#"><span><strong>x</strong></span></a>
+                  </div>
+                  <div class="minimize">
+                    <a class="minimizebutton" href="#"><span><strong>&ndash;</strong></span></a>
+                  </div>
+                  <div class="zoom">
+                    <a class="zoombutton" href="#"><span><strong>+</strong></span></a>
+                  </div>
+                </div>
+                Terminal
+              </div>
+              <div class="content">
+                user@askapro:~$ show message <br><br>
+                <div class="main">{!! trans('home.main_message') !!}</div>
+              </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="home section-footer">
+        <footer class="col-xs-12">
+            <div class="col-md-4">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione ducimus expedita id, necessitatibus dicta nesciunt amet consequatur praesentium repellat deleniti. Est accusamus obcaecati praesentium ipsum et doloribus dicta iusto! Necessitatibus.
+            </div>
+            <div class="col-md-4">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, soluta, nulla. Perspiciatis fuga architecto mollitia consectetur quibusdam fugit ullam perferendis ratione ipsam, id consequatur vel nihil sapiente aut incidunt placeat.
+            </div>
+            <div class="col-md-4">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, dolore, necessitatibus blanditiis cupiditate magni eos voluptate unde provident maiores eveniet, odit veniam quam delectus voluptatum assumenda eligendi minus autem neque.
+            </div>
+        </footer>
+    </div>
+    
 @stop

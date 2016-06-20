@@ -3,13 +3,30 @@
 	src:url("../fonts/Corbert-Regular.otf") format("opentype");
 }
 
+@font-face{
+	font-family: lato;
+	src:url("../fonts/Lato-Light.ttf");
+}
+
+@font-face{
+	font-family: ubuntu;
+	src:url("../fonts/Ubuntu-Light.ttf");
+}
+
+::selection{
+	background:rgba(21,23,158,0.4);
+}
+
 ul{
-	margin:0;
+	@include reset();
 }
 
 a{
-	color:slategrey;
 	text-decoration:none;
+	
+	&:hover, &:focus{
+		text-decoration:none;
+	}
 }
 
 .hidden{
