@@ -6,7 +6,7 @@ return j.call(r(a),c)})),b))for(;i>h;h++)b(a[h],c,g?d:d.call(a[h],h,b(a[h],c)));
 
 (function(){
 
-	$('.window a').on('click', function(e){
+	$('.window .titlebar a').on('click', function(e){
 		e.preventDefault();
 	});
 
@@ -38,7 +38,7 @@ return j.call(r(a),c)})),b))for(;i>h;h++)b(a[h],c,g?d:d.call(a[h],h,b(a[h],c)));
 
 	resizeCheck();
 
-	$more.children('a').on('click', function(e){
+	$more.find('a').on('click', function(e){
 		e.preventDefault();
 
 		$('html,body').animate({
@@ -60,7 +60,7 @@ return j.call(r(a),c)})),b))for(;i>h;h++)b(a[h],c,g?d:d.call(a[h],h,b(a[h],c)));
 			}
 		}
 
-		if($(this).scrollTop() >= $more_id.offset().top - 50){
+		if($(this).scrollTop() >= $more_id.offset().top - 300){
 			$('.home .content>.main').fadeIn();
 		}
 	});

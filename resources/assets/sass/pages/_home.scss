@@ -19,12 +19,12 @@
 		line-height:10vh;
 		
 		.logo{
-			font-size:5vh;
+			font-size:4.5vh;
 			float:left;
 		}
 
 		ul{
-			font-size:2.7vh;	
+			font-size:2.5vh;	
 			float:right;
 			list-style-type:none;
 			
@@ -110,29 +110,55 @@
 	margin:auto;
 	padding-top:5vh;
 	padding-bottom:5vh;
-	color:white;
-	font-size:2rem;
+	color:black;
+	font-size:1.8rem;
 	min-height:100vh;
 
 	.window{
-		background-color:rgba(21,23,158,0.8);
+		background-color:rgba(242,242,242,0.8);
 		min-height:90vh;
 		word-wrap:break-word;
 
 		.titlebar{
+			background-color:#ccc;
 			color:white;
 		}
 	}
 
 	.content .main{
 		display:none;
+
+		.link{
+			text-align:center;
+		}
+
+		a{
+			display: inline-block;
+			margin: 20px auto;
+			color:white;
+			text-align:center;
+			background-color:rgba(21,23,158,.7);
+			padding:10px;
+			border-radius:3px;
+			transition:.8s box-shadow ease;
+
+			&:hover{
+				box-shadow:inset 0 100px rgba(21,23,158,1);
+			}
+		}
 	}
 }
 
 .home.section-footer footer{
+	border-top:4px solid #9C9C9C;
+	padding-top:50px;
 	width:100%;
 	background:rgba(0,0,0,0.8);
 	color:white;
+
+	.footer-part{
+		margin-bottom:50px;
+	}
 }
 
 @media(max-width:1000px){

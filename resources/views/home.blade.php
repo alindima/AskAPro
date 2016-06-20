@@ -90,7 +90,13 @@
               </div>
               <div class="content">
                 user@askapro:~$ show message <br><br>
-                <div class="main">{!! trans('home.main_message') !!}</div>
+                <div class="main">
+                    {!! trans('home.main_message') !!}
+                    <br>    
+                    <div class="link">
+                        <a href="#">Find out more</a>
+                    </div>
+                </div>
               </div>
             </div>
         </section>
@@ -98,13 +104,13 @@
 
     <div class="home section-footer">
         <footer class="col-xs-12">
-            <div class="col-md-4">
+            <div class="col-md-4 footer-part">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione ducimus expedita id, necessitatibus dicta nesciunt amet consequatur praesentium repellat deleniti. Est accusamus obcaecati praesentium ipsum et doloribus dicta iusto! Necessitatibus.
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 footer-part">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, soluta, nulla. Perspiciatis fuga architecto mollitia consectetur quibusdam fugit ullam perferendis ratione ipsam, id consequatur vel nihil sapiente aut incidunt placeat.
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 footer-part">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, dolore, necessitatibus blanditiis cupiditate magni eos voluptate unde provident maiores eveniet, odit veniam quam delectus voluptatum assumenda eligendi minus autem neque.
             </div>
         </footer>

@@ -1,6 +1,6 @@
 (function(){
 
-	$('.window a').on('click', function(e){
+	$('.window .titlebar a').on('click', function(e){
 		e.preventDefault();
 	});
 
