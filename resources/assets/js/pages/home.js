@@ -5,7 +5,7 @@
 		$more_id = $('#more');
 
 	function resizeCheck(){
-		var nav = $('.home nav ul'),
+		var nav = $('.home.nav ul'),
 			toggler = $('.home .menu-toggler');
 
 		if($(window).width()<800){
@@ -52,7 +52,7 @@
 	});
 
 	$('.home .menu-toggler').on('click', function(){
-		var nav = $('.home nav ul');
+		var nav = $('.home.nav ul');
 
 		nav.toggle();
 		

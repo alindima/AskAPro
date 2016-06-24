@@ -14,8 +14,12 @@
 	
 	<main>
 		@yield('content')
-	</main>	
+	</main>
+
+	@include('templates.partials.language_modal')	
 	
+	@include('templates.partials.cookie_banner')
+
 	<script src="{{ elixir('js/all.js') }}"></script>
 	@yield('js')
 </body>

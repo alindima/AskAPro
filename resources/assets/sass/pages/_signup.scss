@@ -1,0 +1,48 @@
+.signup.main-wrapper{
+	font-family:lato;
+	width:100%;
+	min-height:100vh;
+	background:url(../img/background2.svg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
+	padding-top:50px;
+	// filter:grayscale(50%);
+	
+	.form{
+		padding:20px;
+		background:rgba(255,255,255,0.9);
+		
+		h1{
+			@include reset();
+			margin-bottom:30px;
+		}
+	}
+	
+	form{
+		font-size:1.8rem;
+
+		.fieldset{
+			width:60%;
+
+			&:not(:last-child){
+				margin-bottom:15px;
+			}
+		}
+	}
+
+}
+
+@media(max-width:$screen-sm-max){
+	.signup{
+		
+		.form{
+			float:none;
+			margin:auto;
+
+			.fieldset{
+				width:100% !important;
+			}
+		}
+	}
+}

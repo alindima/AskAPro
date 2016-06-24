@@ -18,7 +18,9 @@ class LocaleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Session::has('locale')){
+        $route = (explode('/', $request->path()))[0];
+
+        if(Session::has('locale') && $route !== 'setLang'){
             App::setLocale(Session::get('locale'));
         }
 

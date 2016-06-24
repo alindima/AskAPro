@@ -1,0 +1,10 @@
+input:not([type='checkbox']){
+	height:3.5rem;
+	width:100%;
+	border:1px solid #ccc;
+	padding:0 5px;
+
+	&:focus{
+		outline:none;
+	}
+}

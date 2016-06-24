@@ -1,0 +1,12 @@
+.button{
+	border:0;
+	border-radius:3px;
+	padding:8px 15px;
+	color:white;
+	background-color:rgba(21,23,158,.5);
+	transition: 0.8s background-color ease;
+
+	&:hover{
+		background-color:$theme-color;
+	}
+}

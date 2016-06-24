@@ -1,0 +1,36 @@
+.language-modal{
+	font-family:lato;
+
+	ul{
+		width:90%;
+		margin:auto;
+		list-style-type: none;
+		text-align:center;
+		background: rgba(0,0,0,0.1);
+		overflow-y: scroll;
+
+		li{
+			padding:.5rem;
+			font-size:2rem;
+			height:4rem;
+
+			&:not(:last-child){
+				border-bottom:1px solid #ccc;
+			}
+
+			a{
+				color:black;
+
+				&:hover{
+					color:$theme-color;
+				}
+			}
+		}
+	}
+
+	button{
+		background:transparent;
+		border:0;
+		font-size: 2.5rem;
+	}
+}

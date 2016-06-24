@@ -67,6 +67,11 @@ return [
 
     'locale' => 'en',
 
+    'locale_list' => [
+        'English' => 'en',
+        'Romana' => 'ro',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
