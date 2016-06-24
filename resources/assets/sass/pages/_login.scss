@@ -1,0 +1,45 @@
+.login.main-wrapper{
+	font-family:lato;
+	background:url(../img/background2.svg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
+	min-height:100vh;
+	
+	.main-section{
+		margin-top: 25%;
+		background:rgba(255,255,255,0.9);
+		padding:20px;
+		box-shadow:3px 3px 3px grey;
+
+		button.button{
+			display: block;
+			margin: auto;
+		}
+	}
+
+	.fieldset{
+		margin-bottom:15px;
+	}
+
+	.logo{
+		margin-bottom: 20px;
+		font-family: corbert;
+		font-size: 4rem;
+		text-align:center;
+
+		a{
+			color:$theme-color;
+		}
+	}
+}
+
+@media(min-width:$screen-sm-min){
+	.login.main-wrapper > .main-section{
+		margin-top: 15%;
+	}
+
+	.login.main-wrapper .logo{
+		font-size: 3.8rem;
+	}
+}

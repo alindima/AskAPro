@@ -1,0 +1,16 @@
+.go-back{
+	position:absolute;
+	top:0;
+	left:0;
+	font-size: 1.8rem;
+	background:rgba(255,255,255,0.9);
+	padding:15px 20px;
+
+	a{
+		color:rgba(0,0,0,0.6);
+
+		&:hover{
+			color:black;
+		}
+	}
+}

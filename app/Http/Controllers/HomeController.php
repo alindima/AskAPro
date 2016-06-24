@@ -40,12 +40,17 @@ class HomeController extends Controller
     {
         Session::put('locale', $lang);
         
-        return redirect()->back();
+        return back();
     }
 
     public function cookie_accept()
     {
-        return redirect()->back()->withCookie(cookie()->forever('cookie_accept', 1));
+        return back()->withCookie(cookie()->forever('cookie_accept', 1));
+    }
+
+    public function verify($activation_token)
+    {
+
     }
 
 }

@@ -6,9 +6,10 @@
 	background-repeat:no-repeat;
 	background-size:cover;
 	background-position:center;
-	padding-top:50px;
-	
+	padding-top:90px;
+
 	.form{
+		position:relative;
 		padding:20px;
 		background:rgba(255,255,255,0.9);
 		box-shadow:3px 3px 3px grey;
@@ -23,14 +24,10 @@
 		font-size:1.8rem;
 
 		.fieldset{
-			width:60%;
-
-			
+			width:60%;		
 			margin-bottom:20px;
-			
 		}
 	}
-
 }
 
 @media(max-width:$screen-sm-max){

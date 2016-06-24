@@ -2515,6 +2515,22 @@ input:not([type='checkbox']) {
   input:not([type='checkbox']):focus {
     border-color: grey; }
 
+input::-webkit-input-placeholder {
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.7); }
+
+input::-moz-placeholder {
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.7); }
+
+input:-ms-input-placeholder {
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.7); }
+
+input::placeholder {
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.7); }
+
 .fieldset.error input:not([type='checkbox']) {
   border-color: rgba(21, 23, 158, 0.5); }
 
@@ -2529,6 +2545,7 @@ input:not([type='checkbox']) {
   padding: 5px; }
 
 .button {
+  font-size: 1.8rem;
   border: 0;
   border-radius: 3px;
   padding: 8px 15px;
@@ -2537,6 +2554,18 @@ input:not([type='checkbox']) {
   transition: 0.8s background-color ease; }
   .button:hover {
     background-color: #15179E; }
+
+.go-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.8rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 20px; }
+  .go-back a {
+    color: rgba(0, 0, 0, 0.6); }
+    .go-back a:hover {
+      color: black; }
 
 .home.nav {
   border-top: 4px solid #15179E;
@@ -2722,8 +2751,9 @@ input:not([type='checkbox']) {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding-top: 50px; }
+  padding-top: 90px; }
   .signup.main-wrapper .form {
+    position: relative;
     padding: 20px;
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 3px 3px 3px grey; }
@@ -2743,5 +2773,36 @@ input:not([type='checkbox']) {
     margin: auto; }
     .signup .form .fieldset {
       width: 100% !important; } }
+
+.login.main-wrapper {
+  font-family: lato;
+  background: url(../img/background2.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; }
+  .login.main-wrapper .main-section {
+    margin-top: 25%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    box-shadow: 3px 3px 3px grey; }
+    .login.main-wrapper .main-section button.button {
+      display: block;
+      margin: auto; }
+  .login.main-wrapper .fieldset {
+    margin-bottom: 15px; }
+  .login.main-wrapper .logo {
+    margin-bottom: 20px;
+    font-family: corbert;
+    font-size: 4rem;
+    text-align: center; }
+    .login.main-wrapper .logo a {
+      color: #15179E; }
+
+@media (min-width: 768px) {
+  .login.main-wrapper > .main-section {
+    margin-top: 15%; }
+  .login.main-wrapper .logo {
+    font-size: 3.8rem; } }
 
 /*# sourceMappingURL=app.css.map */

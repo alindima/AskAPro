@@ -7,6 +7,15 @@
 @section('content')
 	<div class="signup main-wrapper container-fluid">
 		<div class="row">
+			<div class="go-back col-xs-12">
+				<a href="{{ route('home') }}">
+					<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+					Go back
+				</a>
+			</div>	
+		</div>
+
+		<div class="row">
 			<div class="form col-md-8 col-md-offset-1 col-xs-11">
 				<h1>Sign up</h1>
 
