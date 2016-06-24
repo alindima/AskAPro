@@ -7,4 +7,26 @@ input:not([type='checkbox']){
 	&:focus{
 		outline:none;
 	}
+
+	&:focus{
+		border-color:grey;
+	}
+}
+
+.fieldset.error{
+	input:not([type='checkbox']){
+		border-color:rgba(21,23,158,.5);
+	}
+
+	label{
+		color:$theme-color;
+	}
+
+	.error-block{
+		display:block;
+		background:rgba(21,23,158,.5);
+		color:white;
+		font-size: 1.8rem;
+		padding:5px;
+	}
 }

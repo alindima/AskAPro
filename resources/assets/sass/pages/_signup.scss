@@ -7,11 +7,11 @@
 	background-size:cover;
 	background-position:center;
 	padding-top:50px;
-	// filter:grayscale(50%);
 	
 	.form{
 		padding:20px;
 		background:rgba(255,255,255,0.9);
+		box-shadow:3px 3px 3px grey;
 		
 		h1{
 			@include reset();
@@ -25,9 +25,9 @@
 		.fieldset{
 			width:60%;
 
-			&:not(:last-child){
-				margin-bottom:15px;
-			}
+			
+			margin-bottom:20px;
+			
 		}
 	}
 

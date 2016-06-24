@@ -26,6 +26,24 @@ Route::group(['middleware' => 'locale'], function(){
 		'uses' => 'HomeController@questions',
 		'as' => 'questions',
 	]);
+
+	Route::get('verify', [
+		'uses' => 'HomeController@verify',
+		'as' => 'verify',
+	]);
+
+	Route::get('dashboard', function(){
+		return 'dashboard';
+	})->middleware('auth');
+
+
+	//Default auth routes
+	
+	Route::post('signup', 'Auth\AuthController@register');
+	
+	Route::post('login', 'Auth\AuthController@login');
+
+	Route::get('logout', 'Auth\AuthController@logout');
 });
 
 Route::get('setLang/{lang}', [
