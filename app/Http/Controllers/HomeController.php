@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Session;
+
+use App\User;
 
 class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'questions']);
+        $this->middleware('guest', [
+            'except' => [
+                'questions',
+                'setLang',
+            ],
+        ]);
     }
 
     public function home()
@@ -45,12 +53,9 @@ class HomeController extends Controller
 
     public function cookie_accept()
     {
-        return back()->withCookie(cookie()->forever('cookie_accept', 1));
-    }
-
-    public function verify($activation_token)
-    {
-
+        return back()
+            ->withCookie(cookie()
+            ->forever('cookie_accept', 1));
     }
 
 }

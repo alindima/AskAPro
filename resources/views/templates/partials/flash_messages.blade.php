@@ -4,10 +4,10 @@
 	</script>
 @elseif(Session::has('info'))
 	<script>
-		swal('Info', "{{ Session::get('success') }}", 'info');
+		swal('Info', "{{ Session::get('info') }}", 'info');
 	</script>
 @elseif(Session::has('error'))
 	<script>
-		swal('Error', "{{ Session::get('success') }}", 'error');
+		swal('Error', "{{ Session::get('error') }}", 'error');
 	</script>
 @endif

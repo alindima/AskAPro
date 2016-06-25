@@ -29,4 +29,9 @@ class PasswordController extends Controller
     {
         $this->middleware($this->guestMiddleware());
     }
+
+    public function getReset()
+    {
+        return view('password.reset');
+    }
 }

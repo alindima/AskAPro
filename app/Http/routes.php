@@ -27,23 +27,29 @@ Route::group(['middleware' => 'locale'], function(){
 		'as' => 'questions',
 	]);
 
-	Route::get('verify', [
-		'uses' => 'HomeController@verify',
-		'as' => 'verify',
-	]);
-
 	Route::get('dashboard', function(){
-		return 'dashboard';
+		return view('auth.dashboard');
 	})->middleware('auth');
 
 
-	//Default auth routes
+	//auth routes
 	
 	Route::post('signup', 'Auth\AuthController@register');
 	
 	Route::post('login', 'Auth\AuthController@login');
 
 	Route::get('logout', 'Auth\AuthController@logout');
+
+	Route::get('activate/{email}/{activation_token}', [
+		'uses' => 'Auth\AuthController@verify',
+		'as' => 'verify',
+	]);
+
+	//password routes
+	
+	Route::get('password/reset', [
+		'uses' => 'Auth\PasswordController@getReset'
+	]);
 });
 
 Route::get('setLang/{lang}', [

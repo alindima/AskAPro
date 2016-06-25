@@ -28,4 +28,21 @@ class User extends Authenticatable
         'remember_token',
         'activation_token',
     ];
+
+    /**
+     * The attributes that should be treated as Carbon instances
+     * 
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'last_seen',
+    ];
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
 }

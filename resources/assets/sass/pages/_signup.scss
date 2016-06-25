@@ -2,17 +2,17 @@
 	font-family:lato;
 	width:100%;
 	min-height:100vh;
-	background:url(../img/background2.svg);
+	background:$main-bg;
 	background-repeat:no-repeat;
 	background-size:cover;
-	background-position:center;
+	background-attachment:fixed;
 	padding-top:90px;
 
 	.form{
+		border:1px solid #ccc;
 		position:relative;
 		padding:20px;
-		background:rgba(255,255,255,0.9);
-		box-shadow:3px 3px 3px grey;
+		background:white;
 		
 		h1{
 			@include reset();
@@ -21,8 +21,6 @@
 	}
 	
 	form{
-		font-size:1.8rem;
-
 		.fieldset{
 			width:60%;		
 			margin-bottom:20px;
@@ -41,5 +39,11 @@
 				width:100% !important;
 			}
 		}
+	}
+}
+
+@media(max-width:1000px){
+	.signup.main-wrapper{
+		background-position:center;
 	}
 }

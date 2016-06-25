@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -66,8 +67,22 @@ class AuthController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => $data['password'],
             'activation_token' => str_random(100),
         ]);
     }
+
+    public function verify($email, $activation_token)
+    {
+        $user = User::where('email', $email)->where('activation_token', $activation_token)->firstOrFail();
+
+        $user->active = 1;
+        $user->activation_token = null;
+        $user->save();
+
+        Auth::login($user);
+
+        return redirect('/');
+    }
+
 }

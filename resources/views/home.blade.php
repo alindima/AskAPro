@@ -117,4 +117,6 @@
             </div>
         </footer>
     </div>
+
+    @include('templates.partials.language_modal')
 @stop

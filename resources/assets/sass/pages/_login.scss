@@ -1,16 +1,16 @@
 .login.main-wrapper{
 	font-family:lato;
-	background:url(../img/background2.svg);
+	background:$main-bg;
 	background-repeat:no-repeat;
 	background-size:cover;
-	background-position:center;
+	background-attachment:fixed;
 	min-height:100vh;
 	
 	.main-section{
 		margin-top: 25%;
-		background:rgba(255,255,255,0.9);
+		background:white;
 		padding:20px;
-		box-shadow:3px 3px 3px grey;
+		border:1px solid #ccc;
 
 		button.button{
 			display: block;
@@ -20,6 +20,12 @@
 
 	.fieldset{
 		margin-bottom:15px;
+
+		input[type='checkbox'] ~ label{
+			font-size:1.8rem;
+			margin-left:2px;
+			cursor:pointer;
+		}
 	}
 
 	.logo{
@@ -41,5 +47,11 @@
 
 	.login.main-wrapper .logo{
 		font-size: 3.8rem;
+	}
+}
+
+@media(max-width:1000px){
+	.login.main-wrapper{
+		background-position:center;
 	}
 }

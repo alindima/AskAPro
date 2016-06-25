@@ -18,13 +18,26 @@
 				<a href="{{ route('home') }}">{ AskAPro }</a>
 			</div>
 			<div class="form">
-				<form action="" method="post">
-					<div class="fieldset">
-						<input type="text" name="email" placeholder="email">
+				<form action="{{ action('Auth\AuthController@login') }}" method="post">
+					<div class="fieldset{{ $errors->has('email') ? ' error' : '' }}">
+						<input type="text" name="email" placeholder="email" value="{{ old('email') }}">
+						@if($errors->has('email'))
+							<span class="error-block">{{ $errors->first('email') }}</span>
+						@endif
 					</div>
 					
-					<div class="fieldset">
+					<div class="fieldset{{ $errors->has('password') ? ' error' : '' }}">
 						<input type="password" name="password" placeholder="password">
+						@if($errors->has('password'))
+							<span class="error-block">{{ $errors->first('password') }}</span>
+						@endif
+					</div>
+
+					<div class="fieldset">
+						<input type="checkbox" name="remember" id="remember"{{ old('remember') ? ' checked' : ''}}>
+						<label for="remember">
+							Remember me
+						</label>
 					</div>
 					
 					{{ csrf_field() }}

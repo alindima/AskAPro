@@ -2531,6 +2531,9 @@ input::placeholder {
   font-size: 1.8rem;
   color: rgba(0, 0, 0, 0.7); }
 
+input {
+  font-size: 1.8rem; }
+
 .fieldset.error input:not([type='checkbox']) {
   border-color: rgba(21, 23, 158, 0.5); }
 
@@ -2560,8 +2563,10 @@ input::placeholder {
   top: 0;
   left: 0;
   font-size: 1.8rem;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 15px 20px; }
+  background: white;
+  padding: 15px 20px;
+  border-top: 4px solid #15179E;
+  border-bottom: 1px solid #ccc; }
   .go-back a {
     color: rgba(0, 0, 0, 0.6); }
     .go-back a:hover {
@@ -2747,25 +2752,23 @@ input::placeholder {
   font-family: lato;
   width: 100%;
   min-height: 100vh;
-  background: url(../img/background2.svg);
+  background: url("../img/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-attachment: fixed;
   padding-top: 90px; }
   .signup.main-wrapper .form {
+    border: 1px solid #ccc;
     position: relative;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 3px 3px 3px grey; }
+    background: white; }
     .signup.main-wrapper .form h1 {
       padding: 0;
       margin: 0;
       margin-bottom: 30px; }
-  .signup.main-wrapper form {
-    font-size: 1.8rem; }
-    .signup.main-wrapper form .fieldset {
-      width: 60%;
-      margin-bottom: 20px; }
+  .signup.main-wrapper form .fieldset {
+    width: 60%;
+    margin-bottom: 20px; }
 
 @media (max-width: 991px) {
   .signup .form {
@@ -2774,23 +2777,31 @@ input::placeholder {
     .signup .form .fieldset {
       width: 100% !important; } }
 
+@media (max-width: 1000px) {
+  .signup.main-wrapper {
+    background-position: center; } }
+
 .login.main-wrapper {
   font-family: lato;
-  background: url(../img/background2.svg);
+  background: url("../img/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-attachment: fixed;
   min-height: 100vh; }
   .login.main-wrapper .main-section {
     margin-top: 25%;
-    background: rgba(255, 255, 255, 0.9);
+    background: white;
     padding: 20px;
-    box-shadow: 3px 3px 3px grey; }
+    border: 1px solid #ccc; }
     .login.main-wrapper .main-section button.button {
       display: block;
       margin: auto; }
   .login.main-wrapper .fieldset {
     margin-bottom: 15px; }
+    .login.main-wrapper .fieldset input[type='checkbox'] ~ label {
+      font-size: 1.8rem;
+      margin-left: 2px;
+      cursor: pointer; }
   .login.main-wrapper .logo {
     margin-bottom: 20px;
     font-family: corbert;
@@ -2804,5 +2815,9 @@ input::placeholder {
     margin-top: 15%; }
   .login.main-wrapper .logo {
     font-size: 3.8rem; } }
+
+@media (max-width: 1000px) {
+  .login.main-wrapper {
+    background-position: center; } }
 
 /*# sourceMappingURL=app.css.map */
