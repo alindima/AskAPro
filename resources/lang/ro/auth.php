@@ -7,5 +7,6 @@ return [
     'success_message' => "V-am trimis pe email un cod de verificare.",
     'activation_error' => 'Inca nu v-ati activat contul.',
     'autherror' => 'Trebuie sa fiti autentificati pentru a face asta.',
+    'activation_subject' => 'AskAPro - Va rugam activati-va contul',
 
 ];

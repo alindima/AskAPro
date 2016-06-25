@@ -7,5 +7,6 @@ return [
     'success_message' => 'We`ve successfully sent you an activation email.',
     'activation_error' => 'You have not activated your account.',
     'autherror' => 'You must be logged in to do that.',
+    'activation_subject' => 'AskAPro - Please activate your account',
 
 ];

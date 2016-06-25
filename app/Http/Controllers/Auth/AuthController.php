@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+use Mail;
 use Auth;
 use App\User;
 use Validator;
@@ -70,6 +72,39 @@ class AuthController extends Controller
             'password' => $data['password'],
             'activation_token' => str_random(100),
         ]);
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            $this->loginUsername() => 'required|active_user', 'password' => 'required',
+        ]);
+    }
+
+    public function register(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        $this->create($request->all());
+
+        $user = User::where('email', $request->email)->first();
+
+        $data['name'] = $user->name;
+        $data['email'] = $user->email;
+        $data['token'] = $user->activation_token;
+
+        Mail::queue('emails.activate', $data, function ($m) use($user) {
+            $m->to($user->email);
+            $m->subject(trans('auth.activation_subject'));
+        });
+
+        return redirect('/')->with('success', trans('auth.success_message'));
     }
 
     public function verify($email, $activation_token)

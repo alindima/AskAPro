@@ -4,6 +4,7 @@ return [
 
     'accepted'             => ':attribute trebuie sa fie acceptat.',
     'active_url'           => ':attribute nu este un URL valid.',
+    'active_user'          => 'Contul nu a fost inca activat.',
     'after'                => ':attribute trebuie sa fie o data de dupa :date.',
     'alpha'                => ':attribute poate contine numai litere.',
     'alpha_dash'           => ':attribute poate contine numai litere, numere si cratime.',
