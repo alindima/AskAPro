@@ -2534,6 +2534,9 @@ input::placeholder {
 input {
   font-size: 1.8rem; }
 
+label {
+  cursor: pointer; }
+
 .fieldset.error input:not([type='checkbox']) {
   border-color: rgba(21, 23, 158, 0.5); }
 
@@ -2800,8 +2803,14 @@ input {
     margin-bottom: 15px; }
     .login.main-wrapper .fieldset input[type='checkbox'] ~ label {
       font-size: 1.8rem;
-      margin-left: 2px;
-      cursor: pointer; }
+      margin-left: 2px; }
+    .login.main-wrapper .fieldset a.forgot-password {
+      font-size: 1.5rem;
+      float: right;
+      color: rgba(21, 23, 158, 0.7);
+      transition: 0.5s color ease; }
+      .login.main-wrapper .fieldset a.forgot-password:hover {
+        color: #15179E; }
   .login.main-wrapper .logo {
     margin-bottom: 20px;
     font-family: corbert;
@@ -2819,5 +2828,32 @@ input {
 @media (max-width: 1000px) {
   .login.main-wrapper {
     background-position: center; } }
+
+.notfound.main-wrapper {
+  font-family: lato;
+  background: url("../img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh; }
+  .notfound.main-wrapper .main-section {
+    margin-top: 25%;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center; }
+    .notfound.main-wrapper .main-section h1 {
+      font-weight: bold;
+      margin-bottom: 40px; }
+    .notfound.main-wrapper .main-section p {
+      font-size: 1.8rem; }
+
+@media (max-width: 1000px) {
+  .notfound.main-wrapper {
+    background-position: center; } }
+
+@media (min-width: 768px) {
+  .notfound.main-wrapper > .main-section {
+    margin-top: 15%; } }
 
 /*# sourceMappingURL=app.css.map */

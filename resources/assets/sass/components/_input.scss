@@ -22,6 +22,10 @@ input{
 	font-size:1.8rem;
 }
 
+label{
+	cursor:pointer;
+}
+
 .fieldset.error{
 	input:not([type='checkbox']){
 		border-color:rgba(21,23,158,.5);

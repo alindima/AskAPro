@@ -69,7 +69,7 @@ class AuthController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => $data['password'],
+            'password' => bcrypt($data['password']),
             'activation_token' => str_random(100),
         ]);
     }
@@ -99,7 +99,7 @@ class AuthController extends Controller
         $data['email'] = $user->email;
         $data['token'] = $user->activation_token;
 
-        Mail::queue('emails.activate', $data, function ($m) use($user) {
+        Mail::queue('auth.emails.activate', $data, function ($m) use($user) {
             $m->to($user->email);
             $m->subject(trans('auth.activation_subject'));
         });
@@ -117,7 +117,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/');
+        return redirect($this->redirectTo)->with('success', trans('auth.account_activated'));
     }
 
 }

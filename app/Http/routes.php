@@ -27,6 +27,11 @@ Route::group(['middleware' => 'locale'], function(){
 		'as' => 'questions',
 	]);
 
+	Route::get('cookie_accept', [
+		'uses' => 'HomeController@cookie_accept',
+		'as' => 'cookie_accept',
+	]);
+
 	Route::get('dashboard', function(){
 		return view('auth.dashboard');
 	})->middleware('auth');
@@ -48,16 +53,21 @@ Route::group(['middleware' => 'locale'], function(){
 	//password routes
 	
 	Route::get('password/reset', [
-		'uses' => 'Auth\PasswordController@getReset'
+		'uses' => 'Auth\PasswordController@getReset',
+		'as' => 'password.reset',
+	]);
+
+	Route::post('password/reset', 'Auth\PasswordController@reset');
+
+	Route::get('password/reset/{token}', 'Auth\PasswordController@showResetForm');
+
+	Route::post('password/email', [
+		'uses' => 'Auth\PasswordController@sendResetLinkEmail',
+		'as' => 'password.email',
 	]);
 });
 
 Route::get('setLang/{lang}', [
 	'uses' => 'HomeController@setLang',
 	'as' => 'setLang',
-]);
-
-Route::get('cookie_accept', [
-	'uses' => 'HomeController@cookie_accept',
-	'as' => 'cookie_accept',
 ]);

@@ -8,5 +8,6 @@ return [
     'activation_error' => 'Inca nu v-ati activat contul.',
     'autherror' => 'Trebuie sa fiti autentificati pentru a face asta.',
     'activation_subject' => 'AskAPro - Va rugam activati-va contul',
+    'account_activated' => 'Contul v-a fost activat cu succes',
 
 ];

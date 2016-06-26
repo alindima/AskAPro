@@ -38,6 +38,7 @@
 						<label for="remember">
 							Remember me
 						</label>
+						<a class="forgot-password" href="{{ route('password.reset') }}">Forgot your password?</a>
 					</div>
 					
 					{{ csrf_field() }}

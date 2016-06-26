@@ -24,7 +24,17 @@
 		input[type='checkbox'] ~ label{
 			font-size:1.8rem;
 			margin-left:2px;
-			cursor:pointer;
+		}
+
+		a.forgot-password{
+			font-size: 1.5rem;
+			float:right;
+			color:rgba(21,23,158,.7);
+			transition: 0.5s color ease;
+
+			&:hover{
+				color:$theme-color;
+			}
 		}
 	}
 
