@@ -47,7 +47,9 @@
 		}
 
 		if($(this).scrollTop() >= $more_id.offset().top - 300){
-			$('.home .content>.main').fadeIn();
+			$('.home .content>.main').css('visibility', 'visible').animate({
+				opacity: 1
+			});
 		}
 	});
 

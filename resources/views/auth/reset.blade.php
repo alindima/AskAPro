@@ -54,7 +54,7 @@
 
 					{{ csrf_field() }}
 					
-					<button class="button" type="submit">Send password reset link</button>
+					<button class="button" type="submit">Change password</button>
 				</form>
 			</div>
 		</div>

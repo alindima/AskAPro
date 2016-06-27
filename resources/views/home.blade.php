@@ -5,7 +5,6 @@
 @stop
 
 @section('content')
-    
     <nav class="home nav">
         <div class="logo">
             <a href="{{ route('home') }}">
@@ -23,7 +22,7 @@
             </li>
 
             <li>
-                <a href="{{ route('pricing') }}">Pricing</a>
+                <a href="{{ route('premium') }}">Premium</a>
             </li>
 
             <li>
@@ -70,7 +69,6 @@
             </div>
         </div>
         
-
         <div class="home col-xs-12 section2">
             <section class="home" id="more">
                 <div class="window">
@@ -101,19 +99,21 @@
                 </div>
             </section>
         </div>
-
     </div>
 
     <div class="home section-footer">
         <footer class="col-xs-12">
-            <div class="col-md-4 footer-part">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione ducimus expedita id, necessitatibus dicta nesciunt amet consequatur praesentium repellat deleniti. Est accusamus obcaecati praesentium ipsum et doloribus dicta iusto! Necessitatibus.
+            <div class="col-md-4 footer-part part1">
+                <div class="logo">
+                    { AskAPro }
+                </div>
+                <p>We help you fix the bugs that are keeping you from fulfilling your dreams.</p>
             </div>
-            <div class="col-md-4 footer-part">
+            <div class="col-md-4 footer-part part2">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, soluta, nulla. Perspiciatis fuga architecto mollitia consectetur quibusdam fugit ullam perferendis ratione ipsam, id consequatur vel nihil sapiente aut incidunt placeat.
             </div>
-            <div class="col-md-4 footer-part">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, dolore, necessitatibus blanditiis cupiditate magni eos voluptate unde provident maiores eveniet, odit veniam quam delectus voluptatum assumenda eligendi minus autem neque.
+            <div class="col-md-4 footer-part part3">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, soluta, nulla. Perspiciatis fuga architecto mollitia consectetur quibusdam fugit ullam perferendis ratione ipsam, id consequatur vel nihil sapiente aut incidunt placeat.
             </div>
         </footer>
     </div>

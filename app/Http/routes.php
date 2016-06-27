@@ -2,68 +2,90 @@
 
 Route::group(['middleware' => 'locale'], function(){
 
-	Route::get('/', [
-		'uses' => 'HomeController@home',
-		'as' => 'home',
+	//normal routes
+	Route::group(['middleware' => 'redirect_if_pro'], function(){
+		
+		//home routes
+		
+		Route::get('/', [
+			'uses' => 'HomeController@home',
+			'as' => 'home',
+		]);
+
+		Route::get('premium', [
+			'uses' => 'HomeController@premium',
+			'as' => 'premium',
+		]);
+
+		Route::get('questions', [
+			'uses' => 'HomeController@questions',
+			'as' => 'questions',
+		]);
+
+
+		//account routes
+
+		Route::get('dashboard', [
+			'uses' => 'Auth\AccountController@dashboard',
+			'as' => 'dashboard',
+		]);
+
+		Route::get('premium/join', [
+			'uses' => 'Auth\AccountController@joinPremium',
+			'as' => 'premium.join',
+		]);
+
+
+		//auth routes
+		
+		Route::get('signup', [
+			'uses' => 'Auth\AuthController@getSignup',
+			'as' => 'signup',
+		]);
+
+		Route::post('signup', 'Auth\AuthController@register');
+
+		Route::get('login', [
+			'uses' => 'Auth\AuthController@getLogin',
+			'as' => 'login',
+		]);
+		
+		Route::post('login', 'Auth\AuthController@login');
+
+		Route::get('activate/{email}/{activation_token}', [
+			'uses' => 'Auth\AuthController@verify',
+			'as' => 'verify',
+		]);
+
+		//password routes
+		
+		Route::get('password/reset', [
+			'uses' => 'Auth\PasswordController@getReset',
+			'as' => 'password.reset',
+		]);
+
+		Route::post('password/reset', 'Auth\PasswordController@reset');
+
+		Route::get('password/reset/{token}', 'Auth\PasswordController@showResetForm');
+
+		Route::post('password/email', [
+			'uses' => 'Auth\PasswordController@sendResetLinkEmail',
+			'as' => 'password.email',
+		]);
+	});
+
+	//pro routes
+	Route::get('pro', [
+		'uses' => 'Pro\ProController@home',
+		'as' => 'pro.home',
 	]);
 
-	Route::get('signup', [
-		'uses' => 'HomeController@getSignup',
-		'as' => 'signup',
-	]);
-
-	Route::get('login', [
-		'uses' => 'HomeController@getLogin',
-		'as' => 'login',
-	]);
-
-	Route::get('pricing', [
-		'uses' => 'HomeController@pricing',
-		'as' => 'pricing',
-	]);
-
-	Route::get('questions', [
-		'uses' => 'HomeController@questions',
-		'as' => 'questions',
-	]);
+	//common routes
+	Route::get('logout', 'Auth\AuthController@logout');
 
 	Route::get('cookie_accept', [
 		'uses' => 'HomeController@cookie_accept',
 		'as' => 'cookie_accept',
-	]);
-
-	Route::get('dashboard', function(){
-		return view('auth.dashboard');
-	})->middleware('auth');
-
-
-	//auth routes
-	
-	Route::post('signup', 'Auth\AuthController@register');
-	
-	Route::post('login', 'Auth\AuthController@login');
-
-	Route::get('logout', 'Auth\AuthController@logout');
-
-	Route::get('activate/{email}/{activation_token}', [
-		'uses' => 'Auth\AuthController@verify',
-		'as' => 'verify',
-	]);
-
-	//password routes
-	
-	Route::get('password/reset', [
-		'uses' => 'Auth\PasswordController@getReset',
-		'as' => 'password.reset',
-	]);
-
-	Route::post('password/reset', 'Auth\PasswordController@reset');
-
-	Route::get('password/reset/{token}', 'Auth\PasswordController@showResetForm');
-
-	Route::post('password/email', [
-		'uses' => 'Auth\PasswordController@sendResetLinkEmail',
-		'as' => 'password.email',
 	]);
 });
 

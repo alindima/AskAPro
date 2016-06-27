@@ -2575,6 +2575,9 @@ label {
     .go-back a:hover {
       color: black; }
 
+.g-recaptcha {
+  margin-bottom: 20px; }
+
 .home.nav {
   border-top: 4px solid #15179E;
   padding-left: 3%;
@@ -2672,7 +2675,8 @@ label {
       background-color: #ccc;
       color: white; }
   .home.section2 .content .main {
-    display: none; }
+    visibility: hidden;
+    opacity: 0; }
     .home.section2 .content .main .link {
       text-align: center; }
     .home.section2 .content .main a {
@@ -2688,13 +2692,24 @@ label {
         box-shadow: inset 0 100px #15179E; }
 
 .home.section-footer footer {
+  font-family: lato;
   border-top: 4px solid #9C9C9C;
-  padding-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  color: white; }
-  .home.section-footer footer .footer-part {
-    margin-bottom: 50px; }
+  background: rgba(0, 0, 0, 0.8); }
+  .home.section-footer footer .part1 {
+    color: #ccc;
+    font-size: 2rem;
+    border-right: 1px solid #ccc; }
+    .home.section-footer footer .part1 .logo {
+      color: white;
+      font-family: corbert;
+      font-size: 3rem;
+      margin-bottom: 20px; }
+  .home.section-footer footer .part2, .home.section-footer footer .part3 {
+    color: #ccc;
+    font-size: 1.8rem; }
 
 @media (max-width: 1000px) {
   .home.main-wrapper {
@@ -2729,6 +2744,8 @@ label {
 @media (max-width: 800px) {
   .home.section1 section {
     font-size: 5vw; }
+  .home.section2 {
+    background: white; }
   .home.nav ul {
     clear: both;
     display: none;
@@ -2751,6 +2768,13 @@ label {
   .home.section1 section {
     font-size: 7vw; } }
 
+@media (max-width: 992px) {
+  .home.section-footer footer .part1 {
+    border-right-width: 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 30px;
+    padding-bottom: 30px; } }
+
 .signup.main-wrapper {
   font-family: lato;
   width: 100%;
@@ -2764,7 +2788,8 @@ label {
     border: 1px solid #ccc;
     position: relative;
     padding: 20px;
-    background: white; }
+    background: white;
+    margin-bottom: 30px; }
     .signup.main-wrapper .form h1 {
       padding: 0;
       margin: 0;
@@ -2829,6 +2854,70 @@ label {
   .login.main-wrapper {
     background-position: center; } }
 
+.premium.main-wrapper {
+  font-family: lato;
+  background: url("../img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh; }
+  .premium.main-wrapper .main-section {
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 100px;
+    padding: 20px; }
+    .premium.main-wrapper .main-section .column1 {
+      border: 1px solid #ccc;
+      background: white;
+      padding-top: 15px; }
+      .premium.main-wrapper .main-section .column1 p {
+        font-size: 1.8rem;
+        margin-bottom: 50px; }
+      .premium.main-wrapper .main-section .column1 i {
+        margin-right: 10px;
+        font-size: 2rem; }
+    .premium.main-wrapper .main-section .column2, .premium.main-wrapper .main-section .column3 {
+      min-height: 50vh;
+      background-color: #F7F7F7;
+      transition: 0.1s all ease-in;
+      border-radius: 5px;
+      text-align: center; }
+      .premium.main-wrapper .main-section .column2:hover, .premium.main-wrapper .main-section .column3:hover {
+        background-color: white;
+        transform: scale(1.05); }
+      .premium.main-wrapper .main-section .column2 a, .premium.main-wrapper .main-section .column3 a {
+        color: rgba(0, 0, 0, 0.6); }
+        .premium.main-wrapper .main-section .column2 a:hover, .premium.main-wrapper .main-section .column3 a:hover {
+          color: rgba(0, 0, 0, 0.6); }
+    .premium.main-wrapper .main-section ul.price-banner {
+      list-style-type: none; }
+      .premium.main-wrapper .main-section ul.price-banner li {
+        position: relative; }
+      .premium.main-wrapper .main-section ul.price-banner li.section1, .premium.main-wrapper .main-section ul.price-banner li.section2 {
+        font-size: 2.5rem;
+        height: 20vh;
+        border-bottom: 1px solid #ccc; }
+        .premium.main-wrapper .main-section ul.price-banner li.section1 span, .premium.main-wrapper .main-section ul.price-banner li.section2 span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); }
+      .premium.main-wrapper .main-section ul.price-banner li.section3 {
+        height: 10vh; }
+        .premium.main-wrapper .main-section ul.price-banner li.section3 a {
+          color: white;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); }
+
+@media (max-width: 991px) {
+  .premium.main-wrapper .column1, .premium.main-wrapper .column2, .premium.main-wrapper .column3 {
+    margin-bottom: 50px; } }
+
+@media (max-width: 1000px) {
+  .premium.main-wrapper {
+    background-position: center; } }
+
 .notfound.main-wrapper {
   font-family: lato;
   background: url("../img/background.jpg");
@@ -2855,5 +2944,37 @@ label {
 @media (min-width: 768px) {
   .notfound.main-wrapper > .main-section {
     margin-top: 15%; } }
+
+.dashboard.main-wrapper.container-fluid {
+  min-height: 100vh; }
+  .dashboard.main-wrapper.container-fluid .nav {
+    width: 25%;
+    position: fixed;
+    height: 100vh;
+    background: #ccc; }
+  .dashboard.main-wrapper.container-fluid .main-section {
+    padding: 20px 20px;
+    width: 75%;
+    position: absolute;
+    left: 25%;
+    min-height: 100vh;
+    background: white; }
+  .dashboard.main-wrapper.container-fluid .nav-toggler {
+    position: fixed;
+    top: 10px;
+    margin-right: 10px;
+    right: 0;
+    z-index: 99;
+    display: none; }
+
+@media (max-width: 767px) {
+  .dashboard.main-wrapper.container-fluid .main-section {
+    width: 100%;
+    left: 0; }
+  .dashboard.main-wrapper.container-fluid .nav {
+    right: -25%;
+    z-index: 99; }
+  .dashboard.main-wrapper.container-fluid .nav-toggler {
+    display: block; } }
 
 /*# sourceMappingURL=app.css.map */

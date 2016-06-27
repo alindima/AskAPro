@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\User;
 use Validator;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //Import custom validation rules
         Validator::extend('active_user', 'App\Validation\Validator@active_user');
-
+        Validator::extend('recaptcha', 'App\Validation\Validator@recaptcha');
     }
 
     /**

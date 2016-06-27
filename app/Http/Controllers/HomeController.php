@@ -15,6 +15,7 @@ class HomeController extends Controller
             'except' => [
                 'questions',
                 'setLang',
+                'premium',
             ],
         ]);
     }
@@ -24,19 +25,9 @@ class HomeController extends Controller
     	return view('home');
     }
 
-    public function pricing()
+    public function premium()
     {
-        return view('pricing');
-    }
-
-    public function getSignup()
-    {
-        return view('signup');
-    }
-    
-    public function getLogin()
-    {
-        return view('login');
+        return view('premium');
     }
 
     public function questions()

@@ -27,6 +27,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'activation_token',
+        'is_pro',
     ];
 
     /**
@@ -39,5 +40,14 @@ class User extends Authenticatable
         'updated_at',
         'last_seen',
     ];
+
+    public function is_pro()
+    {
+        if($this->is_pro == 1){
+            return true;
+        }else{
+            return false;
+        }   
+    }
 
 }

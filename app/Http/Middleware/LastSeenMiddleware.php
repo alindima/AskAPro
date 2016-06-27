@@ -18,7 +18,8 @@ class LastSeenMiddleware
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-            Auth::user()->last_seen = Carbon::now;
+            Auth::user()->last_seen = Carbon::now();
+            Auth::user()->save();
         }
 
         return $next($request);

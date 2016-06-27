@@ -4,6 +4,10 @@
 	Sign up - AskAPro
 @stop
 
+@section('css')
+	<script src="https://www.google.com/recaptcha/api.js?hl={{ App::getLocale() }}"></script>
+@stop
+
 @section('content')
 	<div class="signup main-wrapper container-fluid">
 		<div class="row">
@@ -53,6 +57,8 @@
 						</label>
 						<input type="password" name="password_confirmation" id="password_confirmation">
 					</div>
+
+					@include('templates.partials.recaptcha')
 
 					{{ csrf_field() }}
 					

@@ -51,6 +51,7 @@ return [
     'not_in'               => 'The selected :attribute is invalid.',
     'numeric'              => 'The :attribute must be a number.',
     'present'              => 'The :attribute field must be present.',
+    'recaptcha'            => 'Va rugam confirmati ca nu sunteti un robot.',
     'regex'                => 'The :attribute format is invalid.',
     'required'             => 'Campul :attribute este obligatoriu.',
     'required_if'          => 'The :attribute field is required when :other is :value.',
@@ -83,8 +84,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'g-recaptcha-response' => [
+            'required' => 'Va rugam confirmati ca nu sunteti un robot.',
         ],
     ],
 

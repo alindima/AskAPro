@@ -13,16 +13,17 @@
 
 //import components
 @import "components/mac-window";
-@import "components/nav";
 @import "components/cookie-banner";
 @import "components/language-modal";
 @import "components/input";
 @import "components/buttons";
 @import "components/go-back";
+@import "components/recaptcha";
 
 //import pages
 @import "pages/home";
 @import "pages/signup";
 @import "pages/login";
-@import "pages/pricing";
+@import "pages/premium";
 @import "pages/404";
+@import "pages/dashboard";
