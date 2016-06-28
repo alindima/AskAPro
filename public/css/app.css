@@ -2578,6 +2578,53 @@ label {
 .g-recaptcha {
   margin-bottom: 20px; }
 
+.auth.main-wrapper.container-fluid {
+  min-height: 100vh; }
+  .auth.main-wrapper.container-fluid .nav {
+    width: 25%;
+    position: fixed;
+    height: 100vh;
+    background: #ccc; }
+  .auth.main-wrapper.container-fluid .main-section {
+    padding: 20px 20px;
+    width: 75%;
+    position: absolute;
+    left: 25%;
+    min-height: 100vh;
+    background: white; }
+  .auth.main-wrapper.container-fluid .nav-toggler {
+    display: none;
+    background: transparent;
+    position: fixed;
+    top: 10px;
+    right: 0;
+    margin-right: 10px;
+    z-index: 99;
+    font-size: 2.5rem; }
+  .auth.main-wrapper.container-fluid .nav-toggler-checkbox {
+    display: none; }
+
+@media (max-width: 768px) {
+  .auth.main-wrapper.container-fluid .main-section {
+    width: 100%;
+    left: 0; }
+  .auth.main-wrapper.container-fluid .nav {
+    right: -50%;
+    z-index: 99;
+    width: 50%; }
+  .auth.main-wrapper.container-fluid .nav-toggler {
+    display: block; }
+  .auth.main-wrapper.container-fluid .nav-toggler, .auth.main-wrapper.container-fluid .main-section, .auth.main-wrapper.container-fluid .nav {
+    transition: .5s all ease; }
+  .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .nav-toggler {
+    right: 50%; }
+  .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .main-section {
+    left: -50%;
+    -webkit-filter: blur(100%);
+    filter: blur(100%); }
+  .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .nav {
+    right: 0; } }
+
 .home.nav {
   border-top: 4px solid #15179E;
   padding-left: 3%;
@@ -2592,6 +2639,21 @@ label {
   .home.nav .logo {
     font-size: 4.5vh;
     float: left; }
+  .home.nav .menu-toggler-checkbox {
+    display: none; }
+  .home.nav .menu-toggler {
+    color: #15179E;
+    line-height: 10vh;
+    font-size: 4vh;
+    width: 10vh;
+    float: right;
+    border: 0;
+    background: transparent;
+    height: 10vh;
+    display: none;
+    text-align: center; }
+    .home.nav .menu-toggler:focus {
+      outline: none; }
   .home.nav ul {
     font-size: 2.5vh;
     float: right;
@@ -2605,18 +2667,6 @@ label {
       padding-bottom: 0; }
   .home.nav a {
     color: #15179E; }
-  .home.nav .menu-toggler {
-    color: #15179E;
-    line-height: 10vh;
-    font-size: 4vh;
-    width: 10vh;
-    float: right;
-    border: 0;
-    background: transparent;
-    height: 10vh;
-    display: none; }
-    .home.nav .menu-toggler:focus {
-      outline: none; }
 
 .home.main-wrapper {
   background: url("../img/background.jpg");
@@ -2744,16 +2794,20 @@ label {
 @media (max-width: 800px) {
   .home.section1 section {
     font-size: 5vw; }
-  .home.section2 {
+  .home.nav.open {
     background: white; }
+  .home.nav .menu-toggler {
+    display: block; }
+  .home.nav .menu-toggler-checkbox:checked ~ ul {
+    display: block !important; }
   .home.nav ul {
-    clear: both;
     display: none;
+    background: white;
+    clear: both;
     position: absolute;
     width: 100%;
     left: 0;
-    top: calc(10vh - 4px);
-    background: red; }
+    top: calc(10vh - 4px); }
     .home.nav ul li {
       font-weight: bold;
       margin: 0 !important;
@@ -2944,37 +2998,5 @@ label {
 @media (min-width: 768px) {
   .notfound.main-wrapper > .main-section {
     margin-top: 15%; } }
-
-.dashboard.main-wrapper.container-fluid {
-  min-height: 100vh; }
-  .dashboard.main-wrapper.container-fluid .nav {
-    width: 25%;
-    position: fixed;
-    height: 100vh;
-    background: #ccc; }
-  .dashboard.main-wrapper.container-fluid .main-section {
-    padding: 20px 20px;
-    width: 75%;
-    position: absolute;
-    left: 25%;
-    min-height: 100vh;
-    background: white; }
-  .dashboard.main-wrapper.container-fluid .nav-toggler {
-    position: fixed;
-    top: 10px;
-    margin-right: 10px;
-    right: 0;
-    z-index: 99;
-    display: none; }
-
-@media (max-width: 767px) {
-  .dashboard.main-wrapper.container-fluid .main-section {
-    width: 100%;
-    left: 0; }
-  .dashboard.main-wrapper.container-fluid .nav {
-    right: -25%;
-    z-index: 99; }
-  .dashboard.main-wrapper.container-fluid .nav-toggler {
-    display: block; } }
 
 /*# sourceMappingURL=app.css.map */

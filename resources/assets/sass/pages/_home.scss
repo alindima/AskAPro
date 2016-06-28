@@ -15,6 +15,27 @@
 		float:left;
 	}
 
+	.menu-toggler-checkbox{
+		display:none;
+	}
+
+	.menu-toggler{
+		color:$theme-color;
+		line-height:10vh;
+		font-size: 4vh;
+		width:10vh;
+		float:right;
+		border:0;
+		background:transparent;
+		height:10vh;
+		display:none;
+		text-align:center;
+
+		&:focus{
+			outline:none;
+		}
+	}
+
 	ul{
 		font-size:2.5vh;	
 		float:right;
@@ -34,22 +55,6 @@
 
 	a{
 		color:$theme-color;
-	}
-
-	.menu-toggler{
-		color:$theme-color;
-		line-height:10vh;
-		font-size: 4vh;
-		width:10vh;
-		float:right;
-		border:0;
-		background:transparent;
-		height:10vh;
-		display:none;
-
-		&:focus{
-			outline:none;
-		}
 	}
 }
 
@@ -234,19 +239,35 @@
 		font-size:5vw;
 	}
 
-	.home.section2{
-		background:white;
-	}
+	// .home.section2{
+	// 	background:white;
+	// }
 
 	.home.nav{
+		&.open{
+			background:white;
+		}
+		
+		.menu-toggler{
+			display: block;
+		}
+
+		.menu-toggler-checkbox{
+			&:checked{
+				& ~ ul{
+					display:block !important;
+				}
+			}
+		}
+
 		ul{
+			display: none;
+			background:white;
 			clear: both;
-			display:none;
 			position:absolute;
 			width:100%;
 			left:0;
 			top:calc(10vh - 4px);
-			background:red;
 
 			li{
 				font-weight: bold;

@@ -4,25 +4,25 @@
 		$more = $('.more'),
 		$more_id = $('#more');
 
-	function resizeCheck(){
-		var nav = $('.home.nav ul'),
-			toggler = $('.home .menu-toggler');
+	// function resizeCheck(){
+	// 	var nav = $('.home.nav ul'),
+	// 		toggler = $('.home .menu-toggler');
 
-		if($(window).width()<800){
-			nav.hide();
-			toggler.show();
-		}else{
-			nav.show();
-			toggler.hide();
-		}
+	// 	if($(window).width()<800){
+	// 		nav.hide();
+	// 		toggler.show();
+	// 	}else{
+	// 		nav.show();
+	// 		toggler.hide();
+	// 	}
 
-		if(nav.css('display')!='none'){
-			nav.css('background', 'transparent');
-			nav.parent('nav').css('background', 'transparent');
-		}
-	}
+	// 	if(nav.css('display')!='none'){
+	// 		nav.css('background', 'transparent');
+	// 		nav.parent('nav').css('background', 'transparent');
+	// 	}
+	// }
 
-	resizeCheck();
+	// resizeCheck();
 
 	$more.find('a').on('click', function(e){
 		e.preventDefault();
@@ -32,9 +32,9 @@
 		},1000);
 	});
 
-	$window.on('resize', function(){
-		resizeCheck();
-	});
+	// $window.on('resize', function(){
+	// 	resizeCheck();
+	// });
 
 	$window.on('scroll', function(){
 
@@ -54,17 +54,10 @@
 	});
 
 	$('.home .menu-toggler').on('click', function(){
-		var nav = $('.home.nav ul');
+		var nav = $('.home.nav');
 
-		nav.toggle();
+		nav.toggleClass('open');
 		
-		if(nav.css('display')!='none'){
-			nav.css('background', 'white');
-			nav.parent('nav').css('background', 'white');
-		}else{
-			nav.css('background', 'transparent');
-			nav.parent('nav').css('background', 'transparent');
-		}
 	});
 
 })();

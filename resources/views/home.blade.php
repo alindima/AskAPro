@@ -12,9 +12,10 @@
             </a>
         </div>
         
-        <button class="menu-toggler">
+        <input type="checkbox" id="menu-toggler" class="menu-toggler-checkbox">
+        <label for="menu-toggler" class="menu-toggler">
             <i class="fa fa-bars"></i>
-        </button>
+        </label>
 
         <ul>
             <li>
@@ -37,19 +38,6 @@
                 <a class="normal-link lang-button" href="#" data-toggle="modal" data-target="#languageModal">
                     Lang <i class="fa fa-caret-down"></i>
                 </a>
-
-                <ul class="lang-list hidden">
-                    <li>
-                        <a href="{{ route('setLang', 'ro') }}">
-                            <img src="{{ asset('img/ro.png') }}" alt="romana">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('setLang', 'en') }}">
-                            <img src="{{ asset('img/en.png') }}" alt="english">
-                        </a>
-                    </li>
-                </ul>
             </li>
         </ul>   
     </nav>

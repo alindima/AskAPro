@@ -1,0 +1,71 @@
+.auth.main-wrapper.container-fluid{
+	min-height:100vh;
+	
+	.nav{
+		width:25%;
+		position:fixed;
+		height:100vh;
+		background: #ccc;
+	}
+
+	.main-section{
+		padding:20px 20px;
+		width:75%;
+		position:absolute;
+		left:25%;
+		min-height: 100vh;
+		background:white;
+	}
+
+	.nav-toggler{
+		display:none;
+		background:transparent;
+		position:fixed;
+		top:10px;
+		right:0;
+		margin-right: 10px;
+		z-index: 99;
+		font-size: 2.5rem;
+	}
+
+	.nav-toggler-checkbox{
+		display:none;
+	}
+}
+
+@media(max-width:$screen-sm-min){
+	.auth.main-wrapper.container-fluid{
+		.main-section{
+			width:100%;
+			left:0;
+		}
+
+		.nav{
+			right:-50%;
+			z-index: 99;
+			width:50%;
+		}
+
+		.nav-toggler{
+			display:block;
+		}
+
+		.nav-toggler, .main-section, .nav{
+			transition:.5s all ease;
+		}
+
+		.nav-toggler-checkbox:checked{
+			& ~ .nav-toggler{
+				right:50%;
+			}
+
+			& ~ .main-section{
+				left:-50%;
+				filter:blur(100%);
+			}
+			& ~ .nav{
+				right:0;
+			}
+		}
+	}
+}
