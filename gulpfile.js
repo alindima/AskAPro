@@ -9,7 +9,7 @@ elixir(function(mix) {
         '../../../node_modules/sweetalert/dist/sweetalert.min.js',
         'functions.js',
         'global_scripts.js',
-        'components/nav.js',
+        'components/auth.js',
         'pages/home.js'
     ]);
 

@@ -81,7 +81,10 @@ Route::group(['middleware' => 'locale'], function(){
 	]);
 
 	//common routes
-	Route::get('logout', 'Auth\AuthController@logout');
+	Route::get('logout', [
+		'uses' => 'Auth\AuthController@logout',
+		'as' => 'logout',
+	]);
 
 	Route::get('cookie_accept', [
 		'uses' => 'HomeController@cookie_accept',

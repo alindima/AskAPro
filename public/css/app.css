@@ -2489,7 +2489,7 @@ a {
     list-style-type: none;
     text-align: center;
     background: rgba(0, 0, 0, 0.1);
-    overflow-y: scroll; }
+    overflow-y: auto; }
     .language-modal ul li {
       padding: .5rem;
       font-size: 2rem;
@@ -2579,12 +2579,56 @@ label {
   margin-bottom: 20px; }
 
 .auth.main-wrapper.container-fluid {
-  min-height: 100vh; }
+  min-height: 100vh;
+  font-family: lato; }
   .auth.main-wrapper.container-fluid .nav {
+    overflow-y: auto;
+    background-color: #FAFAFA;
     width: 25%;
     position: fixed;
-    height: 100vh;
-    background: #ccc; }
+    height: 100vh; }
+    .auth.main-wrapper.container-fluid .nav i {
+      font-size: 1.8rem;
+      margin-right: 10px; }
+    .auth.main-wrapper.container-fluid .nav .logo {
+      font-family: corbert;
+      text-align: center;
+      padding-top: 20px;
+      font-size: 3.5rem;
+      white-space: nowrap; }
+      .auth.main-wrapper.container-fluid .nav .logo a {
+        color: #15179E; }
+        .auth.main-wrapper.container-fluid .nav .logo a:hover {
+          color: #15179E; }
+    .auth.main-wrapper.container-fluid .nav .dropdown-checkbox, .auth.main-wrapper.container-fluid .nav .dropdown-ul {
+      display: none; }
+    .auth.main-wrapper.container-fluid .nav ul:not(.dropdown-ul) li {
+      border-top: 1px dashed #ccc; }
+      .auth.main-wrapper.container-fluid .nav ul:not(.dropdown-ul) li:last-child {
+        border-bottom: 1px dashed #ccc; }
+    .auth.main-wrapper.container-fluid .nav .dropdown-ul {
+      font-size: 1.8rem; }
+      .auth.main-wrapper.container-fluid .nav .dropdown-ul li {
+        border: none !important; }
+    .auth.main-wrapper.container-fluid .nav .dropdown-checkbox:checked ~ .dropdown-ul {
+      display: block !important; }
+    .auth.main-wrapper.container-fluid .nav .active:not(.has-dropdown) {
+      border-right: 4px solid rgba(21, 23, 158, 0.5); }
+      .auth.main-wrapper.container-fluid .nav .active:not(.has-dropdown) a {
+        color: black; }
+    .auth.main-wrapper.container-fluid .nav .active .dropdown-label {
+      color: black; }
+    .auth.main-wrapper.container-fluid .nav ul {
+      margin-top: 20px;
+      font-size: 2.2rem;
+      list-style-type: none; }
+      .auth.main-wrapper.container-fluid .nav ul li {
+        padding: 15px 15px; }
+      .auth.main-wrapper.container-fluid .nav ul a, .auth.main-wrapper.container-fluid .nav ul .dropdown-label {
+        color: grey;
+        transition: .5s color ease; }
+        .auth.main-wrapper.container-fluid .nav ul a:hover, .auth.main-wrapper.container-fluid .nav ul .dropdown-label:hover {
+          color: black; }
   .auth.main-wrapper.container-fluid .main-section {
     padding: 20px 20px;
     width: 75%;
@@ -2604,14 +2648,16 @@ label {
   .auth.main-wrapper.container-fluid .nav-toggler-checkbox {
     display: none; }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .auth.main-wrapper.container-fluid .main-section {
     width: 100%;
     left: 0; }
   .auth.main-wrapper.container-fluid .nav {
     right: -50%;
     z-index: 99;
-    width: 50%; }
+    width: 50%;
+    border-left: 3px solid #ccc;
+    border-right-width: 0; }
   .auth.main-wrapper.container-fluid .nav-toggler {
     display: block; }
   .auth.main-wrapper.container-fluid .nav-toggler, .auth.main-wrapper.container-fluid .main-section, .auth.main-wrapper.container-fluid .nav {
@@ -2620,6 +2666,29 @@ label {
     right: 50%; }
   .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .main-section {
     left: -50%;
+    -webkit-filter: blur(100%);
+    filter: blur(100%); }
+  .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .nav {
+    right: 0; } }
+
+@media (max-width: 767px) {
+  .auth.main-wrapper.container-fluid .main-section {
+    width: 100%;
+    left: 0; }
+  .auth.main-wrapper.container-fluid .nav {
+    right: -75%;
+    z-index: 99;
+    width: 75%;
+    border-left: 3px solid #ccc;
+    border-right-width: 0; }
+  .auth.main-wrapper.container-fluid .nav-toggler {
+    display: block; }
+  .auth.main-wrapper.container-fluid .nav-toggler, .auth.main-wrapper.container-fluid .main-section, .auth.main-wrapper.container-fluid .nav {
+    transition: .5s all ease; }
+  .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .nav-toggler {
+    right: 75%; }
+  .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .main-section {
+    left: -75%;
     -webkit-filter: blur(100%);
     filter: blur(100%); }
   .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .nav {

@@ -1,11 +1,93 @@
 .auth.main-wrapper.container-fluid{
 	min-height:100vh;
+
+	font-family:lato;
 	
 	.nav{
+		overflow-y: auto;
+		background-color:#FAFAFA;
 		width:25%;
 		position:fixed;
 		height:100vh;
-		background: #ccc;
+		
+		i{
+			font-size: 1.8rem;
+			margin-right: 10px;
+		}
+
+		.logo{
+			font-family: corbert;
+			text-align:center;
+			padding-top: 20px;
+			font-size: 3.5rem;
+			white-space: nowrap;
+
+			a{
+				color:$theme-color;
+
+				&:hover{
+					color:$theme-color;
+				}
+			}
+		}
+
+		.dropdown-checkbox, .dropdown-ul{
+			display:none;
+		}
+
+		ul:not(.dropdown-ul) li{
+			border-top:1px dashed #ccc;
+			
+			&:last-child{
+				border-bottom:1px dashed #ccc;
+			}
+		}
+
+		.dropdown-ul{
+			font-size: 1.8rem;
+			
+			li{
+				border:none !important;
+			}
+		}
+
+		.dropdown-checkbox:checked{
+			& ~ .dropdown-ul{
+				display: block !important;
+			}
+		}
+
+		.active:not(.has-dropdown){
+			border-right:4px solid rgba(21,23,158,.5);
+
+			a{
+				color:black;
+			}
+		}
+
+		.active .dropdown-label{
+			color:black;
+		}
+
+		ul{
+			margin-top: 20px;
+			font-size: 2.2rem;
+			list-style-type: none;
+		
+			li{
+				padding:15px 15px;
+			}
+
+			a, .dropdown-label{
+				color:grey;
+				transition: .5s color ease;
+
+				&:hover{
+					color:black;
+				}
+			}
+		}
+
 	}
 
 	.main-section{
@@ -33,7 +115,7 @@
 	}
 }
 
-@media(max-width:$screen-sm-min){
+@media(max-width:$screen-sm-max){
 	.auth.main-wrapper.container-fluid{
 		.main-section{
 			width:100%;
@@ -44,6 +126,8 @@
 			right:-50%;
 			z-index: 99;
 			width:50%;
+			border-left:3px solid #ccc;
+			border-right-width:0;
 		}
 
 		.nav-toggler{
@@ -61,6 +145,45 @@
 
 			& ~ .main-section{
 				left:-50%;
+				filter:blur(100%);
+			}
+			& ~ .nav{
+				right:0;
+			}
+		}
+	}
+}
+
+@media(max-width:$screen-xs-max){
+	.auth.main-wrapper.container-fluid{
+		.main-section{
+			width:100%;
+			left:0;
+		}
+
+		.nav{
+			right:-75%;
+			z-index: 99;
+			width:75%;
+			border-left:3px solid #ccc;
+			border-right-width:0;
+		}
+
+		.nav-toggler{
+			display:block;
+		}
+
+		.nav-toggler, .main-section, .nav{
+			transition:.5s all ease;
+		}
+
+		.nav-toggler-checkbox:checked{
+			& ~ .nav-toggler{
+				right:75%;
+			}
+
+			& ~ .main-section{
+				left:-75%;
 				filter:blur(100%);
 			}
 			& ~ .nav{

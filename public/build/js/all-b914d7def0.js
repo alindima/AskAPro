@@ -350,6 +350,9 @@ return j.call(r(a),c)})),b))for(;i>h;h++)b(a[h],c,g?d:d.call(a[h],h,b(a[h],c)));
 	});
 
 })();
+$('.auth .dropdown-label').on('click', function(){
+	$(this).parents('.has-dropdown').toggleClass('active');
+});
 (function(){
 
 	var $window = $(window),
