@@ -47,7 +47,7 @@
 								My questions
 							</a>
 						</li>
-						<li class="has-dropdown{{ ($page === 'account') ? ' active' : '' }}">
+						<li class="has-dropdown{{ ($page === 'account' || Session::get('page') === 'account') ? ' active' : '' }}">
 							<input type="checkbox" id="dropdown" name="" class="dropdown-checkbox">
 							<label for="dropdown" class="dropdown-label">
 								<i class="fa fa-user" aria-hidden="true"></i>
@@ -63,8 +63,9 @@
 										</a>
 									</li>
 								@endif
+								
 								<li>
-									<a href="{{ route('profile', Auth::user()->name) }}">
+									<a href="{{ route('profile.index') }}">
 										Profile
 									</a>
 								</li>
@@ -90,7 +91,7 @@
 				
 				<div class="main-section">
 
-				@yield('content')
+					@yield('content')
 
 				</div>
 			</div>

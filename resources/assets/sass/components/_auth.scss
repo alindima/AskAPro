@@ -1,5 +1,6 @@
 .auth.main-wrapper.container-fluid{
 	min-height:100vh;
+	max-width:100%;
 
 	font-family:lato;
 	
@@ -12,7 +13,7 @@
 		border-right:1px solid #ccc;
 		
 		i{
-			font-size: 1.8rem;
+			font-size: 1.5rem;
 			margin-right: 10px;
 		}
 
@@ -72,7 +73,7 @@
 
 		ul{
 			margin-top: 20px;
-			font-size: 2.2rem;
+			font-size: 2rem;
 			list-style-type: none;
 		
 			li{

@@ -5,5 +5,5 @@
 @stop
 
 @section('content')
-	<h1>{{ Auth::user()->name }} - Edit profile</h1>
+	<h1>{{ Auth::user()->getName() }} - Edit profile</h1>
 @stop

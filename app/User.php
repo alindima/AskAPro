@@ -41,11 +41,6 @@ class User extends Authenticatable
         'last_seen',
     ];
 
-    public function getRouteKeyName()
-    {
-        return 'name';
-    }
-
     public function picture()
     {
         return $this->hasOne('App\ProfilePicture');
@@ -67,6 +62,28 @@ class User extends Authenticatable
         }else{
             return false;
         }   
+    }
+
+    public function getName(){
+        if(!empty($this->firstname) && !empty($this->lastname)){
+            return $this->firstname . ' ' . $this->lastname;
+        }
+
+        return $this->name;
+    }
+
+    public function getGravatarHash()
+    {
+        return md5(strtolower(trim($this->email)));
+    }
+
+    public function getProfilePicture()
+    {
+        if(is_null($this->picture)){
+            return 'https://www.gravatar.com/avatar/' . $this->getGravatarHash() . '?d=mm';
+        }
+        
+        return url('/') . '/img/profile_pictures/' . $this->picture->image_name;
     }
 
 }

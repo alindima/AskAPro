@@ -2363,6 +2363,11 @@ a {
   a:hover, a:focus {
     text-decoration: none; }
 
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block; }
+
 .hidden {
   display: none; }
 
@@ -2583,6 +2588,7 @@ input.my_name {
 
 .auth.main-wrapper.container-fluid {
   min-height: 100vh;
+  max-width: 100%;
   font-family: lato; }
   .auth.main-wrapper.container-fluid .nav {
     overflow-y: auto;
@@ -2592,7 +2598,7 @@ input.my_name {
     height: 100vh;
     border-right: 1px solid #ccc; }
     .auth.main-wrapper.container-fluid .nav i {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       margin-right: 10px; }
     .auth.main-wrapper.container-fluid .nav .logo {
       font-family: corbert;
@@ -2624,7 +2630,7 @@ input.my_name {
       color: black; }
     .auth.main-wrapper.container-fluid .nav ul {
       margin-top: 20px;
-      font-size: 2.2rem;
+      font-size: 2rem;
       list-style-type: none; }
       .auth.main-wrapper.container-fluid .nav ul li {
         padding: 15px 15px; }
@@ -3065,5 +3071,31 @@ input.my_name {
 @media (min-width: 768px) {
   .errorpage.main-wrapper > .main-section {
     margin-top: 15%; } }
+
+.profile .header {
+  background: #FAFAFA;
+  border: 1px solid #ccc;
+  padding: 25px 40px;
+  overflow: auto; }
+  .profile .header .name {
+    float: left; }
+  .profile .header .profile-picture {
+    float: right; }
+    .profile .header .profile-picture img {
+      width: 100px;
+      height: 100px;
+      border-radius: 100%; }
+
+.profile .details {
+  overflow: auto;
+  margin-top: 25px;
+  background: #FAFAFA;
+  border: 1px solid #ccc;
+  padding: 25px 25px; }
+  .profile .details .section {
+    margin-bottom: 10px;
+    font-size: 1.8rem; }
+    .profile .details .section .title {
+      font-weight: bold; }
 
 /*# sourceMappingURL=app.css.map */

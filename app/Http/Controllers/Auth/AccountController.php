@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,7 @@ class AccountController extends Controller
 
 	public function index()
     {
-        return redirect()->route('profile', Auth::user());
+        return redirect()->route('profile', Auth::user()->name)->with('page', 'account');
     }
 
 	public function dashboard()

@@ -5,5 +5,5 @@
 @stop
 
 @section('content')
-	<h1>{{ Auth::user()->name }} - Account Settings</h1>
+	<h1>{{ Auth::user()->getName() }} - Account Settings</h1>
 @stop
