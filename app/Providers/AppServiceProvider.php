@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
         //Import custom validation rules
         Validator::extend('active_user', 'App\Validation\Validator@active_user');
         Validator::extend('recaptcha', 'App\Validation\Validator@recaptcha');
+        Validator::extend('bot', 'App\Validation\Validator@bot');
     }
 
     /**

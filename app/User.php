@@ -41,9 +41,28 @@ class User extends Authenticatable
         'last_seen',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
+    public function picture()
+    {
+        return $this->hasOne('App\ProfilePicture');
+    }
+
     public function is_pro()
     {
         if($this->is_pro == 1){
+            return true;
+        }else{
+            return false;
+        }   
+    }
+
+    public function is_premium()
+    {
+        if($this->is_premium == 1){
             return true;
         }else{
             return false;

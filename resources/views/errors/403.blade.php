@@ -1,7 +1,7 @@
 @extends('templates.master')
 
 @section('title')
-	Not found - AskAPro
+	Access forbidden - AskAPro
 @stop
 
 @section('content')
@@ -14,11 +14,11 @@
 		</div>
 		
 		<div class="main-section col-md-8 col-md-offset-2">
-			<h1>Page not found</h1>
+			<h1>Access forbidden</h1>
 
 			<p>
-				Looks like this page does not exist.<br>
-				Please double-check the url or try again later.
+				You don't have permission to access this page.<br>
+				Sorry about that.
 			</p>
 		</div>
 	</div>

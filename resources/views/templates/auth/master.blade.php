@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>@yield('title')</title>
-	
-	@include('templates.partials.meta')
+	<head>
+		<title>@yield('title')</title>
+		
+		@include('templates.partials.meta')
 
-	@yield('css')
-</head>
-<body>
-	<main>
+		@yield('css')
+	</head>
+	<body>
 		<div class="auth main-wrapper container-fluid">
 			<div class="row">
 
@@ -24,7 +23,7 @@
 						</a>
 					</div>
 					<ul>
-						<li class="active">
+						<li>
 							<a href="#">
 								<i class="fa fa-plus" aria-hidden="true"></i>
 								Ask a Question
@@ -48,7 +47,7 @@
 								My questions
 							</a>
 						</li>
-						<li class="has-dropdown">
+						<li class="has-dropdown{{ ($page === 'account') ? ' active' : '' }}">
 							<input type="checkbox" id="dropdown" name="" class="dropdown-checkbox">
 							<label for="dropdown" class="dropdown-label">
 								<i class="fa fa-user" aria-hidden="true"></i>
@@ -56,23 +55,26 @@
 							</label>
 
 							<ul class="dropdown-ul">
+								
+								@if(!Auth::user()->is_premium())
+									<li>
+										<a href="{{ route('premium') }}">
+											Premium
+										</a>
+									</li>
+								@endif
 								<li>
-									<a href="{{ route('premium') }}">
-										Premium
-									</a>
-								</li>
-								<li>
-									<a href="#">
+									<a href="{{ route('profile', Auth::user()->name) }}">
 										Profile
 									</a>
 								</li>
 								<li>
-									<a href="#">
+									<a href="{{ route('profile.edit') }}">
 										Edit
 									</a>
 								</li>
 								<li>
-									<a href="#">
+									<a href="{{ route('profile.settings') }}">
 										Settings
 									</a>
 								</li>
@@ -93,14 +95,13 @@
 				</div>
 			</div>
 		</div>
-	</main>	
-	
-	@include('templates.partials.cookie_banner')
+		
+		@include('templates.partials.cookie_banner')
 
-	@include('templates.partials.js')
-	
-	@include('templates.partials.flash_messages')
-	
-	@yield('js')
-</body>
+		@include('templates.partials.js')
+		
+		@include('templates.partials.flash_messages')
+		
+		@yield('js')
+	</body>
 </html>

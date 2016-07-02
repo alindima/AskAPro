@@ -2550,6 +2550,9 @@ label {
   font-size: 1.8rem;
   padding: 5px; }
 
+input.my_name {
+  display: none; }
+
 .button {
   font-size: 1.8rem;
   border: 0;
@@ -2586,7 +2589,8 @@ label {
     background-color: #FAFAFA;
     width: 25%;
     position: fixed;
-    height: 100vh; }
+    height: 100vh;
+    border-right: 1px solid #ccc; }
     .auth.main-wrapper.container-fluid .nav i {
       font-size: 1.8rem;
       margin-right: 10px; }
@@ -2612,9 +2616,9 @@ label {
         border: none !important; }
     .auth.main-wrapper.container-fluid .nav .dropdown-checkbox:checked ~ .dropdown-ul {
       display: block !important; }
-    .auth.main-wrapper.container-fluid .nav .active:not(.has-dropdown) {
-      border-right: 4px solid rgba(21, 23, 158, 0.5); }
-      .auth.main-wrapper.container-fluid .nav .active:not(.has-dropdown) a {
+    .auth.main-wrapper.container-fluid .nav .active {
+      border-left: 6px solid rgba(21, 23, 158, 0.5); }
+      .auth.main-wrapper.container-fluid .nav .active a {
         color: black; }
     .auth.main-wrapper.container-fluid .nav .active .dropdown-label {
       color: black; }
@@ -2656,7 +2660,7 @@ label {
     right: -50%;
     z-index: 99;
     width: 50%;
-    border-left: 3px solid #ccc;
+    border-left: 1px solid #ccc;
     border-right-width: 0; }
   .auth.main-wrapper.container-fluid .nav-toggler {
     display: block; }
@@ -2665,9 +2669,7 @@ label {
   .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .nav-toggler {
     right: 50%; }
   .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .main-section {
-    left: -50%;
-    -webkit-filter: blur(100%);
-    filter: blur(100%); }
+    left: -50%; }
   .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .nav {
     right: 0; } }
 
@@ -2678,9 +2680,7 @@ label {
   .auth.main-wrapper.container-fluid .nav {
     right: -75%;
     z-index: 99;
-    width: 75%;
-    border-left: 3px solid #ccc;
-    border-right-width: 0; }
+    width: 75%; }
   .auth.main-wrapper.container-fluid .nav-toggler {
     display: block; }
   .auth.main-wrapper.container-fluid .nav-toggler, .auth.main-wrapper.container-fluid .main-section, .auth.main-wrapper.container-fluid .nav {
@@ -2688,9 +2688,7 @@ label {
   .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .nav-toggler {
     right: 75%; }
   .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .main-section {
-    left: -75%;
-    -webkit-filter: blur(100%);
-    filter: blur(100%); }
+    left: -75%; }
   .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .nav {
     right: 0; } }
 
@@ -3041,31 +3039,31 @@ label {
   .premium.main-wrapper {
     background-position: center; } }
 
-.notfound.main-wrapper {
+.errorpage.main-wrapper {
   font-family: lato;
   background: url("../img/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh; }
-  .notfound.main-wrapper .main-section {
+  .errorpage.main-wrapper .main-section {
     margin-top: 25%;
     background: white;
     padding: 20px;
     border: 1px solid #ccc;
     text-align: center; }
-    .notfound.main-wrapper .main-section h1 {
+    .errorpage.main-wrapper .main-section h1 {
       font-weight: bold;
       margin-bottom: 40px; }
-    .notfound.main-wrapper .main-section p {
+    .errorpage.main-wrapper .main-section p {
       font-size: 1.8rem; }
 
 @media (max-width: 1000px) {
-  .notfound.main-wrapper {
+  .errorpage.main-wrapper {
     background-position: center; } }
 
 @media (min-width: 768px) {
-  .notfound.main-wrapper > .main-section {
+  .errorpage.main-wrapper > .main-section {
     margin-top: 15%; } }
 
 /*# sourceMappingURL=app.css.map */

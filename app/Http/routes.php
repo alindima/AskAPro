@@ -90,6 +90,26 @@ Route::group(['middleware' => 'locale'], function(){
 		'uses' => 'HomeController@cookie_accept',
 		'as' => 'cookie_accept',
 	]);
+
+	Route::get('profile', [
+		'uses' => 'Auth\AccountController@index',
+		'as' => 'profile.index',
+	]);
+
+	Route::get('@{user}', [
+		'uses' => 'Auth\AccountController@profile',
+		'as' => 'profile',
+	]);
+
+	Route::get('profile/edit', [
+		'uses' => 'Auth\AccountController@edit',
+		'as' => 'profile.edit',
+	]);
+
+	Route::get('profile/settings', [
+		'uses' => 'Auth\AccountController@settings',
+		'as' => 'profile.settings',
+	]);
 });
 
 Route::get('setLang/{lang}', [

@@ -61,6 +61,8 @@
 					@include('templates.partials.recaptcha')
 
 					{{ csrf_field() }}
+
+					@include('templates.partials.bot_input')
 					
 					<button class="button" type="submit">Sign up</button>
 				</form>

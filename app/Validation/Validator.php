@@ -27,4 +27,14 @@ class Validator
 
 		return true;
 	}
+
+	public function bot($attribute, $value, $parameters, $validator)
+	{
+		if(!empty($value)){
+			abort(403);
+		}
+
+		return true;
+
+	}
 }

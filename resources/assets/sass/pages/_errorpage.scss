@@ -1,4 +1,4 @@
-.notfound.main-wrapper{
+.errorpage.main-wrapper{
 	font-family:lato;
 	background:$main-bg;
 	background-repeat:no-repeat;
@@ -25,13 +25,13 @@
 }
 
 @media(max-width:1000px){
-	.notfound.main-wrapper{
+	.errorpage.main-wrapper{
 		background-position:center;
 	}
 }
 
 @media(min-width:$screen-sm-min){
-	.notfound.main-wrapper > .main-section{
+	.errorpage.main-wrapper > .main-section{
 		margin-top: 15%;
 	}
 }
