@@ -3085,6 +3085,8 @@ input.my_name {
       width: 100px;
       height: 100px;
       border-radius: 100%; }
+  .profile .header .staff {
+    color: #15179E; }
 
 .profile .details {
   overflow: auto;

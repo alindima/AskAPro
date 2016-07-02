@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_premium')->default(0);
             $table->string('activation_token')->nullable();
             $table->rememberToken();
-            $table->timestamp('last_seen');
+            $table->timestamp('last_seen')->nullable();
             $table->timestamps();
         });
     }

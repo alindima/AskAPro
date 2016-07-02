@@ -9,6 +9,10 @@
 		<div class="header">
 			<div class="name">
 				<h1>{{ $user->getName() }}</h1>
+				
+				@if($user->is_pro())
+					<h3 class="staff">Staff professional</h3>	
+				@endif
 			</div>
 			<div class="profile-picture img-responsive">
 				<img src="{{ $user->getProfilePicture() }}" alt="{{ $user->getName() }}">
