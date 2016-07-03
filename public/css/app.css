@@ -2510,39 +2510,39 @@ a {
     border: 0;
     font-size: 2.5rem; }
 
-input:not([type='checkbox']) {
+input:not([type='checkbox']), textarea {
   height: 3.5rem;
   width: 100%;
   border: 1px solid #ccc;
   padding: 0 5px; }
-  input:not([type='checkbox']):focus {
+  input:not([type='checkbox']):focus, textarea:focus {
     outline: none; }
-  input:not([type='checkbox']):focus {
+  input:not([type='checkbox']):focus, textarea:focus {
     border-color: grey; }
 
-input::-webkit-input-placeholder {
+input::-webkit-input-placeholder, textarea {
   font-size: 1.8rem;
   color: rgba(0, 0, 0, 0.7); }
 
-input::-moz-placeholder {
+input::-moz-placeholder, textarea {
   font-size: 1.8rem;
   color: rgba(0, 0, 0, 0.7); }
 
-input:-ms-input-placeholder {
+input:-ms-input-placeholder, textarea {
   font-size: 1.8rem;
   color: rgba(0, 0, 0, 0.7); }
 
-input::placeholder {
+input::placeholder, textarea {
   font-size: 1.8rem;
   color: rgba(0, 0, 0, 0.7); }
 
-input {
+input, textarea {
   font-size: 1.8rem; }
 
 label {
   cursor: pointer; }
 
-.fieldset.error input:not([type='checkbox']) {
+.fieldset.error input:not([type='checkbox']), .fieldset.error textarea {
   border-color: rgba(21, 23, 158, 0.5); }
 
 .fieldset.error label {
@@ -2557,6 +2557,22 @@ label {
 
 input.my_name {
   display: none; }
+
+textarea {
+  padding-top: 5px;
+  resize: vertical;
+  width: 100%;
+  height: 200px; }
+
+input[type='file'] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
+  input[type='file'] ~ label i {
+    margin-right: 10px; }
 
 .button {
   font-size: 1.8rem;
@@ -2633,14 +2649,23 @@ input.my_name {
       font-size: 2rem;
       list-style-type: none; }
       .auth.main-wrapper.container-fluid .nav ul li {
-        padding: 15px 15px; }
+        padding: 15px 15px;
+        overflow: auto; }
+      .auth.main-wrapper.container-fluid .nav ul li.hello .left {
+        float: left; }
+      .auth.main-wrapper.container-fluid .nav ul li.hello .right {
+        float: right; }
+        .auth.main-wrapper.container-fluid .nav ul li.hello .right img {
+          width: 30px;
+          height: 30px;
+          border-radius: 100%; }
       .auth.main-wrapper.container-fluid .nav ul a, .auth.main-wrapper.container-fluid .nav ul .dropdown-label {
         color: grey;
         transition: .5s color ease; }
         .auth.main-wrapper.container-fluid .nav ul a:hover, .auth.main-wrapper.container-fluid .nav ul .dropdown-label:hover {
           color: black; }
   .auth.main-wrapper.container-fluid .main-section {
-    padding: 20px 20px;
+    padding: 0 20px 20px 20px;
     width: 75%;
     position: absolute;
     left: 25%;
@@ -3073,8 +3098,7 @@ input.my_name {
     margin-top: 15%; } }
 
 .profile .header {
-  background: #FAFAFA;
-  border: 1px solid #ccc;
+  margin-top: 25px;
   padding: 25px 40px;
   overflow: auto; }
   .profile .header .name {
@@ -3093,11 +3117,30 @@ input.my_name {
   margin-top: 25px;
   background: #FAFAFA;
   border: 1px solid #ccc;
-  padding: 25px 25px; }
+  padding: 25px 20px; }
   .profile .details .section {
     margin-bottom: 10px;
     font-size: 1.8rem; }
     .profile .details .section .title {
       font-weight: bold; }
+
+.edit .header, .edit .form {
+  overflow: auto; }
+
+.edit .header {
+  background: #FAFAFA;
+  border: 1px solid #ccc;
+  border-top: none;
+  padding: 40px 40px; }
+
+.edit .form {
+  background: #FAFAFA;
+  border: 1px solid #ccc;
+  padding: 25px 20px;
+  margin-top: 25px; }
+  .edit .form .fieldset {
+    margin-bottom: 20px; }
+    .edit .form .fieldset label {
+      font-size: 1.8rem; }
 
 /*# sourceMappingURL=app.css.map */

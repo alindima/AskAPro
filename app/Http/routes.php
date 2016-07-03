@@ -72,6 +72,17 @@ Route::group(['middleware' => 'locale'], function(){
 			'uses' => 'Auth\PasswordController@sendResetLinkEmail',
 			'as' => 'password.email',
 		]);
+
+		//question routes
+		
+		Route::get('questions/create', [
+			'uses' => 'Auth\QuestionController@create',
+			'as' => 'question.create',
+		]);
+
+		Route::post('questions/create', [
+			'uses' => 'Auth\QuestionController@store',
+		]);
 	});
 
 	//pro routes
@@ -102,9 +113,11 @@ Route::group(['middleware' => 'locale'], function(){
 	]);
 
 	Route::get('profile/edit', [
-		'uses' => 'Auth\AccountController@edit',
+		'uses' => 'Auth\AccountController@getEdit',
 		'as' => 'profile.edit',
 	]);
+
+	Route::put('profile/edit', 'Auth\AccountController@putEdit');
 
 	Route::get('profile/settings', [
 		'uses' => 'Auth\AccountController@settings',

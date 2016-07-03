@@ -1,0 +1,27 @@
+.edit{
+	.header, .form{
+		overflow:auto;
+	}
+
+	.header{
+		background:#FAFAFA;
+		border:1px solid #ccc;
+		border-top:none;
+		padding:40px 40px;
+	}
+
+	.form{
+		background: #FAFAFA;
+		border:1px solid #ccc;
+		padding:25px 20px;
+		margin-top: 25px;
+
+		.fieldset{
+			margin-bottom: 20px;
+
+			label{
+				font-size:1.8rem;
+			}
+		}
+	}
+}

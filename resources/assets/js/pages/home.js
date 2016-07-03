@@ -4,26 +4,6 @@
 		$more = $('.more'),
 		$more_id = $('#more');
 
-	// function resizeCheck(){
-	// 	var nav = $('.home.nav ul'),
-	// 		toggler = $('.home .menu-toggler');
-
-	// 	if($(window).width()<800){
-	// 		nav.hide();
-	// 		toggler.show();
-	// 	}else{
-	// 		nav.show();
-	// 		toggler.hide();
-	// 	}
-
-	// 	if(nav.css('display')!='none'){
-	// 		nav.css('background', 'transparent');
-	// 		nav.parent('nav').css('background', 'transparent');
-	// 	}
-	// }
-
-	// resizeCheck();
-
 	$more.find('a').on('click', function(e){
 		e.preventDefault();
 
@@ -31,10 +11,6 @@
 			scrollTop: $more_id.offset().top-35
 		},1000);
 	});
-
-	// $window.on('resize', function(){
-	// 	resizeCheck();
-	// });
 
 	$window.on('scroll', function(){
 

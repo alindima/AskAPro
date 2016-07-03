@@ -39,7 +39,7 @@
 
 		ul:not(.dropdown-ul) li{
 			border-top:1px dashed #ccc;
-			
+
 			&:last-child{
 				border-bottom:1px dashed #ccc;
 			}
@@ -78,6 +78,23 @@
 		
 			li{
 				padding:15px 15px;
+				overflow:auto;
+			}
+
+			li.hello{
+				.left{
+					float:left;
+				}
+
+				.right{
+					float:right;
+
+					img{
+						width:30px;
+						height:30px;
+						border-radius:100%;
+					}
+				}
 			}
 
 			a, .dropdown-label{
@@ -93,7 +110,7 @@
 	}
 
 	.main-section{
-		padding:20px 20px;
+		padding:0 20px 20px 20px;
 		width:75%;
 		position:absolute;
 		left:25%;

@@ -13,6 +13,10 @@
 				@if($user->is_pro())
 					<h3 class="staff">Staff professional</h3>	
 				@endif
+
+				@if($user->is_premium())
+					<h3 class="staff">Premium user</h3>	
+				@endif
 			</div>
 			<div class="profile-picture img-responsive">
 				<img src="{{ $user->getProfilePicture() }}" alt="{{ $user->getName() }}">
@@ -26,7 +30,7 @@
 						Username
 					</div>
 					<div class="body">
-						alindima
+						{{ $user->name }}
 					</div>
 				</div>
 
@@ -35,27 +39,31 @@
 						Email address
 					</div>
 					<div class="body">
-						alindima
+						{{ $user->email }}
 					</div>
 				</div>
 
-				<div class="section">
-					<div class="title">
-						First name
+				@if(!empty($user->firstname))
+					<div class="section">
+						<div class="title">
+							First name
+						</div>
+						<div class="body">
+							{{ $user->firstname }}
+						</div>
 					</div>
-					<div class="body">
-						alindima
-					</div>
-				</div>
+				@endif
 
-				<div class="section">
-					<div class="title">
-						Last name
+				@if(!empty($user->lastname))
+					<div class="section">
+						<div class="title">
+							Last name
+						</div>
+						<div class="body">
+							{{ $user->lastname }}
+						</div>
 					</div>
-					<div class="body">
-						alindima
-					</div>
-				</div>
+				@endif
 
 				<div class="section">
 					<div class="title">
@@ -74,19 +82,18 @@
 						{{ $user->last_seen->diffForHumans() }}
 					</div>
 				</div>
-
-
-
 			</div>
 			<div class="section2 col-md-6">
-				<div class="section">
-					<div class="title">
-						Description
+				@if(!empty($user->description))
+					<div class="section">
+						<div class="title">
+							Description
+						</div>
+						<div class="body">
+							{{ $user->description }}
+						</div>
 					</div>
-					<div class="body">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, non, incidunt! Eligendi voluptatibus iusto, praesentium corrupti obcaecati repellat perferendis tenetur et aspernatur. Voluptatibus asperiores nobis non perspiciatis nostrum, veniam, error!
-					</div>
-				</div>
+				@endif
 			</div>
 		</div>
 

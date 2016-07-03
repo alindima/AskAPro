@@ -23,8 +23,16 @@
 						</a>
 					</div>
 					<ul>
-						<li>
-							<a href="#">
+						<li class="hello">
+							<span class="left">
+								Hello, {{ Auth::user()->getName() }}
+							</span>
+							<span class="right">
+								<img src="{{ Auth::user()->getProfilePicture() }}" alt="{{ Auth::user()->getName() }}">
+							</span>
+						</li>
+						<li{{ $page === 'questions.create' ? ' class=active' : '' }}>
+							<a href="{{ route('question.create') }}">
 								<i class="fa fa-plus" aria-hidden="true"></i>
 								Ask a Question
 							</a>
