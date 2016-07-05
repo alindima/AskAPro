@@ -1,4 +1,4 @@
-input:not([type='checkbox']), textarea{
+input:not([type='checkbox']), textarea, select{
 	height:3.5rem;
 	width:100%;
 	border:1px solid #ccc;
@@ -18,7 +18,7 @@ input::placeholder, textarea{
 	color:rgba(0,0,0,.7);
 }
 
-input, textarea{
+input, textarea, select{
 	font-size:1.8rem;
 }
 
@@ -27,7 +27,7 @@ label{
 }
 
 .fieldset.error{
-	input:not([type='checkbox']), textarea{
+	input:not([type='checkbox']), textarea, select{
 		border-color:rgba(21,23,158,.5);
 	}
 
@@ -66,4 +66,8 @@ input[type='file']{
 	& ~ label i{
 		margin-right: 10px;
 	}
+}
+
+select{
+	background:white;
 }

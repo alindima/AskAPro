@@ -10,6 +10,7 @@
     "bootstrap-sass": "^3.3.0"
   },
   "dependencies": {
+    "braintree-web": "^2.26.0",
     "normalize-scss": "^5.0.3"
   }
 }

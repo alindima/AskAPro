@@ -2,9 +2,9 @@
 	font-family:corbert;
 	position:fixed;
 	bottom:0;
-	background:rgba(21,23,158,.7);
+	background:white;
 	width:100%;
-	color:white;
+	color:black;
 	font-size:1.7rem;
 	padding:10px 8vh;
 
@@ -17,11 +17,9 @@
 		float:right;
 		display: inline-block;
 		background:white;
-		color:$theme-color;
+		color:black;
 		padding:10px;
-
-		&:hover{
-			background:#ccc;
-		}
+		border:1px solid black;
+		border-radius: 5px;
 	}
 }

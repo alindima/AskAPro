@@ -20,7 +20,11 @@
 				<div class="col-md-4 column1">
 					<p>
 						<i class="fa fa-check" aria-hidden="true"></i>
-						Our pros will answer 30 of your questions, monthly.
+						Our pros will address your question in no more than 24 hours.
+					</p>
+					<p>
+						<i class="fa fa-check" aria-hidden="true"></i>
+						You get direct support to one question a day.
 					</p>
 					<p>
 						<i class="fa fa-check" aria-hidden="true"></i>
@@ -33,7 +37,7 @@
 				</div>
 
 				<div class="col-md-3 col-md-offset-1 column2">
-					<a href="{{ route('premium.join') }}">
+					<a href="{{ route('premium.join') . '?plan=monthly' }}">
 						<ul class="price-banner">
 							<li class="section1">
 								<span>Monthly</span>
@@ -42,7 +46,7 @@
 								<span>$20/month</span>
 							</li>
 							<li class="section3">
-								<a class="button" href="{{ route('premium.join') }}">
+								<a class="button" href="{{ route('premium.join') . '?plan=monthly' }}">
 									Upgrade
 								</a>
 							</li>
@@ -51,16 +55,16 @@
 				</div>
 				
 				<div class="col-md-3 col-md-offset-1 column3">
-					<a href="{{ route('premium.join') }}">
+					<a href="{{ route('premium.join') . '?plan=yearly' }}">
 						<ul class="price-banner">
 							<li class="section1">
 								<span>Yearly</span>
 							</li>
 							<li class="section2">
-								<span>$200/year</span>
+								<span>$220/year</span>
 							</li>
 							<li class="section3">
-								<a class="button" href="{{ route('premium.join') }}">
+								<a class="button" href="{{ route('premium.join') . '?plan=yearly' }}">
 									Upgrade
 								</a>
 							</li>

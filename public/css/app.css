@@ -2468,9 +2468,9 @@ a {
   font-family: corbert;
   position: fixed;
   bottom: 0;
-  background: rgba(21, 23, 158, 0.7);
+  background: white;
   width: 100%;
-  color: white;
+  color: black;
   font-size: 1.7rem;
   padding: 10px 8vh; }
   .cookie-banner p {
@@ -2481,10 +2481,10 @@ a {
     float: right;
     display: inline-block;
     background: white;
-    color: #15179E;
-    padding: 10px; }
-    .cookie-banner a:hover {
-      background: #ccc; }
+    color: black;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px; }
 
 .language-modal {
   font-family: lato; }
@@ -2510,14 +2510,14 @@ a {
     border: 0;
     font-size: 2.5rem; }
 
-input:not([type='checkbox']), textarea {
+input:not([type='checkbox']), textarea, select {
   height: 3.5rem;
   width: 100%;
   border: 1px solid #ccc;
   padding: 0 5px; }
-  input:not([type='checkbox']):focus, textarea:focus {
+  input:not([type='checkbox']):focus, textarea:focus, select:focus {
     outline: none; }
-  input:not([type='checkbox']):focus, textarea:focus {
+  input:not([type='checkbox']):focus, textarea:focus, select:focus {
     border-color: grey; }
 
 input::-webkit-input-placeholder, textarea {
@@ -2536,13 +2536,13 @@ input::placeholder, textarea {
   font-size: 1.8rem;
   color: rgba(0, 0, 0, 0.7); }
 
-input, textarea {
+input, textarea, select {
   font-size: 1.8rem; }
 
 label {
   cursor: pointer; }
 
-.fieldset.error input:not([type='checkbox']), .fieldset.error textarea {
+.fieldset.error input:not([type='checkbox']), .fieldset.error textarea, .fieldset.error select {
   border-color: rgba(21, 23, 158, 0.5); }
 
 .fieldset.error label {
@@ -2573,6 +2573,9 @@ input[type='file'] {
   z-index: -1; }
   input[type='file'] ~ label i {
     margin-right: 10px; }
+
+select {
+  background: white; }
 
 .button {
   font-size: 1.8rem;
@@ -3069,6 +3072,33 @@ input[type='file'] {
 @media (max-width: 1000px) {
   .premium.main-wrapper {
     background-position: center; } }
+
+.join-premium.main-wrapper {
+  font-family: lato;
+  background: url("../img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh; }
+  .join-premium.main-wrapper .main-section {
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 100px;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ccc; }
+    .join-premium.main-wrapper .main-section h1 {
+      text-align: center;
+      font-size: 2.5rem; }
+    .join-premium.main-wrapper .main-section .form {
+      margin-top: 25px; }
+      .join-premium.main-wrapper .main-section .form #payment-form {
+        margin-bottom: 25px; }
+      .join-premium.main-wrapper .main-section .form .button {
+        width: 100%; }
+      .join-premium.main-wrapper .main-section .form label {
+        font-size: 1.8rem; }
+      .join-premium.main-wrapper .main-section .form select {
+        margin-bottom: 25px; }
 
 .errorpage.main-wrapper {
   font-family: lato;

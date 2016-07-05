@@ -2,10 +2,16 @@
 
 namespace App;
 
+use Laravel\Cashier\Billable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Http\Requests\ProfileRequest;
+use Image;
+use File;
 
 class User extends Authenticatable
 {
+    use Billable;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -60,11 +66,11 @@ class User extends Authenticatable
 
     public function is_premium()
     {
-        if($this->is_premium == 1){
+        if($this->subscribed('main')){
             return true;
-        }else{
-            return false;
-        }   
+        }
+        
+        return false;
     }
 
     public function getName(){
@@ -87,6 +93,31 @@ class User extends Authenticatable
         }
         
         return url('/') . '/img/profile_pictures/' . $this->picture->image_name;
+    }
+
+    public function updateProfilePicture($picture)
+    {
+        $imageName = $this->name . uniqid() . time() . '.' . $picture->extension();
+            
+        if(is_null($this->picture)){
+            $image = new ProfilePicture([
+                'image_name' => $imageName,
+            ]);
+
+            $user->picture()->save($image);
+        }else{
+            File::delete(storage_path() . '/app/public/profile_pictures/' . $this->picture->image_name);
+
+            $this->picture->image_name = $imageName;
+            $this->picture->save();
+        }
+
+        $image = Image::make($picture);
+        $min_dimension = min($image->height(), $image->width());
+
+        $image
+            ->crop($min_dimension, $min_dimension)
+            ->save(storage_path() . '/app/public/profile_pictures/' . $imageName);
     }
 
 }

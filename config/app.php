@@ -164,6 +164,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ReCaptchaServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Laravel\Cashier\CashierServiceProvider::class,
 
     ],
 

@@ -1,0 +1,41 @@
+.join-premium.main-wrapper{
+	font-family:lato;
+	background:$main-bg;
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-attachment:fixed;
+	min-height:100vh;
+
+	.main-section{
+		color:rgba(0,0,0,0.6);
+		margin-top: 100px;
+		padding:20px;
+		background:white;
+		border:1px solid #ccc;
+		
+		h1{
+			text-align:center;
+			font-size: 2.5rem;
+		}
+
+		.form{
+			margin-top:25px;
+			
+			#payment-form{
+				margin-bottom: 25px;
+			}
+
+			.button{
+				width:100%;
+			}
+
+			label{
+				font-size: 1.8rem;
+			}
+
+			select{
+				margin-bottom: 25px;
+			}
+		}
+	}
+}

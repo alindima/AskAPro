@@ -53,5 +53,7 @@ class Kernel extends HttpKernel
         'locale' => \App\Http\Middleware\LocaleMiddleware::class,
         'pro' => \App\Http\Middleware\ProMiddleware::class,
         'redirect_if_pro' => \App\Http\Middleware\RedirectIfProMiddleware::class,
+        'premium' => \App\Http\Middleware\PremiumMiddleware::class,
+        'redirect_if_premium' => \App\Http\Middleware\RedirectIfPremiumMiddleware::class,
     ];
 }

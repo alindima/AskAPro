@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use Auth;
-use Image;
-use File;
 use App\User;
 use App\ProfilePicture;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
+use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
@@ -27,9 +26,16 @@ class AccountController extends Controller
 		return view('auth.dashboard')->with('page', 'dashboard');
 	}
 
-    public function joinPremium()
+    public function getJoin()
     {
-    	return 'join premium';
+    	return view('auth.join_premium');
+    }
+
+    public function postJoin(Request $request)
+    {
+        Auth::user()->newSubscription('main', $request->input('plan'))->create($request->input('payment_method_nonce'));
+
+        return redirect()->route('dashboard')->with('success', 'Thank you for becoming a premium member! That means the world.');
     }
 
     public function profile(User $user)
@@ -52,27 +58,7 @@ class AccountController extends Controller
         $user = Auth::user();
 
         if($request->hasFile('picture')){
-            $imageName = $user->name . uniqid() . time() . '.' . $request->file('picture')->extension();
-            
-            if(is_null($user->picture)){
-                $image = new ProfilePicture([
-                    'image_name' => $imageName,
-                ]);
-
-                $user->picture()->save($image);
-            }else{
-                File::delete(storage_path() . '/app/public/profile_pictures/' . $user->picture->image_name);
-
-                $user->picture->image_name = $imageName;
-                $user->picture->save();
-            }
-
-            $image = Image::make($request->file('picture'));
-            $min_dimension = min($image->height(), $image->width());
-
-            $image
-                ->crop($min_dimension, $min_dimension)
-                ->save(storage_path() . '/app/public/profile_pictures/' . $imageName);
+            $user->updateProfilePicture($request->file('picture'));
         }
 
         $user->update($request->all());

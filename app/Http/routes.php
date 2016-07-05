@@ -5,6 +5,12 @@ Route::group(['middleware' => 'locale'], function(){
 	//normal routes
 	Route::group(['middleware' => 'redirect_if_pro'], function(){
 		
+		//braintree webhook uri
+		Route::post(
+		    'braintree/webhook',
+		    '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook'
+		);
+
 		//home routes
 		
 		Route::get('/', [
@@ -31,9 +37,11 @@ Route::group(['middleware' => 'locale'], function(){
 		]);
 
 		Route::get('premium/join', [
-			'uses' => 'Auth\AccountController@joinPremium',
+			'uses' => 'Auth\AccountController@getJoin',
 			'as' => 'premium.join',
 		]);
+
+		Route::post('premium/join', 'Auth\AccountController@postJoin');
 
 
 		//auth routes

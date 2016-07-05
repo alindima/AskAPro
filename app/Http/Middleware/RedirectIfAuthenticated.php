@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
         if (($request->ajax() || $request->wantsJson()) && Auth::guard($guard)->check()) {
             return response('Unauthorized.', 401);
         }else if (Auth::guard($guard)->check()) {
-            return redirect('dashboard');
+            return redirect()->route('dashboard');
         }
 
         return $next($request);
