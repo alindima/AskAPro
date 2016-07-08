@@ -20,6 +20,7 @@
 @import "components/go-back";
 @import "components/recaptcha";
 @import "components/auth";
+@import "components/tabs";
 
 //import pages
 @import "pages/home";
@@ -31,3 +32,4 @@
 @import "pages/dashboard";
 @import "pages/profile";
 @import "pages/edit";
+@import "pages/settings";

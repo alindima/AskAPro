@@ -83,7 +83,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="{{ route('profile.settings') }}">
+									<a href="{{ route('settings.index') }}">
 										Settings
 									</a>
 								</li>

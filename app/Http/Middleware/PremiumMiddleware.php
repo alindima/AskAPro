@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class PremiumMiddleware
 {
@@ -19,7 +20,7 @@ class PremiumMiddleware
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else {
-                return back();
+                return redirect()->route('premium')->with('error', 'You must be a premium member to access this page.');
             }
         }
 

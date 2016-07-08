@@ -5,9 +5,14 @@
 	padding:8px 15px;
 	color:white;
 	background-color:rgba(21,23,158,.5);
-	transition: 0.8s background-color ease;
+	transition: 0.5s all ease;
 
 	&:hover{
-		background-color:$theme-color;
+		background-color:rgba(21,23,158,.3);
+		box-shadow:0 3px lightslategrey;
 	}
+}
+
+a.button:hover{
+	color:white;
 }

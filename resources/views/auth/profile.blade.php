@@ -15,7 +15,7 @@
 				@endif
 
 				@if($user->is_premium())
-					<h3 class="staff">Premium user</h3>	
+					<h3 class="staff">Premium member</h3>	
 				@endif
 			</div>
 			<div class="profile-picture img-responsive">

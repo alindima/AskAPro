@@ -2540,7 +2540,11 @@ input, textarea, select {
   font-size: 1.8rem; }
 
 label {
+  font-size: 1.8rem;
   cursor: pointer; }
+
+.fieldset {
+  margin-bottom: 20px; }
 
 .fieldset.error input:not([type='checkbox']), .fieldset.error textarea, .fieldset.error select {
   border-color: rgba(21, 23, 158, 0.5); }
@@ -2584,9 +2588,13 @@ select {
   padding: 8px 15px;
   color: white;
   background-color: rgba(21, 23, 158, 0.5);
-  transition: 0.8s background-color ease; }
+  transition: 0.5s all ease; }
   .button:hover {
-    background-color: #15179E; }
+    background-color: rgba(21, 23, 158, 0.3);
+    box-shadow: 0 3px lightslategrey; }
+
+a.button:hover {
+  color: white; }
 
 .go-back {
   position: absolute;
@@ -2635,10 +2643,9 @@ select {
       border-top: 1px dashed #ccc; }
       .auth.main-wrapper.container-fluid .nav ul:not(.dropdown-ul) li:last-child {
         border-bottom: 1px dashed #ccc; }
-    .auth.main-wrapper.container-fluid .nav .dropdown-ul {
+    .auth.main-wrapper.container-fluid .nav .dropdown-ul li {
+      border: none !important;
       font-size: 1.8rem; }
-      .auth.main-wrapper.container-fluid .nav .dropdown-ul li {
-        border: none !important; }
     .auth.main-wrapper.container-fluid .nav .dropdown-checkbox:checked ~ .dropdown-ul {
       display: block !important; }
     .auth.main-wrapper.container-fluid .nav .active {
@@ -2654,6 +2661,8 @@ select {
       .auth.main-wrapper.container-fluid .nav ul li {
         padding: 15px 15px;
         overflow: auto; }
+      .auth.main-wrapper.container-fluid .nav ul li.has-dropdown label {
+        font-size: 2rem; }
       .auth.main-wrapper.container-fluid .nav ul li.hello .left {
         float: left; }
       .auth.main-wrapper.container-fluid .nav ul li.hello .right {
@@ -2725,6 +2734,31 @@ select {
     left: -75%; }
   .auth.main-wrapper.container-fluid .nav-toggler-checkbox:checked ~ .nav {
     right: 0; } }
+
+.tabs ul.tab-list {
+  border-bottom: 1px solid #ccc;
+  list-style-type: none;
+  overflow: auto; }
+  .tabs ul.tab-list li {
+    font-size: 1.5rem;
+    float: left;
+    padding: 10px 15px;
+    border: 1px solid white;
+    border-bottom: none; }
+    .tabs ul.tab-list li.active {
+      border-color: #ccc;
+      background: #FAFAFA;
+      font-weight: bold; }
+    .tabs ul.tab-list li a {
+      color: black; }
+
+.tabs .tab-content {
+  padding: 20px 0;
+  clear: both; }
+  .tabs .tab-content .tab-panel {
+    display: none; }
+    .tabs .tab-content .tab-panel.active {
+      display: block; }
 
 .home.nav {
   border-top: 4px solid #15179E;
@@ -3021,28 +3055,30 @@ select {
     margin-top: 100px;
     padding: 20px; }
     .premium.main-wrapper .main-section .column1 {
-      border: 1px solid #ccc;
       background: white;
       padding-top: 15px; }
       .premium.main-wrapper .main-section .column1 p {
-        font-size: 1.8rem;
+        font-size: 2rem;
         margin-bottom: 50px; }
       .premium.main-wrapper .main-section .column1 i {
         margin-right: 10px;
         font-size: 2rem; }
     .premium.main-wrapper .main-section .column2, .premium.main-wrapper .main-section .column3 {
       min-height: 50vh;
-      background-color: #F7F7F7;
+      background-color: white;
       transition: 0.1s all ease-in;
       border-radius: 5px;
       text-align: center; }
-      .premium.main-wrapper .main-section .column2:hover, .premium.main-wrapper .main-section .column3:hover {
-        background-color: white;
-        transform: scale(1.05); }
       .premium.main-wrapper .main-section .column2 a, .premium.main-wrapper .main-section .column3 a {
         color: rgba(0, 0, 0, 0.6); }
         .premium.main-wrapper .main-section .column2 a:hover, .premium.main-wrapper .main-section .column3 a:hover {
           color: rgba(0, 0, 0, 0.6); }
+    .premium.main-wrapper .main-section .column2 {
+      background-color: #FAFAFA;
+      transform: scale(1.05);
+      margin-left: 30px; }
+    .premium.main-wrapper .main-section .column3 {
+      transform: scale(0.9); }
     .premium.main-wrapper .main-section ul.price-banner {
       list-style-type: none; }
       .premium.main-wrapper .main-section ul.price-banner li {
@@ -3172,5 +3208,25 @@ select {
     margin-bottom: 20px; }
     .edit .form .fieldset label {
       font-size: 1.8rem; }
+
+.settings .header, .settings .main-section {
+  overflow: auto; }
+
+.settings .header {
+  background: #FAFAFA;
+  border: 1px solid #ccc;
+  border-top: none;
+  padding: 40px 40px; }
+
+.settings .main {
+  margin-top: 25px; }
+  .settings .main .delete_account h4 {
+    color: #15179E;
+    margin: 20px 0;
+    font-size: 2.5rem; }
+  .settings .main .cancel_subscription, .settings .main .resume_subscription {
+    padding: 10px 20px; }
+  .settings .main .payment_method button {
+    margin-top: 20px; }
 
 /*# sourceMappingURL=app.css.map */

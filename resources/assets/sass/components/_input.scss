@@ -23,7 +23,12 @@ input, textarea, select{
 }
 
 label{
+	font-size:1.8rem;
 	cursor:pointer;
+}
+
+.fieldset{
+	margin-bottom: 20px;
 }
 
 .fieldset.error{

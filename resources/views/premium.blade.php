@@ -20,11 +20,11 @@
 				<div class="col-md-4 column1">
 					<p>
 						<i class="fa fa-check" aria-hidden="true"></i>
-						Our pros will address your question in no more than 24 hours.
+						No hidden fees
 					</p>
 					<p>
 						<i class="fa fa-check" aria-hidden="true"></i>
-						You get direct support to one question a day.
+						Monthly rolling subscription
 					</p>
 					<p>
 						<i class="fa fa-check" aria-hidden="true"></i>
@@ -36,35 +36,35 @@
 					</p>
 				</div>
 
-				<div class="col-md-3 col-md-offset-1 column2">
-					<a href="{{ route('premium.join') . '?plan=monthly' }}">
+				<div class="col-md-3 col-md-offset-1 column3">
+					<a href="{{ route('signup') }}">
 						<ul class="price-banner">
 							<li class="section1">
-								<span>Monthly</span>
+								<span>Free</span>
 							</li>
 							<li class="section2">
-								<span>$20/month</span>
+								<span>Unlimited community questions</span>
 							</li>
 							<li class="section3">
-								<a class="button" href="{{ route('premium.join') . '?plan=monthly' }}">
-									Upgrade
+								<a class="button" href="{{ route('signup') }}">
+									Sign up
 								</a>
 							</li>
 						</ul>
 					</a>
 				</div>
-				
-				<div class="col-md-3 col-md-offset-1 column3">
-					<a href="{{ route('premium.join') . '?plan=yearly' }}">
+
+				<div class="col-md-3 col-md-offset-1 column2">
+					<a href="{{ route('premium.join') }}">
 						<ul class="price-banner">
 							<li class="section1">
-								<span>Yearly</span>
+								<span>Monthly(&euro;20/month)</span>
 							</li>
 							<li class="section2">
-								<span>$220/year</span>
+								<span>1 pro question/day.</span>
 							</li>
 							<li class="section3">
-								<a class="button" href="{{ route('premium.join') . '?plan=yearly' }}">
+								<a class="button" href="{{ route('premium.join') }}">
 									Upgrade
 								</a>
 							</li>

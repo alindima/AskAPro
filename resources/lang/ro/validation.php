@@ -50,6 +50,7 @@ return [
     ],
     'not_in'               => 'The selected :attribute is invalid.',
     'numeric'              => 'The :attribute must be a number.',
+    'old_password'         => 'Parola este incorecta',
     'present'              => 'The :attribute field must be present.',
     'recaptcha'            => 'Va rugam confirmati ca nu sunteti un robot.',
     'regex'                => 'The :attribute format is invalid.',
@@ -100,6 +101,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'da_password' => 'password',
+    ],
 
 ];

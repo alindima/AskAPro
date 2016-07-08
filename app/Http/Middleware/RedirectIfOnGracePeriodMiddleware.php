@@ -2,10 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use Auth;
+use Closure;
 
-class RedirectIfPremiumMiddleware
+class RedirectIfOnGracePeriodMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,9 @@ class RedirectIfPremiumMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->subscribed('main')){
-            if ($request->ajax() || $request->wantsJson()) {
-                return response('Unauthorized.', 401);
-            }else{
-                return redirect()->route('dashboard')->with('info', 'You are already a premium member.');
+        if(Auth::user()->is_premium()){
+            if(Auth::user()->subscription('main')->onGracePeriod()){
+                abort(403); 
             }
         }
 

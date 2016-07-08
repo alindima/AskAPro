@@ -5,15 +5,22 @@ namespace App\Http\Controllers\Auth;
 use Auth;
 use App\User;
 use App\ProfilePicture;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
-use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
 	public function __construct()
 	{
 		$this->middleware('auth');
+
+        $this->middleware('redirect_if_premium', [
+            'only' => [
+                'getJoin',
+                'postJoin',
+            ]
+        ]);
 	}
 
 	public function index()
@@ -33,13 +40,17 @@ class AccountController extends Controller
 
     public function postJoin(Request $request)
     {
-        Auth::user()->newSubscription('main', $request->input('plan'))->create($request->input('payment_method_nonce'));
+        Auth::user()->newSubscription('main', 'monthly')->create($request->input('payment_method_nonce'));
 
-        return redirect()->route('dashboard')->with('success', 'Thank you for becoming a premium member! That means the world.');
+        return redirect()->route('dashboard')->with('success', 'Thank you for becoming a premium member! That means the world to us.');
     }
 
     public function profile(User $user)
     {
+        if($user->trashed()){
+            abort(404);
+        }
+
     	return view('auth.profile')->with([
             'user' => $user,
             'page' => 'profile',
@@ -64,12 +75,5 @@ class AccountController extends Controller
         $user->update($request->all());
 
         return redirect()->route('profile', $user->name)->with('success', 'Profile updated');
-    }
-
-    public function settings()
-    {
-        return view('auth.settings')->with([
-            'page' => 'account',
-        ]);
     }
 }

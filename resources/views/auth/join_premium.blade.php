@@ -23,11 +23,8 @@
 					<form method="post" action="">
 						<label for="plan">Choose a billing plan</label>
 						<select name="plan" id="plan">
-							<option value="monthly" {{ request()->get('plan') == 'monthly' ? 'selected' : '' }}>
+							<option value="monthly" selected>
 								Monthly(20 &euro;)
-							</option>
-							<option value="yearly"  {{ request()->get('plan') == 'yearly' ? 'selected' : '' }}>
-								Yearly(220 &euro;)
 							</option>
 						</select>
 						

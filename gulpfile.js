@@ -11,6 +11,7 @@ elixir(function(mix) {
         'functions.js',
         'global_scripts.js',
         'components/file_input.js',
+        'components/tabs.js',
         'pages/home.js'
     ]);
 

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use Mail;
 use Auth;
+use Hash;
+use Session;
 use App\User;
 use Validator;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -48,8 +50,77 @@ class AuthController extends Controller
     protected function validateLogin(Request $request)
     {
         $this->validate($request, [
-            $this->loginUsername() => 'required|active_user', 'password' => 'required',
+            $this->loginUsername() => 'required|active_user',
+            'password' => 'required',
         ]);
+    }
+
+    protected function authenticated()
+    {
+        return redirect()->route($this->redirectTo);
+    }
+
+    protected function handleUserWasAuthenticated(Request $request, $throttles)
+    {
+        if ($throttles) {
+            $this->clearLoginAttempts($request);
+        }
+
+        if (method_exists($this, 'authenticated')) {
+            return $this->authenticated($request, Auth::guard($this->getGuard())->user());
+        }
+    }
+
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        // If the class is using the ThrottlesLogins trait, we can automatically throttle
+        // the login attempts for this application. We'll key this by the username and
+        // the IP address of the client making these requests into this application.
+        $throttles = $this->isUsingThrottlesLoginsTrait();
+
+        if ($throttles && $lockedOut = $this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        $credentials = $this->getCredentials($request);
+
+        //if the account is deactivated(sof-deleted),re-activate the account and login accordingly.
+
+        $user = User::withTrashed()->where('email', $request->input('email')); 
+            
+        if($user->count() > 0 && $user->first()->trashed() && Hash::check($request->input('password'), $user->first()->password)){
+
+            $user->first()->restore();
+
+            Session::flash('success', 'Welcome back! Your account has been successfully re-activated.');
+
+            Auth::guard($this->getGuard())->login($user->first(), $request->has('remember'));
+
+            return $this->handleUserWasAuthenticated($request, $throttles);
+            
+        }
+        
+        if (Hash::check($request->input('password'), $user->first()->password)) {
+
+            $this->handleUserWasAuthenticated($request, $throttles);
+
+            Auth::guard($this->getGuard())->login($user->first(), $request->has('remember'));
+
+            return $this->handleUserWasAuthenticated($request, $throttles);
+        }
+
+        // If the login attempt was unsuccessful we will increment the number of attempts
+        // to login and redirect the user back to the login form. Of course, when this
+        // user surpasses their maximum number of attempts they will get locked out.
+        if ($throttles && ! $lockedOut) {
+            $this->incrementLoginAttempts($request);
+        }
+
+        return $this->sendFailedLoginResponse($request);
     }
 
     public function register(Request $request)

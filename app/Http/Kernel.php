@@ -55,5 +55,7 @@ class Kernel extends HttpKernel
         'redirect_if_pro' => \App\Http\Middleware\RedirectIfProMiddleware::class,
         'premium' => \App\Http\Middleware\PremiumMiddleware::class,
         'redirect_if_premium' => \App\Http\Middleware\RedirectIfPremiumMiddleware::class,
+        'on_grace_period' => \App\Http\Middleware\OnGracePeriodMiddleware::class,
+        'redirect_if_on_grace_period' => \App\Http\Middleware\RedirectIfOnGracePeriodMiddleware::class,
     ];
 }

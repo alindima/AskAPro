@@ -358,23 +358,55 @@ this.emailNode.id="bt-pp-email",this.emailNode.style.cssText=t,this.container.ap
 	});
 
 })();
-var inputs = document.querySelectorAll('.file');
+(function(){
+	var inputs = document.querySelectorAll('.file');
 
-Array.prototype.forEach.call(inputs, function(input)
-{
-	var label = input.nextElementSibling,
-		labelVal = label.innerHTML;
-
-	input.addEventListener('change', function(e)
+	Array.prototype.forEach.call(inputs, function(input)
 	{
-		var fileName = e.target.value.split('\\').pop();
+		var label = input.nextElementSibling,
+			labelVal = label.innerHTML;
 
-		if(fileName)
-			label.innerHTML = fileName;
-		else
-			label.innerHTML = labelVal;
+		input.addEventListener('change', function(e)
+		{
+			var fileName = e.target.value.split('\\').pop();
+
+			if(fileName)
+				label.innerHTML = fileName;
+			else
+				label.innerHTML = labelVal;
+		});
 	});
-});
+})();
+(function(){
+    if(location.hash != ''){
+        var links = $('.tab-li a');
+
+        $('.tab-li.active').removeClass('active');
+
+        Array.prototype.forEach.call(links, function(link) {
+            var $link = $(link);
+
+            if($link.attr('href') == location.hash){
+                $link.parent('.tab-li').addClass('active');
+            }
+        });
+
+        $('.tab-panel.active').removeClass('active');
+        $('.tab-panel' + location.hash).addClass('active');
+    }
+
+    $('.tab-li a').on('click', function(){
+        var $this = $(this),
+            tab_li = $this.parent('.tab-li');
+
+        if(!tab_li.hasClass('active')){
+            $('.tab-panel.active').removeClass('active');
+            $('.tab-panel' + $this.attr('href')).addClass('active');
+            $('.tab-li.active').removeClass('active');
+            tab_li.addClass('active');
+        }
+    });    
+})();
 (function(){
 
 	var $window = $(window),

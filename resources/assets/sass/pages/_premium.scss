@@ -12,12 +12,12 @@
 		padding:20px;
 
 		.column1{
-			border:1px solid #ccc;
+			// border:1px solid #ccc;
 			background:white;
 			padding-top:15px;
 
 			p{
-				font-size: 1.8rem;
+				font-size: 2rem;
 				margin-bottom: 50px;
 			}
 
@@ -29,16 +29,10 @@
 
 		.column2, .column3{
 			min-height: 50vh;
-			background-color:#F7F7F7;
+			background-color:white;
 			transition:0.1s all ease-in;
 			border-radius:5px;
 			text-align:center;
-
-			&:hover{
-				background-color:white;
-				transform: scale(1.05);
-				// box-shadow:0 3px #ccc;
-			}
 
 			a{
 				color:rgba(0,0,0,0.6);
@@ -47,6 +41,16 @@
 					color:rgba(0,0,0,0.6);
 				}
 			}
+		}
+
+		.column2{
+			background-color:#FAFAFA;
+			transform: scale(1.05);
+			margin-left:30px; 
+		}
+
+		.column3{
+			transform:scale(0.9);
 		}
 
 		ul.price-banner{

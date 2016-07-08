@@ -36,6 +36,36 @@ Route::group(['middleware' => 'locale'], function(){
 			'as' => 'dashboard',
 		]);
 
+		Route::get('settings', [
+			'uses' => 'Auth\SettingsController@index',
+			'as' => 'settings.index',
+		]);
+
+		Route::post('settings/password/change', [
+			'uses' => 'Auth\SettingsController@change_password',
+			'as' => 'password.change',
+		]);
+
+		Route::get('settings/subscription/resume', [
+			'uses' => 'Auth\SettingsController@resume_subscription',
+			'as' => 'subscription.resume',
+		]);
+
+		Route::get('settings/subscription/cancel', [
+			'uses' => 'Auth\SettingsController@cancel_subscription',
+			'as' => 'subscription.cancel',
+		]);
+
+		Route::put('settings/subscription/payment_method', [
+			'uses' => 'Auth\SettingsController@payment_method',
+			'as' => 'subscription.payment_method',
+		]);
+
+		Route::delete('settings/delete_account', [
+			'uses' => 'Auth\SettingsController@delete_account',
+			'as' => 'account.delete'
+		]);
+
 		Route::get('premium/join', [
 			'uses' => 'Auth\AccountController@getJoin',
 			'as' => 'premium.join',
@@ -93,13 +123,7 @@ Route::group(['middleware' => 'locale'], function(){
 		]);
 	});
 
-	//pro routes
-	Route::get('pro', [
-		'uses' => 'Pro\ProController@home',
-		'as' => 'pro.home',
-	]);
-
-	//common routes
+	//both normal and pro routes
 	Route::get('logout', [
 		'uses' => 'Auth\AuthController@logout',
 		'as' => 'logout',
@@ -127,9 +151,10 @@ Route::group(['middleware' => 'locale'], function(){
 
 	Route::put('profile/edit', 'Auth\AccountController@putEdit');
 
-	Route::get('profile/settings', [
-		'uses' => 'Auth\AccountController@settings',
-		'as' => 'profile.settings',
+	//pro routes
+	Route::get('pro', [
+		'uses' => 'Pro\ProController@home',
+		'as' => 'pro.home',
 	]);
 });
 

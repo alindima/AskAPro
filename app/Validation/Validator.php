@@ -2,6 +2,8 @@
 
 namespace App\Validation;
 
+use Auth;
+use Hash;
 use App\User;
 
 class Validator
@@ -35,6 +37,14 @@ class Validator
 		}
 
 		return true;
+	}
 
+	public function old_password($attribute, $value, $parameters, $validator)
+	{
+		if(!Hash::check($value, Auth::user()->password)){
+			return false;
+		}
+
+		return true;
 	}
 }

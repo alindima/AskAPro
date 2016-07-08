@@ -2,15 +2,19 @@
 
 namespace App;
 
-use Laravel\Cashier\Billable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Http\Requests\ProfileRequest;
-use Image;
 use File;
+use Image;
+use ReflectionClass;
+use Braintree_PaymentMethod;
+use Laravel\Cashier\Billable;
+use App\Http\Requests\ProfileRequest;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Billable;
+    use Billable,
+        SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -37,6 +41,11 @@ class User extends Authenticatable
         'remember_token',
         'activation_token',
         'is_pro',
+        'braintree_id',
+        'paypal_email',
+        'card_brand',
+        'card_last_four',
+        'trial_ends_at',
     ];
 
     /**
@@ -48,6 +57,7 @@ class User extends Authenticatable
         'created_at',
         'updated_at',
         'last_seen',
+        'deleted_at',
     ];
 
     public function picture()
@@ -104,7 +114,7 @@ class User extends Authenticatable
                 'image_name' => $imageName,
             ]);
 
-            $user->picture()->save($image);
+            $this->picture()->save($image);
         }else{
             File::delete(storage_path() . '/app/public/profile_pictures/' . $this->picture->image_name);
 
@@ -118,6 +128,42 @@ class User extends Authenticatable
         $image
             ->crop($min_dimension, $min_dimension)
             ->save(storage_path() . '/app/public/profile_pictures/' . $imageName);
+    }
+
+    public function changePaymentMethod($nonce)
+    {
+        $response = Braintree_PaymentMethod::create([
+            'customerId' => $this->braintree_id,
+            'paymentMethodNonce' => $nonce,
+            'options' => [
+                'makeDefault' => true,
+                'verifyCard' => true,
+            ]
+        ]);
+
+        if(!$response->success){
+            return false;
+        }
+
+        switch ((new ReflectionClass($response->paymentMethod))->getShortName()) {
+            case 'CreditCard':
+                $this->card_brand = $response->paymentMethod->cardType;
+                $this->card_last_four = $response->paymentMethod->last4;
+                $this->paypal_email = null;
+
+                break;
+            
+            case 'PayPalAccount':
+                $this->paypal_email = $response->paymentMethod->email;
+                $this->card_brand = null;
+                $this->card_last_four = null;
+                
+                break;
+        }
+
+        $this->save();
+        
+        return true;
     }
 
 }

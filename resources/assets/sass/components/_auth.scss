@@ -45,13 +45,10 @@
 			}
 		}
 
-		.dropdown-ul{
-			font-size: 1.8rem;
-			
-			li{
+		.dropdown-ul li{
 				border:none !important;
+				font-size: 1.8rem;
 			}
-		}
 
 		.dropdown-checkbox:checked{
 			& ~ .dropdown-ul{
@@ -79,6 +76,10 @@
 			li{
 				padding:15px 15px;
 				overflow:auto;
+			}
+
+			li.has-dropdown label{
+				font-size: 2rem;
 			}
 
 			li.hello{
