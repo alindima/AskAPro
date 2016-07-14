@@ -2577,6 +2577,55 @@ label {
   font-size: 1.8rem;
   cursor: pointer; }
 
+.switch-input {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden; }
+  .switch-input ~ label:not(.switch) {
+    font-size: 2rem !important; }
+  .switch-input + .switch {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 2px;
+    width: 40px;
+    height: 20px;
+    background-color: #dddddd;
+    border-radius: 60px;
+    transition: background 0.4s;
+    margin-bottom: -3px;
+    margin-right: 10px; }
+    .switch-input + .switch:before, .switch-input + .switch:after {
+      display: block;
+      position: absolute;
+      content: ""; }
+    .switch-input + .switch:before {
+      top: 2px;
+      left: 2px;
+      bottom: 2px;
+      right: 2px;
+      background-color: #fff;
+      border-radius: 60px;
+      transition: background 0.4s; }
+    .switch-input + .switch:after {
+      top: 4px;
+      left: 4px;
+      bottom: 4px;
+      width: 15px;
+      background-color: #dddddd;
+      border-radius: 52px;
+      transition: all 0.4s; }
+  .switch-input:checked + .switch {
+    background-color: #15179E; }
+    .switch-input:checked + .switch:after {
+      margin-left: 16px;
+      background-color: #15179E; }
+
 input.my_name {
   display: none; }
 
@@ -2620,7 +2669,7 @@ a.button:hover {
   font-family: lato; }
   .auth.main-wrapper.container-fluid .nav {
     overflow-y: auto;
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     width: 25%;
     position: fixed;
     height: 100vh;
@@ -3183,6 +3232,7 @@ a.button:hover {
     color: #15179E; }
 
 .profile .details {
+  border-radius: 3px;
   overflow: auto;
   margin-top: 25px;
   background: #FAFAFA;
@@ -3201,11 +3251,13 @@ a.button:hover {
   background: #FAFAFA;
   border: 1px solid #ccc;
   border-top: none;
+  border-radius: 0 0 3px 3px;
   padding: 40px 40px; }
 
 .edit .form {
   background: #FAFAFA;
   border: 1px solid #ccc;
+  border-radius: 3px;
   padding: 25px 20px;
   margin-top: 25px; }
   .edit .form .fieldset {
@@ -3220,7 +3272,8 @@ a.button:hover {
   background: #FAFAFA;
   border: 1px solid #ccc;
   border-top: none;
-  padding: 40px 40px; }
+  padding: 40px 40px;
+  border-radius: 0 0 3px 3px; }
 
 .settings .main {
   margin-top: 25px; }
@@ -3233,7 +3286,20 @@ a.button:hover {
   .settings .main .payment_method button {
     margin-top: 20px; }
 
+.new-question .header, .new-question .form {
+  overflow: auto; }
+
+.new-question .header {
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  padding: 40px 40px; }
+
 .new-question .form {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #fafafa;
   padding: 25px 20px;
   margin-top: 25px; }
   .new-question .form .fieldset {

@@ -70,6 +70,67 @@ label{
 	cursor:pointer;
 }
 
+.switch-input {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+
+    & ~ label:not(.switch){
+        font-size:2rem !important;
+    }
+
+    & + .switch{
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+        user-select: none;
+        padding: 2px;
+        width: 40px;
+        height: 20px;
+        background-color: #dddddd;
+        border-radius: 60px;
+        transition: background 0.4s;
+        margin-bottom: -3px;
+        margin-right: 10px;
+        
+        &:before, &:after{
+            display: block;
+            position: absolute;
+            content: "";
+        }
+
+        &:before{
+            top: 2px;
+            left: 2px;
+            bottom: 2px;
+            right: 2px;
+            background-color: #fff;
+            border-radius: 60px;
+            transition: background 0.4s;
+        }
+
+        &:after{
+            top: 4px;
+            left: 4px;
+            bottom: 4px;
+            width: 15px;
+            background-color: #dddddd;
+            border-radius: 52px;
+            transition: all 0.4s;
+        }
+    }
+
+    &:checked + .switch{
+        background-color: $theme-color;
+    
+        &:after{
+            margin-left: 16px;
+            background-color: $theme-color;
+        }
+    }
+}
+
 input.my_name{
 	display:none;
 }

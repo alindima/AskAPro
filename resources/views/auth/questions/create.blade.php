@@ -6,6 +6,9 @@
 
 @section('content')
 	<div class="new-question">
+		<div class="header">
+			<h1>New question</h1>
+		</div>
 		<div class="form">
 			<form action="{{ route('question.create') }}" method="post">
 				<div class="fieldset{{ $errors->has('title') ? ' error' : '' }}">
@@ -32,7 +35,9 @@
 				
 				@can('createPremiumQuestion', Auth::user())
 					<div class="fieldset">
-						<input type="checkbox" name="premium" id="premium"{{ old('premium') ? ' checked' : '' }}>
+						<input type="checkbox" name="premium" id="premium"{{ old('premium') ? ' checked' : '' }} class="switch-input">
+						<label for="premium" class="switch"></label>
+						
 						<label for="premium">I want a pro to answer this question</label>
 					</div>
 				@endcan
