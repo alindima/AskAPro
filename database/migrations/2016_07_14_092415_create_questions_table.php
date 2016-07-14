@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProfilePicturesTable extends Migration
+class CreateQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,17 @@ class CreateProfilePicturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('profile_pictures', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->string('image_name');
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text('body');
+            $table->boolean('premium')->default(false);
             $table->timestamps();
         });
     }
@@ -31,6 +34,6 @@ class CreateProfilePicturesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('profile_pictures');
+        Schema::drop('questions');
     }
 }

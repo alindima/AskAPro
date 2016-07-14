@@ -23,14 +23,9 @@ class AccountController extends Controller
         ]);
 	}
 
-	public function index()
-    {
-        return redirect()->route('profile', Auth::user()->name)->with('page', 'account');
-    }
-
 	public function dashboard()
 	{
-		return view('auth.dashboard')->with('page', 'dashboard');
+		return view('auth.dashboard');
 	}
 
     public function getJoin()
@@ -51,17 +46,12 @@ class AccountController extends Controller
             abort(404);
         }
 
-    	return view('auth.profile')->with([
-            'user' => $user,
-            'page' => 'profile',
-        ]);
+    	return view('auth.profile')->with('user', $user);
     }
 
     public function getEdit()
     {
-    	return view('auth.edit')->with([
-            'page' => 'account',
-        ]);
+    	return view('auth.edit');
     }
 
     public function putEdit(ProfileRequest $request)

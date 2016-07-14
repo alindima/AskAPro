@@ -39,9 +39,7 @@ class SettingsController extends Controller
 
     public function index()
     {
-        return view('auth.settings')->with([
-            'page' => 'account',
-        ]);
+        return view('auth.settings');
     }
 
     public function change_password(ChangePasswordRequest $request)

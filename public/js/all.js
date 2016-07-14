@@ -410,8 +410,17 @@ this.emailNode.id="bt-pp-email",this.emailNode.style.cssText=t,this.container.ap
 (function(){
 
 	var $window = $(window),
+		$document = $(document),
 		$more = $('.more'),
 		$more_id = $('#more');
+
+	$document.ready(function(){
+		$('.home.section1 section')
+			.css('visibility', 'visible')
+			.animate({
+				opacity: 1
+			},600);
+	});
 
 	$more.find('a').on('click', function(e){
 		e.preventDefault();

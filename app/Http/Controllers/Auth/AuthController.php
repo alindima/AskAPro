@@ -104,7 +104,7 @@ class AuthController extends Controller
             
         }
         
-        if (Hash::check($request->input('password'), $user->first()->password)) {
+        if ($user->first() && Hash::check($request->input('password'), $user->first()->password)) {
 
             $this->handleUserWasAuthenticated($request, $throttles);
 

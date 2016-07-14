@@ -6,6 +6,7 @@ use File;
 use Image;
 use ReflectionClass;
 use Braintree_PaymentMethod;
+use Illuminate\Http\Request;
 use Laravel\Cashier\Billable;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -60,10 +61,23 @@ class User extends Authenticatable
         'deleted_at',
     ];
 
+    /**
+     * Define eloquent relationships
+     */
+    
     public function picture()
     {
         return $this->hasOne('App\ProfilePicture');
     }
+
+    public function questions()
+    {
+        return $this->hasMany('App\Question');
+    }  
+
+    /**
+     * Custom functions
+     */
 
     public function is_pro()
     {
@@ -99,7 +113,7 @@ class User extends Authenticatable
     public function getProfilePicture()
     {
         if(is_null($this->picture)){
-            return 'https://www.gravatar.com/avatar/' . $this->getGravatarHash() . '?d=mm';
+            return 'https://www.gravatar.com/avatar/' . $this->getGravatarHash() . '?d=mm&s=100';
         }
         
         return url('/') . '/img/profile_pictures/' . $this->picture->image_name;
@@ -164,6 +178,19 @@ class User extends Authenticatable
         $this->save();
         
         return true;
+    }
+
+    public function addQuestion(Request $request)
+    {
+        $question = new Question;
+        $question->title = $request->input('title');
+        $question->body = $request->input('body');
+        $question->slug = $question->makeSlug($request->input('title'));
+        $question->premium = $request->has('premium') ? 1 : 0;
+
+        $this->questions()->save($question);
+
+        return $question->slug;
     }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\User;
+use App\Question;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -27,6 +28,10 @@ class RouteServiceProvider extends ServiceProvider
     {
         $router->bind('user', function ($value) {
             return User::where('name', $value)->where('active', 1)->first();
+        });
+
+        $router->bind('question', function($value) {
+            return Question::where('slug', $value)->first();
         });
 
         parent::boot($router);

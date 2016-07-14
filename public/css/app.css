@@ -2493,7 +2493,7 @@ a {
     margin: auto;
     list-style-type: none;
     text-align: center;
-    background: rgba(0, 0, 0, 0.1);
+    background: #f7f7f7;
     overflow-y: auto; }
     .language-modal ul li {
       padding: .5rem;
@@ -2510,15 +2510,49 @@ a {
     border: 0;
     font-size: 2.5rem; }
 
+.fieldset {
+  margin-bottom: 20px; }
+
+.fieldset.error input:not([type='checkbox']), .fieldset.error textarea, .fieldset.error select {
+  border-color: rgba(21, 23, 158, 0.5); }
+
+.fieldset.error label {
+  color: #15179E; }
+
+.fieldset.error .error-block {
+  display: block;
+  background: rgba(21, 23, 158, 0.5);
+  color: white;
+  font-size: 1.8rem;
+  padding: 5px; }
+
 input:not([type='checkbox']), textarea, select {
   height: 3.5rem;
   width: 100%;
   border: 1px solid #ccc;
   padding: 0 5px; }
   input:not([type='checkbox']):focus, textarea:focus, select:focus {
-    outline: none; }
-  input:not([type='checkbox']):focus, textarea:focus, select:focus {
+    outline: none;
     border-color: grey; }
+
+textarea {
+  padding-top: 5px;
+  resize: vertical;
+  width: 100%;
+  height: 200px; }
+
+input[type='file'] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
+  input[type='file'] ~ label i {
+    margin-right: 10px; }
+
+select {
+  background: white; }
 
 input::-webkit-input-placeholder, textarea {
   font-size: 1.8rem;
@@ -2543,43 +2577,8 @@ label {
   font-size: 1.8rem;
   cursor: pointer; }
 
-.fieldset {
-  margin-bottom: 20px; }
-
-.fieldset.error input:not([type='checkbox']), .fieldset.error textarea, .fieldset.error select {
-  border-color: rgba(21, 23, 158, 0.5); }
-
-.fieldset.error label {
-  color: #15179E; }
-
-.fieldset.error .error-block {
-  display: block;
-  background: rgba(21, 23, 158, 0.5);
-  color: white;
-  font-size: 1.8rem;
-  padding: 5px; }
-
 input.my_name {
   display: none; }
-
-textarea {
-  padding-top: 5px;
-  resize: vertical;
-  width: 100%;
-  height: 200px; }
-
-input[type='file'] {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1; }
-  input[type='file'] ~ label i {
-    margin-right: 10px; }
-
-select {
-  background: white; }
 
 .button {
   font-size: 1.8rem;
@@ -2592,6 +2591,8 @@ select {
   .button:hover {
     background-color: rgba(21, 23, 158, 0.3);
     box-shadow: 0 3px lightslategrey; }
+  .button:focus {
+    outline: none; }
 
 a.button:hover {
   color: white; }
@@ -2815,6 +2816,8 @@ a.button:hover {
   height: 100vh;
   width: 100%; }
   .home.section1 section {
+    visibility: hidden;
+    opacity: 0;
     font-size: 3vw;
     font-family: lato;
     background-color: rgba(0, 0, 0, 0.5);
@@ -3055,11 +3058,12 @@ a.button:hover {
     margin-top: 100px;
     padding: 20px; }
     .premium.main-wrapper .main-section .column1 {
+      overflow: auto;
       background: white;
       padding-top: 15px; }
       .premium.main-wrapper .main-section .column1 p {
         font-size: 2rem;
-        margin-bottom: 50px; }
+        margin-bottom: 40px; }
       .premium.main-wrapper .main-section .column1 i {
         margin-right: 10px;
         font-size: 2rem; }
@@ -3228,5 +3232,13 @@ a.button:hover {
     padding: 10px 20px; }
   .settings .main .payment_method button {
     margin-top: 20px; }
+
+.new-question .form {
+  padding: 25px 20px;
+  margin-top: 25px; }
+  .new-question .form .fieldset {
+    margin-bottom: 20px; }
+    .new-question .form .fieldset label {
+      font-size: 1.8rem; }
 
 /*# sourceMappingURL=app.css.map */

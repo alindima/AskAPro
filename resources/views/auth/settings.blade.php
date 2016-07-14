@@ -169,16 +169,12 @@
             );
         });
 
-        @section('js')
-        <script>
-            braintree.setup(
-                "{{ Braintree_ClientToken::generate() }}",
-                "dropin",
-                {
-                    container: "change_payment_method"
-                }
-            );
-        </script>
-    @stop
+        braintree.setup(
+            "{{ Braintree_ClientToken::generate() }}",
+            "dropin",
+            {
+                container: "change_payment_method"
+            }
+        );
     </script>
 @stop

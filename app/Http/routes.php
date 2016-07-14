@@ -121,6 +121,11 @@ Route::group(['middleware' => 'locale'], function(){
 		Route::post('questions/create', [
 			'uses' => 'Auth\QuestionController@store',
 		]);
+
+		Route::get('questions/{question}', [
+			'uses' => 'Auth\QuestionController@show',
+			'as' => 'question.show',
+		]);
 	});
 
 	//both normal and pro routes
@@ -132,11 +137,6 @@ Route::group(['middleware' => 'locale'], function(){
 	Route::get('cookie_accept', [
 		'uses' => 'HomeController@cookie_accept',
 		'as' => 'cookie_accept',
-	]);
-
-	Route::get('profile', [
-		'uses' => 'Auth\AccountController@index',
-		'as' => 'profile.index',
 	]);
 
 	Route::get('@{user}', [

@@ -31,7 +31,7 @@
 								<img src="{{ Auth::user()->getProfilePicture() }}" alt="{{ Auth::user()->getName() }}">
 							</span>
 						</li>
-						<li{{ $page === 'questions.create' ? ' class=active' : '' }}>
+						<li{{ routeName() === 'question.create' ? ' class=active' : '' }}>
 							<a href="{{ route('question.create') }}">
 								<i class="fa fa-plus" aria-hidden="true"></i>
 								Ask a Question
@@ -55,7 +55,7 @@
 								My questions
 							</a>
 						</li>
-						<li class="has-dropdown{{ ($page === 'account' || Session::get('page') === 'account') ? ' active' : '' }}">
+						<li class="has-dropdown{{ in_array(routeName(), ['settings.index', 'profile.edit']) || (routeName() === 'profile' && Auth::user()->name === $user->name) ? ' active' : '' }}">
 							<input type="checkbox" id="dropdown" name="" class="dropdown-checkbox">
 							<label for="dropdown" class="dropdown-label">
 								<i class="fa fa-user" aria-hidden="true"></i>
@@ -73,7 +73,7 @@
 								@endif
 								
 								<li>
-									<a href="{{ route('profile.index') }}">
+									<a href="{{ route('profile', Auth::user()->name) }}">
 										Profile
 									</a>
 								</li>

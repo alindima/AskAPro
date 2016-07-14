@@ -80,7 +80,7 @@
                         {!! trans('home.main_message') !!}
                         <br>    
                         <div class="link">
-                            <a href="#">Find out more</a>
+                            <a href="{{ route('premium') }}">Find out more</a>
                         </div>
                     </div>
                   </div>

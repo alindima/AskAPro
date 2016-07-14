@@ -14,6 +14,5 @@ return [
 
                 If you find our subscription fees a little too pricy,you can sign up for a free account and get your questions answered by our vivid community.<br><br>
 
-                What's more?If your answer is the best,you get to ask a free question for a pro to answer.<br><br>
                 Simple as that.We love what we do and we love helping those who need it",
 ];
