@@ -190,7 +190,7 @@ class User extends Authenticatable
 
         $this->questions()->save($question);
 
-        return $question->slug;
+        return $question;
     }
 
 }

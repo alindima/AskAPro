@@ -26,4 +26,35 @@
             }
         }
     }
+
+    .tabs{
+        .tab-content{
+            padding: 0;
+        }
+
+        .markdown-banner{
+            float:right;
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-right: 5px;
+            margin-top: 10px;
+            color:grey;
+
+            &:hover{
+                color:black;
+            }
+        }
+
+        .tab-list{
+            border-bottom:none;
+        }
+
+        #preview{
+            padding:20px 30px;
+            border:1px solid #ccc;
+            font-size: 1.8rem;
+            overflow:auto;
+            margin-bottom: 20px;
+        }
+    }
 }

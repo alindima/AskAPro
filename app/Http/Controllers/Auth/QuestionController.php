@@ -25,7 +25,7 @@ class QuestionController extends Controller
             $this->authorize('createPremiumQuestion', Auth::user());
         }
 
-        $slug = Auth::user()->addQuestion($request);
+        $slug = Auth::user()->addQuestion($request)->slug;
         
         return redirect()->route('question.show', $slug)->with('success', 'Question successfully added');
     }

@@ -10,7 +10,7 @@
             <h1>Account Settings</h1>
         </div>
         <div class="main">
-            <div class="tabs">
+            <div class="tabs tabs-url">
                 <ul class="tab-list">
                     <li class="tab-li active">
                         <a href="#change_password">Change password</a>

@@ -9,6 +9,7 @@
 		<div class="header">
 			<h1>New question</h1>
 		</div>
+		
 		<div class="form">
 			<form action="{{ route('question.create') }}" method="post">
 				<div class="fieldset{{ $errors->has('title') ? ' error' : '' }}">
@@ -22,15 +23,35 @@
 					@endif
 				</div>
 
-				<div class="fieldset{{ $errors->has('body') ? ' error' : '' }}">
-					<label for="body">Body</label>
-					<textarea name="body" id="body">{{ old('body') }}</textarea>
-					
-					@if($errors->has('body'))
-						<span class="error-block">
-							{{ $errors->first('body') }}
-						</span>
-					@endif
+				<div class="tabs">
+					<ul class="tab-list">
+						<li class="tab-li active">
+							<a href="#body">Body</a>
+						</li>
+						<li class="tab-li">
+							<a href="#preview">Preview</a>
+						</li>
+
+						<a href="http://commonmark.org/help/" target="_blank" class="markdown-banner">
+							Markdown is supported
+						</a>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-panel active" id="body">
+							<div class="fieldset{{ $errors->has('body') ? ' error' : '' }}">
+								<textarea name="body" id="body">{{ old('body') }}</textarea>
+								
+								@if($errors->has('body'))
+									<span class="error-block">
+										{{ $errors->first('body') }}
+									</span>
+								@endif
+							</div>
+						</div>
+						<div class="tab-panel" id="preview">
+							Type something in the textbox
+						</div>
+					</div>
 				</div>
 				
 				@can('createPremiumQuestion', Auth::user())
