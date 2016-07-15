@@ -17,6 +17,11 @@ class Question extends Model
     	return $this->belongsTo('App\User');
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag')->withTimestamps();
+    }
+
     public function makeSlug($title)
 	{
 	    $slug = str_slug($title);

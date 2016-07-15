@@ -9,6 +9,7 @@ elixir(function(mix) {
         '../../../node_modules/sweetalert/dist/sweetalert.min.js',
         '../../../node_modules/marked/lib/marked.js',
         '../../../node_modules/braintree-web/dist/braintree.js',
+        'plugins/chosen.js',
         'functions.js',
         'global_scripts.js',
         'components/file_input.js',

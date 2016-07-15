@@ -1,5 +1,5 @@
 .new-question{
-    .header, .form{
+    .header{
         overflow:auto;
     }
 
@@ -24,6 +24,13 @@
             label{
                 font-size:1.8rem;
             }
+        }
+
+        .info{
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            background:$secondary-color;
+            padding:20px;
         }
     }
 
@@ -55,6 +62,7 @@
             font-size: 1.8rem;
             overflow:auto;
             margin-bottom: 20px;
+            background:white;
         }
     }
 }

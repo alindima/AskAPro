@@ -4,6 +4,7 @@ namespace App\Validation;
 
 use Auth;
 use Hash;
+use App\Tag;
 use App\User;
 
 class Validator
@@ -46,5 +47,18 @@ class Validator
 		}
 
 		return true;
+	}
+
+	public function tags($attribute, $value, $parameters, $validator)
+	{
+		$tags = Tag::lists('id')->toArray();
+
+		foreach($value as $tag){
+			if(!in_array($tag, $tags)){
+				return false;
+			}
+		}
+
+		return true;	
 	}
 }

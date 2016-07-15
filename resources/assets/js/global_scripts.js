@@ -4,4 +4,6 @@
 		e.preventDefault();
 	});
 
+	$('.chosen').chosen();
+
 })();

@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('recaptcha', 'App\Validation\Validator@recaptcha');
         Validator::extend('bot', 'App\Validation\Validator@bot');
         Validator::extend('old_password', 'App\Validation\Validator@old_password');
+        Validator::extend('tags', 'App\Validation\Validator@tags');
 
         //braintree-specific sdk calls
         Braintree_Configuration::environment(env('BRAINTREE_ENV'));

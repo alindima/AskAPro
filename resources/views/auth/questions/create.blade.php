@@ -11,10 +11,10 @@
 		</div>
 		
 		<div class="form">
-			<form action="{{ route('question.create') }}" method="post">
+			<form action="{{ route('question.create') }}" method="post" autocomplete="off">
 				<div class="fieldset{{ $errors->has('title') ? ' error' : '' }}">
 					<label for="title">Title</label>
-					<input type="text" name="title" id="title" value="{{ old('title') }}">
+					<input placeholder="e.g. How to sort an array in php" type="text" name="title" id="title" value="{{ old('title') }}">
 					
 					@if($errors->has('title'))
 						<span class="error-block">
@@ -39,7 +39,7 @@
 					<div class="tab-content">
 						<div class="tab-panel active" id="body">
 							<div class="fieldset{{ $errors->has('body') ? ' error' : '' }}">
-								<textarea name="body" id="body">{{ old('body') }}</textarea>
+								<textarea name="body" id="body" placeholder="Describe your problem here...">{{ old('body') }}</textarea>
 								
 								@if($errors->has('body'))
 									<span class="error-block">
@@ -48,10 +48,23 @@
 								@endif
 							</div>
 						</div>
-						<div class="tab-panel" id="preview">
-							Type something in the textbox
-						</div>
+						<div class="tab-panel" id="preview"></div>
 					</div>
+				</div>
+
+				<div class="fieldset{{ $errors->has('tags') ? ' error' : '' }}">
+					<label for="tags">Tags</label>
+					<select name="tags[]" class="chosen" data-placeholder="Pick some tags" multiple>
+						@foreach($tags as $tag)
+							<option value="{{ $tag->id }}" {{ old('tags') && in_array($tag->id, old('tags')) ? ' selected' : '' }}>{{ $tag->name }}</option>		
+						@endforeach
+					</select>
+					
+					@if($errors->has('tags'))
+						<span class="error-block">
+							{{ $errors->first('tags') }}
+						</span>
+					@endif
 				</div>
 				
 				@can('createPremiumQuestion', Auth::user())
@@ -62,6 +75,22 @@
 						<label for="premium">I want a pro to answer this question</label>
 					</div>
 				@endcan
+
+				@if(Auth::user()->is_premium() && Gate::denies('createPremiumQuestion', Auth::user()))
+					<div class="info">
+						Your last premium question was asked <strong>{{ Auth::user()->diffSinceLastPremiumQuestion() }}</strong>.
+						<br>
+						24 hours must pass before asking another one. 
+					</div> 
+				@endif
+				
+				@if(!Auth::user()->is_premium())
+					<div class="info">
+						Have a pro answer your question,satisfaction guaranteed.
+						<br>
+						<a href="{{ route('premium') }}">Upgrade</a> 
+					</div> 
+				@endif
 								
 				{{ csrf_field() }}
 
@@ -70,6 +99,7 @@
 				<button type="submit" class="button">
 					Submit question
 				</button>
+
 			</form>
 		</div>
 	</div>

@@ -122,7 +122,7 @@ Route::group(['middleware' => 'locale'], function(){
 			'uses' => 'Auth\QuestionController@store',
 		]);
 
-		Route::get('questions/{question}', [
+		Route::get('question/{question}', [
 			'uses' => 'Auth\QuestionController@show',
 			'as' => 'question.show',
 		]);

@@ -4,6 +4,7 @@ namespace App;
 
 use File;
 use Image;
+use Carbon\Carbon;
 use ReflectionClass;
 use Braintree_PaymentMethod;
 use Illuminate\Http\Request;
@@ -191,6 +192,11 @@ class User extends Authenticatable
         $this->questions()->save($question);
 
         return $question;
+    }
+
+    public function diffSinceLastPremiumQuestion()
+    {
+        return $this->questions()->where('premium', 1)->orderBy('id', 'desc')->first()->created_at->diffForHumans();
     }
 
 }
