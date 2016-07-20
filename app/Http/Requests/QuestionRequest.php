@@ -28,7 +28,7 @@ class QuestionRequest extends Request
         return [
             'title' => 'required|min:5|max:255',
             'body' => 'required|min:10',
-            'tags' => 'required|array|tags',
+            'tags' => 'required|array|tags|max:5',
             'my_name' => 'bot',
         ];
     }

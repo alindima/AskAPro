@@ -22,6 +22,8 @@
 @import "components/recaptcha";
 @import "components/auth";
 @import "components/tabs";
+@import "components/preview-tabs";
+@import "components/questions";
 
 //import pages
 @import "pages/home";
@@ -35,3 +37,6 @@
 @import "pages/edit";
 @import "pages/settings";
 @import "pages/new-question";
+@import "pages/edit-question";
+@import "pages/show-question";
+@import "pages/my-questions";

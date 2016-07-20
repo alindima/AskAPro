@@ -2,7 +2,9 @@
 
 namespace App;
 
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Question extends Model
 {
@@ -12,9 +14,14 @@ class Question extends Model
     	'body',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+    }
+
     public function user()
     {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('App\User')->withTrashed();
     }
 
     public function tags()
@@ -30,4 +37,9 @@ class Question extends Model
 
 	    return $count ? "{$slug}-{$count}" : $slug;
 	}
+
+    public function solved()
+    {
+        return false;
+    }
 }

@@ -21,6 +21,10 @@ ul{
 	@include reset();
 }
 
+h1{
+	margin-top:10px;
+}
+
 a{
 	text-decoration:none;
 	
@@ -37,4 +41,12 @@ a{
 
 .hidden{
 	display:none;
+}
+
+.left{
+	float:left;
+}
+
+.right{
+	float:right;
 }

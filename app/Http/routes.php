@@ -122,9 +122,27 @@ Route::group(['middleware' => 'locale'], function(){
 			'uses' => 'Auth\QuestionController@store',
 		]);
 
+		Route::get('question/{question}/edit', [
+			'uses' => 'Auth\QuestionController@edit',
+			'as' => 'question.edit'
+		]);
+
+		Route::put('question/{question}/edit', [
+			'uses' => 'Auth\QuestionController@update',
+		]);
+
 		Route::get('question/{question}', [
 			'uses' => 'Auth\QuestionController@show',
 			'as' => 'question.show',
+		]);
+
+		Route::get('questions/mine', [
+			'uses' => 'Auth\QuestionController@mine',
+			'as' => 'questions.mine'
+		]);
+
+		Route::delete('question/{question}', [
+			'uses' => 'Auth\QuestionController@delete',
 		]);
 	});
 
@@ -150,6 +168,11 @@ Route::group(['middleware' => 'locale'], function(){
 	]);
 
 	Route::put('profile/edit', 'Auth\AccountController@putEdit');
+
+	Route::post('api/markdown', [
+		'uses' => 'ApiController@markdown',
+		'as' => 'api.markdown',
+	]);
 
 	//pro routes
 	Route::get('pro', [

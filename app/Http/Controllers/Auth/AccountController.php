@@ -42,10 +42,6 @@ class AccountController extends Controller
 
     public function profile(User $user)
     {
-        if($user->trashed()){
-            abort(404);
-        }
-
     	return view('auth.profile')->with('user', $user);
     }
 

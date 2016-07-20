@@ -31,7 +31,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         $router->bind('question', function($value) {
-            return Question::where('slug', $value)->first();
+            return Question::where('slug', $value)->with('user', 'tags')->first();
         });
 
         parent::boot($router);

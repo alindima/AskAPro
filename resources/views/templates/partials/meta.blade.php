@@ -1,6 +1,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
@@ -17,3 +19,10 @@
 <link rel="icon" type="image/png" href="{{ asset('img/icons/favicon-32x32.png') }}" sizes="32x32" />
 <link rel="icon" type="image/png" href="{{ asset('img/icons/favicon-16x16.png') }}" sizes="16x16" />
 <link rel="icon" type="image/png" href="{{ asset('img/icons/favicon-128.png') }}" sizes="128x128" />
+<meta name="application-name" content="AskAPro"/>
+<meta name="msapplication-TileColor" content="#15179E" />
+<meta name="msapplication-TileImage" content="{{ asset('img/icons/mstile-144x144.png') }}" />
+<meta name="msapplication-square70x70logo" content="{{ asset('img/icons/mstile-70x70.png') }}" />
+<meta name="msapplication-square150x150logo" content="{{ asset('img/icons/mstile-150x150.png') }}" />
+<meta name="msapplication-wide310x150logo" content="{{ asset('img/icons/mstile-310x150.png') }}" />
+<meta name="msapplication-square310x310logo" content="{{ asset('img/icons/mstile-310x310.png') }}" />

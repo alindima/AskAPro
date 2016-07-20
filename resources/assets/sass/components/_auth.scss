@@ -91,6 +91,7 @@
 					float:right;
 
 					img{
+						border:2px solid #ccc;
 						width:30px;
 						height:30px;
 						border-radius:100%;
@@ -116,7 +117,6 @@
 		position:absolute;
 		left:25%;
 		min-height: 100vh;
-		background:white;
 	}
 
 	.nav-toggler{

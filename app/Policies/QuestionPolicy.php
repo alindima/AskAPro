@@ -2,28 +2,21 @@
 
 namespace App\Policies;
 
-use Carbon\Carbon;
 use App\User;
+use App\Question;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class QuestionPolicy
 {
     use HandlesAuthorization;
 
-    public function createPremium(User $user)
+    public function update(User $user, Question $question)
     {
-        if($user->is_premium()){
-            $canPostPremium = true;
-        }else{
-            $canPostPremium = false;
-        }
+        return $user->id === $question->user->id;
+    }
 
-        $questions = $user->questions()->where('premium', 1);
-
-        if($questions->count() > 0){
-            $canPostPremium = $questions->orderBy('id', 'desc')->first()->created_at->diffInHours(Carbon::now()) > 24;
-        }
-
-        return $canPostPremium;
+    public function delete(User $user, Question $question)
+    {
+        return $user->id === $question->user->id;
     }
 }

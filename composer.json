@@ -10,7 +10,8 @@
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "google/recaptcha": "~1.1",
         "intervention/image": "^2.3",
-        "laravel/cashier-braintree": "~1.0"
+        "laravel/cashier-braintree": "~1.0",
+        "erusev/parsedown": "^1.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

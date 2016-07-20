@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Question;
+use App\Policies\QuestionPolicy;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -13,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\User' => 'App\Policies\UserPolicy',
+        Question::class => QuestionPolicy::class,
     ];
 
     /**
@@ -24,6 +26,22 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(GateContract $gate)
     {
+        $gate->define('createPremiumQuestion', function($user) {
+            if($user->is_premium()){
+                $canPostPremium = true;
+            }else{
+                $canPostPremium = false;
+            }
+
+            $questions = $user->questions()->where('premium', 1);
+
+            if($questions->count() > 0){
+                $canPostPremium = $questions->latest('id')->first()->created_at->diffInHours() >= 24;
+            }
+
+            return $canPostPremium;
+        });
+
         $this->registerPolicies($gate);
     }
 }

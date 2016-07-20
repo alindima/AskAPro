@@ -49,8 +49,8 @@
 								Search
 							</a>
 						</li>
-						<li>
-							<a href="#">
+						<li{{ routeName() === 'questions.mine' ? ' class=active' : '' }}>
+							<a href="{{ route('questions.mine') }}">
 								<i class="fa fa-list" aria-hidden="true"></i>
 								My questions
 							</a>

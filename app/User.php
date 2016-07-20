@@ -181,22 +181,36 @@ class User extends Authenticatable
         return true;
     }
 
-    public function addQuestion(Request $request)
+    public function addQuestion(array $input)
     {
         $question = new Question;
-        $question->title = $request->input('title');
-        $question->body = $request->input('body');
-        $question->slug = $question->makeSlug($request->input('title'));
-        $question->premium = $request->has('premium') ? 1 : 0;
+        $question->title = $input['title'];
+        $question->body = $input['body'];
+        $question->slug = $question->makeSlug($input['title']);
+        $question->premium = array_key_exists('premium', $input) ? 1 : 0;
 
         $this->questions()->save($question);
+
+        $question->tags()->attach($input['tags']);
+
+        return $question;
+    }
+
+    public function updateQuestion(Question $question, array $input)
+    {
+        $question->title = $input['title'];
+        $question->body = $input['body'];
+
+        $question->save();
+
+        $question->tags()->sync($input['tags']);
 
         return $question;
     }
 
     public function diffSinceLastPremiumQuestion()
     {
-        return $this->questions()->where('premium', 1)->orderBy('id', 'desc')->first()->created_at->diffForHumans();
+        return $this->questions()->where('premium', 1)->latest('id')->first()->created_at->diffForHumans();
     }
 
 }

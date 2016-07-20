@@ -23,7 +23,7 @@
 					@endif
 				</div>
 
-				<div class="tabs">
+				<div class="tabs preview-tabs">
 					<ul class="tab-list">
 						<li class="tab-li active">
 							<a href="#body">Body</a>
@@ -67,7 +67,7 @@
 					@endif
 				</div>
 				
-				@can('createPremiumQuestion', Auth::user())
+				@can('createPremiumQuestion')
 					<div class="fieldset">
 						<input type="checkbox" name="premium" id="premium"{{ old('premium') ? ' checked' : '' }} class="switch-input">
 						<label for="premium" class="switch"></label>
@@ -76,7 +76,7 @@
 					</div>
 				@endcan
 
-				@if(Auth::user()->is_premium() && Gate::denies('createPremiumQuestion', Auth::user()))
+				@if(Auth::user()->is_premium() && Auth::user()->cannot('createPremiumQuestion'))
 					<div class="info">
 						Your last premium question was asked <strong>{{ Auth::user()->diffSinceLastPremiumQuestion() }}</strong>.
 						<br>
@@ -103,4 +103,10 @@
 			</form>
 		</div>
 	</div>
+@stop
+
+@section('js')
+	<script>
+		var route = "{{ route('api.markdown') }}";
+	</script>
 @stop
