@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Auth;
 use App\Tag;
 use App\Question;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionRequest;
 
@@ -33,6 +34,10 @@ class QuestionController extends Controller
 
     public function show(Question $question)
     {
+        if($question->is_premium()){
+            $this->authorize('viewPremium', $question);
+        }
+
         return view('auth.questions.show')->with('question', $question);
     }
 
@@ -57,7 +62,7 @@ class QuestionController extends Controller
 
     public function mine()
     {
-        $questions = Question::where('user_id', Auth::user()->id)->latest('id')->paginate(5);
+        $questions = Auth::user()->questions()->latest('id')->paginate(15);
 
         return view('auth.questions.mine')->with('questions', $questions);
     }
@@ -69,5 +74,26 @@ class QuestionController extends Controller
         $question->delete();
 
         return redirect()->route('questions.mine')->with('success', 'Question successfully deleted');
+    }
+
+    public function search(Request $request, Tag $tag)
+    {
+        $questions = Question::notWherePremiumAndUnsolved();
+
+        if($tag->exists){
+            $questions = $questions->whereHas('tags', function($query) use($tag) {
+                $query->where('name', $tag->name);
+            });
+        }
+        
+        if($request->has('s')){
+            $questions = $questions->search($request->input('s'));
+        }
+        
+        return view('auth.questions.search')->with([
+            'questions' => $questions->latest('id')->paginate(15),
+            'tag' => $tag,
+            'tags' => Tag::all(),
+        ]);
     }
 }

@@ -11,6 +11,10 @@
 				<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
 				Go back
 			</a>
+			<a href="{{ route('signup') }}" class="right">
+				Don't have an account?
+				<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			</a>
 		</div>
 		
 		<div class="main-section col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">

@@ -2,12 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App;
 use Closure;
 use Session;
-use App;
-use Request;
 
-class LocaleMiddleware
+class SetLocale
 {
     /**
      * Handle an incoming request.
@@ -18,9 +17,7 @@ class LocaleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $route = (explode('/', $request->path()))[0];
-
-        if(Session::has('locale') && $route !== 'setLang'){
+        if(Session::has('locale')){
             App::setLocale(Session::get('locale'));
         }
 

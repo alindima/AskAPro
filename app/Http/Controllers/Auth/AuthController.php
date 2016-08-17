@@ -15,15 +15,13 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
-
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-
 
     protected $redirectTo = 'dashboard';
 
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware('guest', ['except' => 'logout']);
     }
 
     protected function validator(array $data)
@@ -53,22 +51,6 @@ class AuthController extends Controller
             $this->loginUsername() => 'required|active_user',
             'password' => 'required',
         ]);
-    }
-
-    protected function authenticated()
-    {
-        return redirect()->route($this->redirectTo);
-    }
-
-    protected function handleUserWasAuthenticated(Request $request, $throttles)
-    {
-        if ($throttles) {
-            $this->clearLoginAttempts($request);
-        }
-
-        if (method_exists($this, 'authenticated')) {
-            return $this->authenticated($request, Auth::guard($this->getGuard())->user());
-        }
     }
 
     public function login(Request $request)

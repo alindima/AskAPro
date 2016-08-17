@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use Session;
-use App\User;
 
 class HomeController extends Controller
 {
@@ -44,8 +42,7 @@ class HomeController extends Controller
     public function cookie_accept()
     {
         return back()
-            ->withCookie(cookie()
-            ->forever('cookie_accept', 1));
+            ->withCookie(cookie()->forever('cookie_accept', 1));
     }
 
 }

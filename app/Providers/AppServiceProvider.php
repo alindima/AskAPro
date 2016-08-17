@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use Cashier;
+use Parsedown;
 use Validator;
+use ReCaptcha\ReCaptcha;
 use Braintree_Configuration;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,6 +30,9 @@ class AppServiceProvider extends ServiceProvider
         Braintree_Configuration::merchantId(env('BRAINTREE_MERCHANT_ID'));
         Braintree_Configuration::publicKey(env('BRAINTREE_PUBLIC_KEY'));
         Braintree_Configuration::privateKey(env('BRAINTREE_PRIVATE_KEY'));
+
+        //cashier currency settings
+        Cashier::useCurrency('eur');
     }
 
     /**
@@ -36,6 +42,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('recaptcha', function ($app) {
+            return new ReCaptcha(config('recaptcha.secretKey'));
+        });
+
+        $this->app->singleton('parsedown', function ($app) {
+            return new Parsedown;
+        });
     }
 }

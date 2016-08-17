@@ -6,7 +6,7 @@ use Auth;
 use Closure;
 use Carbon\Carbon;
 
-class LastSeenMiddleware
+class LastSeen
 {
     public function handle($request, Closure $next)
     {

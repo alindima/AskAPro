@@ -136,7 +136,80 @@
     .main{
         padding:25px 60px;
         margin-top: 25px;
-        font-size: 1.8rem;
+        font-size: 2rem;
+    }
+
+    .answers{
+        width:90%;
+        margin:auto;
+
+        .posted-answers{
+            padding-top:20px;
+
+            .answer{
+                border:1px solid #ccc;
+                border-radius:4px;
+                margin-bottom: 40px;    
+                font-size: 1.8rem;
+
+                .title{
+                    border-bottom:1px solid #ccc;
+                    padding:5px;
+                    line-height: 30px;
+                    
+                    &.best-answer{
+                        background:#A1D490;
+                    }
+
+                    img{
+                        width:30px;
+                        height:30px;
+                        border-radius:100%;
+                    }
+
+                    a{
+                        margin-left: 5px;
+                        color:black;
+
+                        &:hover{
+                            color:black;    
+                        }
+                    }
+
+                    .best-answer-span{
+                        float:right;
+                    }
+                }
+
+                .body{
+                    padding:20px;
+                }
+
+                .footer{
+                    overflow:auto;
+                    color:grey;
+                    border-top:1px solid #ccc;
+                    padding:5px;
+
+                    a{
+                        margin-right: 15px;
+                        color:grey;
+
+                        &:last-child{
+                            margin-right: 5px;
+                        }
+                        
+                        &:hover{
+                            color:black;
+                        }
+                    }
+                }
+            }
+        }
+
+        .new-answer{
+            
+        }
     }
 
     .tabs{

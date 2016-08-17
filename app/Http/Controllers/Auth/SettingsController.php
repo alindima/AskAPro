@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Auth;
 use Session;
+use Exception;
 use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -66,8 +67,10 @@ class SettingsController extends Controller
 
     public function payment_method(Request $request)
     {
-        if(!Auth::user()->changePaymentMethod($request->input('payment_method_nonce'))){
-            return back()->with('error', 'There was an error processing your request');
+        try{
+            Auth::user()->updateCard($request->input('payment_method_nonce'));
+        }catch(Exception $e){
+            return back()->with('error', 'There wasd an error processing your request');
         }
 
         return back()->with('success', 'Payment method successfully updated');

@@ -2903,8 +2903,11 @@ a {
 .fieldset.error input:not([type='checkbox']), .fieldset.error textarea, .fieldset.error select, .fieldset.error .chosen-container .chosen-choices {
   border-color: rgba(21, 23, 158, 0.5); }
 
-.fieldset.error label {
+.fieldset.error input:not([type='file']) ~ label {
   color: #15179E; }
+
+.fieldset.error input[type='file'] ~ label {
+  margin-bottom: 5px; }
 
 .fieldset.error .error-block {
   display: block;
@@ -3038,6 +3041,7 @@ input.my_name {
   display: none; }
 
 .button {
+  display: inline-block;
   font-size: 1.8rem;
   border: 0;
   border-radius: 3px;
@@ -3247,7 +3251,9 @@ a.button:hover {
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 4px; }
-  .question:not(:nth-child(5)) {
+  .question.premium {
+    background: linear-gradient(to left, #E4E4F2, white); }
+  .question:not(:nth-child(15)) {
     margin-bottom: 20px; }
   .question .author {
     height: 20px; }
@@ -3703,6 +3709,20 @@ a.button:hover {
   .errorpage.main-wrapper > .main-section {
     margin-top: 15%; } }
 
+.dashboard .header {
+  overflow: auto;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  padding: 20px 0;
+  margin-bottom: 40px;
+  text-align: center; }
+
+.dashboard .main {
+  padding: 25px 25px;
+  font-size: 1.8rem; }
+
 .profile .header {
   margin-top: 25px;
   padding: 25px 40px;
@@ -3902,7 +3922,49 @@ a.button:hover {
 .show-question .main {
   padding: 25px 60px;
   margin-top: 25px;
-  font-size: 1.8rem; }
+  font-size: 2rem; }
+
+.show-question .answers {
+  width: 90%;
+  margin: auto; }
+  .show-question .answers .posted-answers {
+    padding-top: 20px; }
+    .show-question .answers .posted-answers .answer {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 40px;
+      font-size: 1.8rem; }
+      .show-question .answers .posted-answers .answer .title {
+        border-bottom: 1px solid #ccc;
+        padding: 5px;
+        line-height: 30px; }
+        .show-question .answers .posted-answers .answer .title.best-answer {
+          background: #A1D490; }
+        .show-question .answers .posted-answers .answer .title img {
+          width: 30px;
+          height: 30px;
+          border-radius: 100%; }
+        .show-question .answers .posted-answers .answer .title a {
+          margin-left: 5px;
+          color: black; }
+          .show-question .answers .posted-answers .answer .title a:hover {
+            color: black; }
+        .show-question .answers .posted-answers .answer .title .best-answer-span {
+          float: right; }
+      .show-question .answers .posted-answers .answer .body {
+        padding: 20px; }
+      .show-question .answers .posted-answers .answer .footer {
+        overflow: auto;
+        color: grey;
+        border-top: 1px solid #ccc;
+        padding: 5px; }
+        .show-question .answers .posted-answers .answer .footer a {
+          margin-right: 15px;
+          color: grey; }
+          .show-question .answers .posted-answers .answer .footer a:last-child {
+            margin-right: 5px; }
+          .show-question .answers .posted-answers .answer .footer a:hover {
+            color: black; }
 
 .show-question .tabs .tab-content {
   padding: 0; }
@@ -3940,5 +4002,86 @@ a.button:hover {
 .my-questions .main {
   padding: 25px 25px;
   font-size: 1.8rem; }
+
+.search .form {
+  margin-top: 20px; }
+  .search .form label {
+    position: relative;
+    z-index: 9999;
+    top: 38px;
+    left: 20px;
+    color: grey; }
+  .search .form input {
+    border-radius: 4px;
+    padding-left: 50px;
+    height: 50px;
+    font-size: 2.3rem; }
+    .search .form input::-webkit-input-placeholder {
+      font-size: 2.3rem; }
+    .search .form input::-moz-placeholder {
+      font-size: 2.3rem; }
+    .search .form input:-ms-input-placeholder {
+      font-size: 2.3rem; }
+    .search .form input::placeholder {
+      font-size: 2.3rem; }
+
+.search .tags-box {
+  width: 200px;
+  float: right;
+  margin-top: 40px;
+  margin-left: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fafafa;
+  padding: 10px; }
+  .search .tags-box h3 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 2rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc; }
+  .search .tags-box ul {
+    list-style-type: none;
+    font-size: 2rem; }
+    .search .tags-box ul li.active a {
+      color: black; }
+    .search .tags-box ul a {
+      color: grey; }
+      .search .tags-box ul a:hover {
+        color: black; }
+
+.search .main {
+  padding-top: 40px;
+  font-size: 1.8rem; }
+
+@media (max-width: 768px) {
+  .search .tags-box {
+    display: none; } }
+
+.edit-answer .header {
+  overflow: auto;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  padding: 40px 40px; }
+
+.edit-answer .form {
+  margin-top: 25px; }
+
+.invoices .header {
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  padding: 40px 40px;
+  overflow: auto; }
+
+.invoices .main {
+  padding: 25px 20px; }
+  .invoices .main table tr {
+    border: 1px solid #ccc; }
+  .invoices .main table td {
+    padding: 20px 20px; }
 
 /*# sourceMappingURL=app.css.map */

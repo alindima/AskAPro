@@ -1,17 +1,24 @@
-.my-questions{
-
+.invoices{
     .header{
-        overflow:auto;
         background:#fafafa;
         border:1px solid #ccc;
         border-top:none;
         border-radius:0 0 3px 3px;
         padding:40px 40px;
-        margin-bottom: 40px;
+        overflow:auto;
     }
 
     .main{
-        padding:25px 25px;
-        font-size: 1.8rem;
+        padding:25px 20px;
+
+        table{
+			tr{
+				border:1px solid #ccc;
+			}
+
+        	td{
+	        	padding:20px 20px;
+	        }
+        }
     }
 }

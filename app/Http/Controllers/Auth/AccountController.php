@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Auth;
 use App\User;
-use App\ProfilePicture;
+use App\Question;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
@@ -21,11 +21,20 @@ class AccountController extends Controller
                 'postJoin',
             ]
         ]);
+
+        $this->middleware('premium', [
+            'only' => [
+                'invoices',
+                'invoice'
+            ]
+        ]);
 	}
 
 	public function dashboard()
 	{
-		return view('auth.dashboard');
+        $questions = Question::notPremium()->unSolved()->latest('id')->paginate(15);
+
+		return view('auth.dashboard')->with('questions', $questions);
 	}
 
     public function getJoin()
@@ -42,12 +51,12 @@ class AccountController extends Controller
 
     public function profile(User $user)
     {
-    	return view('auth.profile')->with('user', $user);
+    	return view('auth.profile.profile')->with('user', $user);
     }
 
     public function getEdit()
     {
-    	return view('auth.edit');
+    	return view('auth.profile.edit');
     }
 
     public function putEdit(ProfileRequest $request)
@@ -61,5 +70,18 @@ class AccountController extends Controller
         $user->update($request->all());
 
         return redirect()->route('profile', $user->name)->with('success', 'Profile updated');
+    }
+
+    public function invoices()
+    {
+        return view('auth.invoices')->with('invoices', Auth::user()->invoices());
+    }
+
+    public function invoice($id)
+    {
+        return Auth::user()->downloadInvoice($id, [
+            'vendor'  => '{ AskAPro }',
+            'product' => 'Monthly premium plan',
+        ]);
     }
 }

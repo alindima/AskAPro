@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Tag;
 use App\User;
 use App\Question;
 use Illuminate\Routing\Router;
@@ -31,7 +32,11 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         $router->bind('question', function($value) {
-            return Question::where('slug', $value)->with('user', 'tags')->first();
+            return Question::where('slug', $value)->with('tags', 'answers')->first();
+        });
+
+        $router->bind('tag', function($value) {
+            return Tag::where('name', $value)->first();
         });
 
         parent::boot($router);

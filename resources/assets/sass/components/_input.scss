@@ -7,9 +7,13 @@
 		border-color:rgba(21,23,158,.5);
 	}
 
-	label{
-		color:$theme-color;
-	}
+	input:not([type='file']) ~ label{
+        color:$theme-color;
+    }
+
+    input[type='file'] ~ label{
+        margin-bottom:5px; 
+    }
 
 	.error-block{
 		display:block;

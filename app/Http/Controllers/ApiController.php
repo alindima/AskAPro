@@ -8,9 +8,7 @@ class ApiController extends Controller
 {
 	public function __construct()
 	{
-		if(!request()->ajax()){
-			abort(403);
-		}
+		$this->middleware('api');
 	}
 
     public function markdown(Request $request)

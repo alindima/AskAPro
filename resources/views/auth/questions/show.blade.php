@@ -64,9 +64,87 @@
 			{!! parsedown($question->body) !!}
 		</div>
 
-		<div class="footer">
+		<div class="answers">
 			
+			@if($question->answers->count())
+				<div class="posted-answers">
+					@foreach($question->answers as $answer)
+						<div class="answer" id="{{ $answer->id }}">
+							<div class="title{{ $answer->is_best() ? ' best-answer' : '' }}">
+								<img src="{{ $answer->user->getProfilePicture() }}" alt="{{ $answer->user->getName() }}">
+								<a href="{{ route('profile', $answer->user->name) }}">{{ $answer->user->getName() }}</a>
+								
+								@if($answer->is_best())
+									<span class="best-answer-span">
+										Best answer
+									</span>
+								@endif
+							</div>
+							<div class="body">
+								{!! parsedown($answer->body) !!}
+							</div>
+							<div class="footer">
+								<div class="left">
+									{{ $answer->created_at->diffForHumans() }}
+								</div>
+								@can('markAnswer', $question)
+									<div class="right">
+										<a href="{{ route('answer.edit', [$question->slug, $answer->id]) }}">Edit</a>
+										@if($answer->is_best())
+											<a href="{{ route('answer.unmarkAsBest', [$question->slug, $answer->id]) }}">Unmark as best answer</a>
+										@else
+											<a href="{{ route('answer.markAsBest', [$question->slug, $answer->id]) }}">Mark as best answer</a>
+										@endif
+									</div>
+								@endcan
+							</div>
+						</div>
+					@endforeach	
+				</div>
+			@endif
+
+			<div class="new-answer" id="new-answer">
+				<form action="{{ route('answer.store', $question->slug) }}" method="post">
+					<div class="tabs preview-tabs">
+						<ul class="tab-list">
+							<li class="tab-li active">
+								<a href="#body">Body</a>
+							</li>
+							<li class="tab-li">
+								<a href="#preview">Preview</a>
+							</li>
+
+							<a href="http://commonmark.org/help/" target="_blank" class="markdown-banner">
+								Markdown is supported
+							</a>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-panel active" id="body">
+								<div class="fieldset{{ $errors->has('body') ? ' error' : '' }}">
+									<textarea name="body" id="body" placeholder="I might have an answer for that...">{{ old('body') }}</textarea>
+									
+									@if($errors->has('body'))
+										<span class="error-block">
+											{{ $errors->first('body') }}
+										</span>
+									@endif
+								</div>
+							</div>
+							<div class="tab-panel" id="preview"></div>
+						</div>
+					</div>
+					
+					{{ csrf_field() }}
+
+					<button type="submit" class="button">Post answer</button>
+				</form>
+			</div>
 		</div>
 	</div>
-			
+@stop
+
+@section('js')
+	<script>
+		var route = "{{ route('api.markdown') }}";
+	</script>
 @stop

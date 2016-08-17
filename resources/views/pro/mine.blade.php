@@ -1,15 +1,15 @@
 @extends('templates.auth.master')
 
 @section('title')
-	My Questions - AskAPro
+	My unsolved questions - AskAPro
 @stop
 
 @section('content')
-	<div class="my-questions">
+	<div class="dashboard">
 		<div class="header">
-			<h1>My questions</h1>
+			<h1>My unsolved questions</h1>
 		</div>
-
+		
 		<div class="main">
 			@include('templates.partials.questions', ['questions' => $questions])
 

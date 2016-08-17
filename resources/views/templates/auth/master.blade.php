@@ -31,30 +31,47 @@
 								<img src="{{ Auth::user()->getProfilePicture() }}" alt="{{ Auth::user()->getName() }}">
 							</span>
 						</li>
-						<li{{ routeName() === 'question.create' ? ' class=active' : '' }}>
-							<a href="{{ route('question.create') }}">
-								<i class="fa fa-plus" aria-hidden="true"></i>
-								Ask a Question
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<i class="fa fa-bell-o" aria-hidden="true"></i>
-								Notifications
-							</a>
-						</li>
-						<li>
-							<a href="#">
+
+						@if(!Auth::user()->is_pro())
+							<li{{ routeName() === 'question.create' ? ' class=active' : '' }}>
+								<a href="{{ route('question.create') }}">
+									<i class="fa fa-plus" aria-hidden="true"></i>
+									Ask a Question
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fa fa-bell-o" aria-hidden="true"></i>
+									Notifications
+								</a>
+							</li>
+						@endif
+
+						@if(Auth::user()->is_pro())
+							<li{{ routeName() === 'pro.mine' ? ' class=active' : '' }}>
+								<a href="{{ route('pro.mine') }}">
+									<i class="fa fa-clock-o" aria-hidden="true"></i>
+									My unsolved questions
+								</a>
+							</li>
+						@endif
+						
+						<li{{ routeName() === 'questions.search' ? ' class=active' : '' }}>
+							<a href="{{ route('questions.search') }}">
 								<i class="fa fa-search" aria-hidden="true"></i>
 								Search
 							</a>
 						</li>
-						<li{{ routeName() === 'questions.mine' ? ' class=active' : '' }}>
-							<a href="{{ route('questions.mine') }}">
-								<i class="fa fa-list" aria-hidden="true"></i>
-								My questions
-							</a>
-						</li>
+						
+						@if(!Auth::user()->is_pro())
+							<li{{ routeName() === 'questions.mine' ? ' class=active' : '' }}>
+								<a href="{{ route('questions.mine') }}">
+									<i class="fa fa-list" aria-hidden="true"></i>
+									My questions
+								</a>
+							</li>
+						@endif
+
 						<li class="has-dropdown{{ in_array(routeName(), ['settings.index', 'profile.edit']) || (routeName() === 'profile' && Auth::user()->name === $user->name) ? ' active' : '' }}">
 							<input type="checkbox" id="dropdown" name="" class="dropdown-checkbox">
 							<label for="dropdown" class="dropdown-label">
@@ -64,7 +81,7 @@
 
 							<ul class="dropdown-ul">
 								
-								@if(!Auth::user()->is_premium())
+								@if(!Auth::user()->is_premium() && !Auth::user()->is_pro())
 									<li>
 										<a href="{{ route('premium') }}">
 											Premium
@@ -82,11 +99,23 @@
 										Edit
 									</a>
 								</li>
-								<li>
-									<a href="{{ route('settings.index') }}">
-										Settings
-									</a>
-								</li>
+								
+								@if(!Auth::user()->is_pro())
+									<li>
+										<a href="{{ route('settings.index') }}">
+											Settings
+										</a>
+									</li>
+								@endif
+
+								@if(Auth::user()->is_premium() && !Auth::user()->is_pro())
+									<li>
+										<a href="{{ route('invoices') }}">
+											Invoices
+										</a>
+									</li>
+								@endif
+
 								<li>
 									<a href="{{ route('logout') }}">
 										Log out

@@ -61,7 +61,7 @@ class User extends Authenticatable
         'last_seen',
         'deleted_at',
     ];
-
+    
     /**
      * Define eloquent relationships
      */
@@ -74,6 +74,11 @@ class User extends Authenticatable
     public function questions()
     {
         return $this->hasMany('App\Question');
+    }
+
+    public function answers()
+    {
+        return $this->hasMany('App\Answer');
     }  
 
     /**
@@ -84,9 +89,9 @@ class User extends Authenticatable
     {
         if($this->is_pro == 1){
             return true;
-        }else{
-            return false;
-        }   
+        }
+
+        return false;   
     }
 
     public function is_premium()
@@ -143,42 +148,6 @@ class User extends Authenticatable
         $image
             ->crop($min_dimension, $min_dimension)
             ->save(storage_path() . '/app/public/profile_pictures/' . $imageName);
-    }
-
-    public function changePaymentMethod($nonce)
-    {
-        $response = Braintree_PaymentMethod::create([
-            'customerId' => $this->braintree_id,
-            'paymentMethodNonce' => $nonce,
-            'options' => [
-                'makeDefault' => true,
-                'verifyCard' => true,
-            ]
-        ]);
-
-        if(!$response->success){
-            return false;
-        }
-
-        switch ((new ReflectionClass($response->paymentMethod))->getShortName()) {
-            case 'CreditCard':
-                $this->card_brand = $response->paymentMethod->cardType;
-                $this->card_last_four = $response->paymentMethod->last4;
-                $this->paypal_email = null;
-
-                break;
-            
-            case 'PayPalAccount':
-                $this->paypal_email = $response->paymentMethod->email;
-                $this->card_brand = null;
-                $this->card_last_four = null;
-                
-                break;
-        }
-
-        $this->save();
-        
-        return true;
     }
 
     public function addQuestion(array $input)

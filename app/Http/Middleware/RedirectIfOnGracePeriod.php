@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Auth;
 use Closure;
 
-class ProMiddleware
+class RedirectIfOnGracePeriod
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,9 @@ class ProMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check() && !Auth::user()->is_pro()){
-            if ($request->ajax() || $request->wantsJson()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return back();
+        if(Auth::user()->is_premium()){
+            if(Auth::user()->subscription('main')->onGracePeriod()){
+                abort(403); 
             }
         }
 

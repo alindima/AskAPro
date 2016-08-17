@@ -15,7 +15,7 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        \App\Http\Middleware\LastSeenMiddleware::class,
+        \App\Http\Middleware\LastSeen::class,
     ];
 
     /**
@@ -25,11 +25,12 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
+            \Illuminate\Session\Middleware\StartSession::class,
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
+            \App\Http\Middleware\SetLocale::class,
         ],
 
         'api' => [
@@ -50,12 +51,11 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'locale' => \App\Http\Middleware\LocaleMiddleware::class,
-        'pro' => \App\Http\Middleware\ProMiddleware::class,
-        'redirect_if_pro' => \App\Http\Middleware\RedirectIfProMiddleware::class,
-        'premium' => \App\Http\Middleware\PremiumMiddleware::class,
-        'redirect_if_premium' => \App\Http\Middleware\RedirectIfPremiumMiddleware::class,
-        'on_grace_period' => \App\Http\Middleware\OnGracePeriodMiddleware::class,
-        'redirect_if_on_grace_period' => \App\Http\Middleware\RedirectIfOnGracePeriodMiddleware::class,
+        'pro' => \App\Http\Middleware\Pro::class,
+        'redirect_if_pro' => \App\Http\Middleware\RedirectIfPro::class,
+        'premium' => \App\Http\Middleware\Premium::class,
+        'redirect_if_premium' => \App\Http\Middleware\RedirectIfPremium::class,
+        'on_grace_period' => \App\Http\Middleware\OnGracePeriod::class,
+        'redirect_if_on_grace_period' => \App\Http\Middleware\RedirectIfOnGracePeriod::class,
     ];
 }

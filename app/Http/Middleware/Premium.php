@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class PremiumMiddleware
+class Premium
 {
     /**
      * Handle an incoming request.

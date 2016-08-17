@@ -16,6 +16,10 @@
 					<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
 					Go back
 				</a>
+				<a href="{{ route('login') }}" class="right">
+					Already have an account?
+					<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+				</a>
 			</div>	
 		</div>
 

@@ -5,7 +5,7 @@
 		$more = $('.more'),
 		$more_id = $('#more');
 
-	$document.ready(function(){
+	$window.on('load', function(){
 		$('.home.section1 section')
 			.css('visibility', 'visible')
 			.animate({
