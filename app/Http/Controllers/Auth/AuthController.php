@@ -88,8 +88,6 @@ class AuthController extends Controller
         
         if ($user->first() && Hash::check($request->input('password'), $user->first()->password)) {
 
-            $this->handleUserWasAuthenticated($request, $throttles);
-
             Auth::guard($this->getGuard())->login($user->first(), $request->has('remember'));
 
             return $this->handleUserWasAuthenticated($request, $throttles);

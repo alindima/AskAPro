@@ -43,6 +43,10 @@
 								<a href="#">
 									<i class="fa fa-bell-o" aria-hidden="true"></i>
 									Notifications
+									@if(Auth::user()->notifications()->unRead()->count() > 0)
+										<span class="badge">{{ Auth::user()->notifications()->unRead()->count() }}</span>	
+									@endif
+
 								</a>
 							</li>
 						@endif

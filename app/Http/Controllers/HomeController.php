@@ -44,5 +44,4 @@ class HomeController extends Controller
         return back()
             ->withCookie(cookie()->forever('cookie_accept', 1));
     }
-
 }

@@ -24,10 +24,10 @@
     }
 
     .tags-box{
-        width:200px;
+        width:20%;
         float:right;
-        margin-top: 40px;
         margin-left: 20px;
+        margin-top: 40px;
         border:1px solid #ccc;
         border-radius:4px;
         background:#fafafa;
@@ -62,13 +62,21 @@
     }
 
     .main{
+        width:75%;
         padding-top:40px;
         font-size: 1.8rem;
+        float:left;
     }
 }
 
 @media(max-width:$screen-sm-min){
-    .search .tags-box{
-        display: none;
+    .search {
+        .tags-box{
+            display: none;
+        }
+
+        .main{
+            width:100%;
+        }
     }
 }

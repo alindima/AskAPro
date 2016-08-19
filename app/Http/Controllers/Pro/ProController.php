@@ -22,7 +22,7 @@ class ProController extends Controller
 
     public function mine()
     {
-    	$questions = Question::unsolved()->whereHas('answers', function($query) {
+    	$questions = Question::unSolved()->whereHas('answers', function($query) {
     		$query->where('user_id', Auth::user()->id);
     	})->latest()->paginate(15);
 

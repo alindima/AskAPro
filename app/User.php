@@ -81,6 +81,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Answer');
     }  
 
+    public function notifications()
+    {
+        return $this->hasMany('App\Notification', 'target');
+    }
+
     /**
      * Custom functions
      */

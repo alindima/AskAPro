@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\DeletedUser' => [
-            'App\Listeners\Email',
+        'App\Events\AddedAnswer' => [
+            'App\Listeners\Notify',
         ],
     ];
 

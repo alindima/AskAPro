@@ -6,6 +6,7 @@ use Auth;
 use Validator;
 use App\Answer;
 use App\Question;
+use App\Events\AddedAnswer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -35,6 +36,10 @@ class AnswerController extends Controller
         $answer->user_id = Auth::user()->id;
         $answer->question_id = $question->id;
         $answer->save();
+
+        if(Auth::user()->id !== $question->user->id){
+            event(new AddedAnswer($question->user->id, Auth::user()->id, $question, $answer));
+        }
 
         return redirect()->to(url()->previous() . '#' . $answer->id)->with('success', 'Answer successfully added.');
     }
