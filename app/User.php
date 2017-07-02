@@ -18,6 +18,11 @@ class User extends Authenticatable
     use Billable,
         SoftDeletes;
 
+    protected $attributes = [
+        'active' => false,
+        'is_pro' => false,
+    ];
+
     /**
      * The attributes that are mass assignable.
      *

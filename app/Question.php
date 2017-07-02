@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
+    protected $attributes = [
+        'premium' => false,
+    ];
+
     protected $fillable = [
     	'title',
     	'slug',

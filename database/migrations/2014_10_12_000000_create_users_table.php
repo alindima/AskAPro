@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
             $table->text('description')->nullable();
-            $table->boolean('active')->default(false);
-            $table->boolean('is_pro')->default(false);
+            $table->boolean('active');
+            $table->boolean('is_pro');
             $table->string('activation_token')->nullable();
             $table->rememberToken();
             $table->softDeletes();

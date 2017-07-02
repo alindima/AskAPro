@@ -25,7 +25,7 @@ class CreateAnswersTable extends Migration
                 ->on('questions')
                 ->onDelete('cascade');
             $table->text('body');
-            $table->boolean('best')->default(false);
+            $table->boolean('best');
             $table->timestamps();
         });
     }

@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
+    protected $attributes = [
+        'best' => false,
+    ];
+
     protected $fillable = [
     	'body',
     ];

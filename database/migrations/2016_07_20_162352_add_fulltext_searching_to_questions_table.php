@@ -22,6 +22,6 @@ class AddFulltextSearchingToQuestionsTable extends Migration
      */
     public function down()
     {
-        DB::statement('ALTER TABLE questions DROP INDEX title');
+        DB::statement('ALTER TABLE questions DROP INDEX `fulltext`');
     }
 }

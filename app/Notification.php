@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notification extends Model
 {
+    protected $attributes = [
+        'seen' => false,
+    ];
+
 	protected $fillable = [
 		'target',
 		'from',
